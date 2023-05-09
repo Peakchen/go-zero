@@ -41,6 +41,14 @@ type (
 	// QueryCtxFn defines the query method.
 	QueryCtxFn func(ctx context.Context, conn sqlx.SqlConn, v any) error
 
+	// QueryFnx defines the query method for table field.
+	QueryFnx func(conn sqlx.SqlConn, v any, field string) error
+	// QueryCtxFnx defines the query method for table field.
+	QueryCtxFnx func(ctx context.Context, conn sqlx.SqlConn, v any, field string) error
+
+	// ExecxCtxFn defines the sql exec method.
+	ExecxCtxFn func(ctx context.Context, conn sqlx.SqlConn, fields ...string) (sql.Result, error)
+
 	// A CachedConn is a DB connection with cache capability.
 	CachedConn struct {
 		db    sqlx.SqlConn
@@ -78,6 +86,16 @@ func (cc CachedConn) DelCacheCtx(ctx context.Context, keys ...string) error {
 	return cc.cache.DelCtx(ctx, keys...)
 }
 
+// DelCache deletes cache with keys.
+func (cc CachedConn) DelxCache(key string, fields ...string) error {
+	return cc.DelxCacheCtx(context.Background(), key, field)
+}
+
+// DelCacheCtx deletes cache with keys.
+func (cc CachedConn) DelxCacheCtx(ctx context.Context, key string, fields ...string) error {
+	return cc.cache.DelxCtx(ctx, key, fields...)
+}
+
 // GetCache unmarshals cache with given key into v.
 func (cc CachedConn) GetCache(key string, v any) error {
 	return cc.GetCacheCtx(context.Background(), key, v)
@@ -111,6 +129,30 @@ func (cc CachedConn) ExecCtx(ctx context.Context, exec ExecCtxFn, keys ...string
 	return res, nil
 }
 
+
+// Execx runs given exec on given key and fields, and returns execution result.
+func (cc CachedConn) Execx(exec ExecFn, key string, fields ...string) (sql.Result, error) {
+	execCtx := func(_ context.Context, conn sqlx.SqlConn) (sql.Result, error) {
+		return exec(conn)
+	}
+	return cc.ExecCtx(context.Background(), execCtx, key, fields...)
+}
+
+// ExecCtx runs given exec on given keys, and returns execution result.
+func (cc CachedConn) ExecxCtx(ctx context.Context, exec ExecxCtxFn, key string, fields ...string) (
+	sql.Result, error) {
+	res, err := exec(ctx, cc.db, fields...)
+	if err != nil {
+		return nil, err
+	}
+
+	if err := cc.DelxCacheCtx(ctx, key, fields...); err != nil {
+		return nil, err
+	}
+
+	return res, nil
+}
+
 // ExecNoCache runs exec with given sql statement, without affecting cache.
 func (cc CachedConn) ExecNoCache(q string, args ...any) (sql.Result, error) {
 	return cc.ExecNoCacheCtx(context.Background(), q, args...)
@@ -134,6 +176,21 @@ func (cc CachedConn) QueryRow(v any, key string, query QueryFn) error {
 func (cc CachedConn) QueryRowCtx(ctx context.Context, v any, key string, query QueryCtxFn) error {
 	return cc.cache.TakeCtx(ctx, v, key, func(v any) error {
 		return query(ctx, cc.db, v)
+	})
+}
+
+// QueryRowx unmarshals into v with given key and query func.
+func (cc CachedConn) QueryRowx(v any, key, field string, query QueryFnx) error {
+	queryCtx := func(_ context.Context, conn sqlx.SqlConn, v any) error {
+		return query(conn, v, field)
+	}
+	return cc.QueryRowxCtx(context.Background(), v, key, field, queryCtx)
+}
+
+// QueryRowxCtx unmarshals into v with given key and query func.
+func (cc CachedConn) QueryRowxCtx(ctx context.Context, v any, key, field string, query QueryCtxFnx) error {
+	return cc.cache.TakexCtx(ctx, v, key, field, func(v any) error {
+		return query(ctx, cc.db, v, field)
 	})
 }
 

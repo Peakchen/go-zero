@@ -27,6 +27,7 @@ type delayTask struct {
 	delay time.Duration
 	task  func() error
 	keys  []string
+	fields []string
 }
 
 func init() {
@@ -48,6 +49,16 @@ func AddCleanTask(task func() error, keys ...string) {
 	}, time.Second)
 }
 
+// AddCleanTaskx adds a clean task on given key and fields.
+func AddCleanTaskx(task func() error, key string, fields ...string) {
+	timingWheel.SetTimer(stringx.Randn(taskKeyLen), delayTask{
+		delay: time.Second,
+		task:  task,
+		keys:  []string{key},
+		fields: fields,
+	}, time.Second)
+}
+
 func clean(key, value any) {
 	taskRunner.Schedule(func() {
 		dt := value.(delayTask)
@@ -61,8 +72,14 @@ func clean(key, value any) {
 			dt.delay = next
 			timingWheel.SetTimer(key, dt, next)
 		} else {
-			msg := fmt.Sprintf("retried but failed to clear cache with keys: %q, error: %v",
+			var msg string
+			if len(dt.keys) > 1 {
+				msg = fmt.Sprintf("retried but failed to clear cache with keys: %q, error: %v",
 				formatKeys(dt.keys), err)
+			}else{
+				msg = fmt.Sprintf("retried but failed to clear cache with key: %v and fields: %q, error: %v",
+				dt.keys, formatKeys(dt.fields), err)
+			}
 			logx.Error(msg)
 			stat.Report(msg)
 		}
