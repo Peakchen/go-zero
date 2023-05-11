@@ -6,7 +6,7 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/Peakchen/peakchen-go-zero/core/errorx"
+	"github.com/Peakchen/go-zero/core/errorx"
 )
 
 const (

@@ -5,7 +5,7 @@ import (
 	"runtime"
 
 	"github.com/logrusorgru/aurora"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/vars"
+	"github.com/Peakchen/go-zero/tools/goctl/vars"
 )
 
 var colorRender = []func(v any) string{

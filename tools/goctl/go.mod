@@ -1,4 +1,4 @@
-module github.com/Peakchen/peakchen-go-zero/tools/goctl
+module github.com/Peakchen/go-zero/tools/goctl
 
 go 1.18
 
@@ -15,7 +15,7 @@ require (
 	github.com/withfig/autocomplete-tools/integrations/cobra v1.2.1
 	github.com/Peakchen/antlr v0.0.1
 	github.com/Peakchen/ddl-parser v1.0.4
-	github.com/Peakchen/peakchen-go-zero v1.5.2
+	github.com/Peakchen/go-zero v1.5.2
 	golang.org/x/text v0.9.0
 	google.golang.org/grpc v1.54.0
 	google.golang.org/protobuf v1.30.0

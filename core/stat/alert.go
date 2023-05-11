@@ -10,10 +10,10 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/Peakchen/peakchen-go-zero/core/executors"
-	"github.com/Peakchen/peakchen-go-zero/core/logx"
-	"github.com/Peakchen/peakchen-go-zero/core/proc"
-	"github.com/Peakchen/peakchen-go-zero/core/sysx"
+	"github.com/Peakchen/go-zero/core/executors"
+	"github.com/Peakchen/go-zero/core/logx"
+	"github.com/Peakchen/go-zero/core/proc"
+	"github.com/Peakchen/go-zero/core/sysx"
 )
 
 const (

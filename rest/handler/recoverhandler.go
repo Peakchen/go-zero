@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"runtime/debug"
 
-	"github.com/Peakchen/peakchen-go-zero/rest/internal"
+	"github.com/Peakchen/go-zero/rest/internal"
 )
 
 // RecoverHandler returns a middleware that recovers if panic happens.

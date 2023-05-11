@@ -1,8 +1,8 @@
 package collection
 
 import (
-	"github.com/Peakchen/peakchen-go-zero/core/lang"
-	"github.com/Peakchen/peakchen-go-zero/core/logx"
+	"github.com/Peakchen/go-zero/core/lang"
+	"github.com/Peakchen/go-zero/core/logx"
 )
 
 const (

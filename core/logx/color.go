@@ -3,7 +3,7 @@ package logx
 import (
 	"sync/atomic"
 
-	"github.com/Peakchen/peakchen-go-zero/core/color"
+	"github.com/Peakchen/go-zero/core/color"
 )
 
 // WithColor is a helper function to add color to a string, only in plain encoding.

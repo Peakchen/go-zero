@@ -6,7 +6,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/Peakchen/peakchen-go-zero/core/syncx"
+	"github.com/Peakchen/go-zero/core/syncx"
 )
 
 // defaultHealthManager is global comboHealthManager.

@@ -1,6 +1,6 @@
 package migrate
 
-import "github.com/Peakchen/peakchen-go-zero/tools/goctl/internal/cobrax"
+import "github.com/Peakchen/go-zero/tools/goctl/internal/cobrax"
 
 var (
 	boolVarVerbose   bool

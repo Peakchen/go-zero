@@ -4,7 +4,7 @@ import (
 	"errors"
 	"os"
 
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/rpc/execx"
+	"github.com/Peakchen/go-zero/tools/goctl/rpc/execx"
 )
 
 // IsGoMod is used to determine whether workDir is a go module project through command `go list -json -m`

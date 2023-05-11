@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/Peakchen/peakchen-go-zero/core/load"
-	"github.com/Peakchen/peakchen-go-zero/core/logx"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/cmd"
+	"github.com/Peakchen/go-zero/core/load"
+	"github.com/Peakchen/go-zero/core/logx"
+	"github.com/Peakchen/go-zero/tools/goctl/cmd"
 )
 
 func main() {

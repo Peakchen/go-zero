@@ -1,6 +1,6 @@
 package fx
 
-import "github.com/Peakchen/peakchen-go-zero/core/errorx"
+import "github.com/Peakchen/go-zero/core/errorx"
 
 const defaultRetryTimes = 3
 

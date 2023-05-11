@@ -3,8 +3,8 @@ package executors
 import (
 	"time"
 
-	"github.com/Peakchen/peakchen-go-zero/core/syncx"
-	"github.com/Peakchen/peakchen-go-zero/core/timex"
+	"github.com/Peakchen/go-zero/core/syncx"
+	"github.com/Peakchen/go-zero/core/timex"
 )
 
 // A LessExecutor is an executor to limit execution once within given time interval.

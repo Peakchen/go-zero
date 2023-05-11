@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/Peakchen/peakchen-go-zero/core/collection"
-	"github.com/Peakchen/peakchen-go-zero/core/logx"
-	"github.com/Peakchen/peakchen-go-zero/core/proc"
-	"github.com/Peakchen/peakchen-go-zero/core/stat"
-	"github.com/Peakchen/peakchen-go-zero/core/stringx"
-	"github.com/Peakchen/peakchen-go-zero/core/threading"
+	"github.com/Peakchen/go-zero/core/collection"
+	"github.com/Peakchen/go-zero/core/logx"
+	"github.com/Peakchen/go-zero/core/proc"
+	"github.com/Peakchen/go-zero/core/stat"
+	"github.com/Peakchen/go-zero/core/stringx"
+	"github.com/Peakchen/go-zero/core/threading"
 )
 
 const (

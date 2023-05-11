@@ -3,8 +3,8 @@ package main
 import (
 	"flag"
 
-	"github.com/Peakchen/peakchen-go-zero/core/conf"
-	"github.com/Peakchen/peakchen-go-zero/gateway"
+	"github.com/Peakchen/go-zero/core/conf"
+	"github.com/Peakchen/go-zero/gateway"
 )
 
 var configFile = flag.String("f", "etc/gateway.yaml", "config file")

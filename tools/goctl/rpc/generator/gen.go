@@ -3,10 +3,10 @@ package generator
 import (
 	"path/filepath"
 
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/rpc/parser"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/console"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/ctx"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/go-zero/tools/goctl/rpc/parser"
+	"github.com/Peakchen/go-zero/tools/goctl/util/console"
+	"github.com/Peakchen/go-zero/tools/goctl/util/ctx"
+	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
 )
 
 type ZRpcContext struct {

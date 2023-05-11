@@ -1,6 +1,6 @@
 package internal
 
-import "github.com/Peakchen/peakchen-go-zero/zrpc/internal/serverinterceptors"
+import "github.com/Peakchen/go-zero/zrpc/internal/serverinterceptors"
 
 type (
 	// StatConf defines the stat config.

@@ -8,9 +8,9 @@ import (
 
 	"github.com/alicebob/miniredis/v2"
 	"github.com/stretchr/testify/assert"
-	"github.com/Peakchen/peakchen-go-zero/core/stores/cache"
-	"github.com/Peakchen/peakchen-go-zero/core/stores/mon"
-	"github.com/Peakchen/peakchen-go-zero/core/stores/redis"
+	"github.com/Peakchen/go-zero/core/stores/cache"
+	"github.com/Peakchen/go-zero/core/stores/mon"
+	"github.com/Peakchen/go-zero/core/stores/redis"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo/integration/mtest"
 )

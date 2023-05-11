@@ -70,7 +70,7 @@ func TestDefaultProtoParse_Option(t *testing.T) {
 	p := NewDefaultProtoParser()
 	data, err := p.Parse("./test_option.proto")
 	assert.Nil(t, err)
-	assert.Equal(t, "github.com/Peakchen/peakchen-go-zero", data.GoPackage)
+	assert.Equal(t, "github.com/Peakchen/go-zero", data.GoPackage)
 	assert.Equal(t, "go_zero", data.PbPackage)
 }
 

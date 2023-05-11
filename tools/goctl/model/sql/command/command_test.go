@@ -11,9 +11,9 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/config"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/model/sql/gen"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/go-zero/tools/goctl/config"
+	"github.com/Peakchen/go-zero/tools/goctl/model/sql/gen"
+	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
 )
 
 var (

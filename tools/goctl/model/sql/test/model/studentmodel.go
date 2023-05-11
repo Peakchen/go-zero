@@ -6,11 +6,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Peakchen/peakchen-go-zero/core/stores/builder"
-	"github.com/Peakchen/peakchen-go-zero/core/stores/cache"
-	"github.com/Peakchen/peakchen-go-zero/core/stores/sqlc"
-	"github.com/Peakchen/peakchen-go-zero/core/stores/sqlx"
-	"github.com/Peakchen/peakchen-go-zero/core/stringx"
+	"github.com/Peakchen/go-zero/core/stores/builder"
+	"github.com/Peakchen/go-zero/core/stores/cache"
+	"github.com/Peakchen/go-zero/core/stores/sqlc"
+	"github.com/Peakchen/go-zero/core/stores/sqlx"
+	"github.com/Peakchen/go-zero/core/stringx"
 )
 
 var (

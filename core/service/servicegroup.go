@@ -3,9 +3,9 @@ package service
 import (
 	"log"
 
-	"github.com/Peakchen/peakchen-go-zero/core/proc"
-	"github.com/Peakchen/peakchen-go-zero/core/syncx"
-	"github.com/Peakchen/peakchen-go-zero/core/threading"
+	"github.com/Peakchen/go-zero/core/proc"
+	"github.com/Peakchen/go-zero/core/syncx"
+	"github.com/Peakchen/go-zero/core/threading"
 )
 
 type (

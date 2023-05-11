@@ -4,8 +4,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/Peakchen/peakchen-go-zero/core/mathx"
-	"github.com/Peakchen/peakchen-go-zero/core/stringx"
+	"github.com/Peakchen/go-zero/core/mathx"
+	"github.com/Peakchen/go-zero/core/stringx"
 )
 
 var replacer = stringx.NewReplacer(map[string]string{

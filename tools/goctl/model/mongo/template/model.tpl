@@ -5,7 +5,7 @@ import (
     "context"
     "time"
 
-    {{if .Cache}}"github.com/Peakchen/peakchen-go-zero/core/stores/monc"{{else}}"github.com/Peakchen/peakchen-go-zero/core/stores/mon"{{end}}
+    {{if .Cache}}"github.com/Peakchen/go-zero/core/stores/monc"{{else}}"github.com/Peakchen/go-zero/core/stores/mon"{{end}}
     "go.mongodb.org/mongo-driver/bson"
     "go.mongodb.org/mongo-driver/bson/primitive"
     "go.mongodb.org/mongo-driver/mongo"

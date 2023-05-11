@@ -5,8 +5,8 @@ import (
 	"os/exec"
 	"runtime"
 
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/env"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/vars"
+	"github.com/Peakchen/go-zero/tools/goctl/util/env"
+	"github.com/Peakchen/go-zero/tools/goctl/vars"
 )
 
 const goproxy = "GOPROXY=https://goproxy.cn,direct"

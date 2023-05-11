@@ -5,8 +5,8 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/Peakchen/peakchen-go-zero/core/stores/redis/redistest"
-	"github.com/Peakchen/peakchen-go-zero/zrpc/internal/auth"
+	"github.com/Peakchen/go-zero/core/stores/redis/redistest"
+	"github.com/Peakchen/go-zero/zrpc/internal/auth"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/metadata"
 )

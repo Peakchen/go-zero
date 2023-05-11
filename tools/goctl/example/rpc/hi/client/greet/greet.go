@@ -6,9 +6,9 @@ package client
 import (
 	"context"
 
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/example/rpc/hi/pb/hi"
+	"github.com/Peakchen/go-zero/tools/goctl/example/rpc/hi/pb/hi"
 
-	"github.com/Peakchen/peakchen-go-zero/zrpc"
+	"github.com/Peakchen/go-zero/zrpc"
 	"google.golang.org/grpc"
 )
 

@@ -4,7 +4,7 @@ import (
 	"io"
 	"sync"
 
-	"github.com/Peakchen/peakchen-go-zero/core/errorx"
+	"github.com/Peakchen/go-zero/core/errorx"
 )
 
 // A ResourceManager is a manager that used to manage resources.

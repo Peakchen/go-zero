@@ -3,7 +3,7 @@ package util
 import (
 	"strings"
 
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/console"
+	"github.com/Peakchen/go-zero/tools/goctl/util/console"
 )
 
 var goKeyword = map[string]string{

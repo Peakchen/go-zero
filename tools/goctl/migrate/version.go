@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/console"
+	"github.com/Peakchen/go-zero/tools/goctl/util/console"
 )
 
 var client = http.Client{

@@ -6,13 +6,13 @@ import (
 	"path"
 	"time"
 
-	"github.com/Peakchen/peakchen-go-zero/core/logx"
-	"github.com/Peakchen/peakchen-go-zero/rest/chain"
-	"github.com/Peakchen/peakchen-go-zero/rest/handler"
-	"github.com/Peakchen/peakchen-go-zero/rest/httpx"
-	"github.com/Peakchen/peakchen-go-zero/rest/internal"
-	"github.com/Peakchen/peakchen-go-zero/rest/internal/cors"
-	"github.com/Peakchen/peakchen-go-zero/rest/router"
+	"github.com/Peakchen/go-zero/core/logx"
+	"github.com/Peakchen/go-zero/rest/chain"
+	"github.com/Peakchen/go-zero/rest/handler"
+	"github.com/Peakchen/go-zero/rest/httpx"
+	"github.com/Peakchen/go-zero/rest/internal"
+	"github.com/Peakchen/go-zero/rest/internal/cors"
+	"github.com/Peakchen/go-zero/rest/router"
 )
 
 type (

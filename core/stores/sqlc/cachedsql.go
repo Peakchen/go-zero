@@ -5,10 +5,10 @@ import (
 	"database/sql"
 	"time"
 
-	"github.com/Peakchen/peakchen-go-zero/core/stores/cache"
-	"github.com/Peakchen/peakchen-go-zero/core/stores/redis"
-	"github.com/Peakchen/peakchen-go-zero/core/stores/sqlx"
-	"github.com/Peakchen/peakchen-go-zero/core/syncx"
+	"github.com/Peakchen/go-zero/core/stores/cache"
+	"github.com/Peakchen/go-zero/core/stores/redis"
+	"github.com/Peakchen/go-zero/core/stores/sqlx"
+	"github.com/Peakchen/go-zero/core/syncx"
 )
 
 // see doc/sql-cache.md

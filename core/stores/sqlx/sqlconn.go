@@ -4,8 +4,8 @@ import (
 	"context"
 	"database/sql"
 
-	"github.com/Peakchen/peakchen-go-zero/core/breaker"
-	"github.com/Peakchen/peakchen-go-zero/core/logx"
+	"github.com/Peakchen/go-zero/core/breaker"
+	"github.com/Peakchen/go-zero/core/logx"
 )
 
 // spanName is used to identify the span name for the SQL execution.

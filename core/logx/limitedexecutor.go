@@ -4,8 +4,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/Peakchen/peakchen-go-zero/core/syncx"
-	"github.com/Peakchen/peakchen-go-zero/core/timex"
+	"github.com/Peakchen/go-zero/core/syncx"
+	"github.com/Peakchen/go-zero/core/timex"
 )
 
 type limitedExecutor struct {

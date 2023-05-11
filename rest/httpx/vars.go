@@ -1,6 +1,6 @@
 package httpx
 
-import "github.com/Peakchen/peakchen-go-zero/rest/internal/header"
+import "github.com/Peakchen/go-zero/rest/internal/header"
 
 const (
 	// ContentEncoding means Content-Encoding.

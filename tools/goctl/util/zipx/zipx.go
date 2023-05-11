@@ -6,7 +6,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
 )
 
 func Unpacking(name, destPath string, mapper func(f *zip.File) bool) error {

@@ -9,8 +9,8 @@ import (
 	"net"
 	"net/http"
 
-	"github.com/Peakchen/peakchen-go-zero/core/codec"
-	"github.com/Peakchen/peakchen-go-zero/core/logx"
+	"github.com/Peakchen/go-zero/core/codec"
+	"github.com/Peakchen/go-zero/core/logx"
 )
 
 const maxBytes = 1 << 20 // 1 MiB

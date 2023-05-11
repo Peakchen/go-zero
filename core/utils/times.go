@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/Peakchen/peakchen-go-zero/core/timex"
+	"github.com/Peakchen/go-zero/core/timex"
 )
 
 // An ElapsedTimer is a timer to track the elapsed time.

@@ -17,9 +17,9 @@ import (
 
 	"github.com/logrusorgru/aurora"
 	"github.com/spf13/cobra"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/console"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/ctx"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/vars"
+	"github.com/Peakchen/go-zero/tools/goctl/util/console"
+	"github.com/Peakchen/go-zero/tools/goctl/util/ctx"
+	"github.com/Peakchen/go-zero/tools/goctl/vars"
 )
 
 const defaultMigrateVersion = "v1.3.0"

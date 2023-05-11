@@ -1,8 +1,8 @@
 package threading
 
 import (
-	"github.com/Peakchen/peakchen-go-zero/core/lang"
-	"github.com/Peakchen/peakchen-go-zero/core/rescue"
+	"github.com/Peakchen/go-zero/core/lang"
+	"github.com/Peakchen/go-zero/core/rescue"
 )
 
 // A TaskRunner is used to control the concurrency of goroutines.

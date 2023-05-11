@@ -1,8 +1,8 @@
 package parser
 
 import (
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/parser/api/ast"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/parser/api/placeholder"
+	"github.com/Peakchen/go-zero/tools/goctl/pkg/parser/api/ast"
+	"github.com/Peakchen/go-zero/tools/goctl/pkg/parser/api/placeholder"
 )
 
 type filterBuilder struct {

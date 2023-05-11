@@ -7,7 +7,7 @@ import (
 	"runtime"
 
 	"github.com/spf13/cobra"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/internal/version"
+	"github.com/Peakchen/go-zero/tools/goctl/internal/version"
 )
 
 const (
@@ -33,7 +33,7 @@ func runE(_ *cobra.Command, _ []string) error {
 	env := getEnv()
 	content := fmt.Sprintf(issueTemplate, version.BuildVersion, env.string())
 	content = url.QueryEscape(content)
-	url := fmt.Sprintf("https://github.com/Peakchen/peakchen-go-zero/issues/new?body=%s", content)
+	url := fmt.Sprintf("https://github.com/Peakchen/go-zero/issues/new?body=%s", content)
 
 	goos := runtime.GOOS
 	var cmd string

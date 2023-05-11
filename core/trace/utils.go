@@ -5,7 +5,7 @@ import (
 	"net"
 	"strings"
 
-	ztrace "github.com/Peakchen/peakchen-go-zero/internal/trace"
+	ztrace "github.com/Peakchen/go-zero/internal/trace"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/attribute"
 	semconv "go.opentelemetry.io/otel/semconv/v1.4.0"

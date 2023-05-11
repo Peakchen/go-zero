@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/stringx"
+	"github.com/Peakchen/go-zero/tools/goctl/util/stringx"
 )
 
 var (

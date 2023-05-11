@@ -4,10 +4,10 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/golang"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/console"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/pathx"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/vars"
+	"github.com/Peakchen/go-zero/tools/goctl/pkg/golang"
+	"github.com/Peakchen/go-zero/tools/goctl/util/console"
+	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/go-zero/tools/goctl/vars"
 )
 
 func Install(cacheDir, name string, installFn func(dest string) (string, error)) (string, error) {

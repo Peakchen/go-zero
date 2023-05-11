@@ -8,12 +8,12 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/downloader"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/goctl"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/rpc/execx"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/env"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/zipx"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/vars"
+	"github.com/Peakchen/go-zero/tools/goctl/pkg/downloader"
+	"github.com/Peakchen/go-zero/tools/goctl/pkg/goctl"
+	"github.com/Peakchen/go-zero/tools/goctl/rpc/execx"
+	"github.com/Peakchen/go-zero/tools/goctl/util/env"
+	"github.com/Peakchen/go-zero/tools/goctl/util/zipx"
+	"github.com/Peakchen/go-zero/tools/goctl/vars"
 )
 
 var url = map[string]string{

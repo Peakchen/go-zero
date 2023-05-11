@@ -9,8 +9,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/rpc/execx"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/go-zero/tools/goctl/rpc/execx"
+	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
 )
 
 const goModuleWithoutGoFiles = "command-line-arguments"

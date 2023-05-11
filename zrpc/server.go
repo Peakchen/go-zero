@@ -3,13 +3,13 @@ package zrpc
 import (
 	"time"
 
-	"github.com/Peakchen/peakchen-go-zero/core/load"
-	"github.com/Peakchen/peakchen-go-zero/core/logx"
-	"github.com/Peakchen/peakchen-go-zero/core/stat"
-	"github.com/Peakchen/peakchen-go-zero/core/stores/redis"
-	"github.com/Peakchen/peakchen-go-zero/zrpc/internal"
-	"github.com/Peakchen/peakchen-go-zero/zrpc/internal/auth"
-	"github.com/Peakchen/peakchen-go-zero/zrpc/internal/serverinterceptors"
+	"github.com/Peakchen/go-zero/core/load"
+	"github.com/Peakchen/go-zero/core/logx"
+	"github.com/Peakchen/go-zero/core/stat"
+	"github.com/Peakchen/go-zero/core/stores/redis"
+	"github.com/Peakchen/go-zero/zrpc/internal"
+	"github.com/Peakchen/go-zero/zrpc/internal/auth"
+	"github.com/Peakchen/go-zero/zrpc/internal/serverinterceptors"
 	"google.golang.org/grpc"
 )
 

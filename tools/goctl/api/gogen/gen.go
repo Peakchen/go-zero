@@ -13,14 +13,14 @@ import (
 
 	"github.com/logrusorgru/aurora"
 	"github.com/spf13/cobra"
-	"github.com/Peakchen/peakchen-go-zero/core/logx"
-	apiformat "github.com/Peakchen/peakchen-go-zero/tools/goctl/api/format"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/api/parser"
-	apiutil "github.com/Peakchen/peakchen-go-zero/tools/goctl/api/util"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/config"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/golang"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/go-zero/core/logx"
+	apiformat "github.com/Peakchen/go-zero/tools/goctl/api/format"
+	"github.com/Peakchen/go-zero/tools/goctl/api/parser"
+	apiutil "github.com/Peakchen/go-zero/tools/goctl/api/util"
+	"github.com/Peakchen/go-zero/tools/goctl/config"
+	"github.com/Peakchen/go-zero/tools/goctl/pkg/golang"
+	"github.com/Peakchen/go-zero/tools/goctl/util"
+	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
 )
 
 const tmpFile = "%s-%d"

@@ -5,7 +5,7 @@ import (
 	"runtime"
 	"strconv"
 
-	"github.com/Peakchen/peakchen-go-zero/core/rescue"
+	"github.com/Peakchen/go-zero/core/rescue"
 )
 
 // GoSafe runs the given fn using another goroutine, recovers if fn panics.

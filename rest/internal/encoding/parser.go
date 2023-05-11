@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"net/textproto"
 
-	"github.com/Peakchen/peakchen-go-zero/core/mapping"
+	"github.com/Peakchen/go-zero/core/mapping"
 )
 
 const headerKey = "header"

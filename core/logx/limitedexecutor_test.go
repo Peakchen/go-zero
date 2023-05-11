@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/Peakchen/peakchen-go-zero/core/timex"
+	"github.com/Peakchen/go-zero/core/timex"
 )
 
 func TestLimitedExecutor_logOrDiscard(t *testing.T) {

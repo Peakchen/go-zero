@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/plugin"
+	"github.com/Peakchen/go-zero/tools/goctl/plugin"
 )
 
 func main() {

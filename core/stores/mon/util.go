@@ -5,8 +5,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Peakchen/peakchen-go-zero/core/logx"
-	"github.com/Peakchen/peakchen-go-zero/core/timex"
+	"github.com/Peakchen/go-zero/core/logx"
+	"github.com/Peakchen/go-zero/core/timex"
 )
 
 const mongoAddrSep = ","

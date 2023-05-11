@@ -7,7 +7,7 @@ import (
 	"os"
 	"reflect"
 
-	apitoken "github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/parser/api/token"
+	apitoken "github.com/Peakchen/go-zero/tools/goctl/pkg/parser/api/token"
 )
 
 // A FieldFilter may be provided to Fprint to control the output.

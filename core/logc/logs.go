@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/Peakchen/peakchen-go-zero/core/logx"
+	"github.com/Peakchen/go-zero/core/logx"
 )
 
 type (

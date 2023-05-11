@@ -5,7 +5,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/api/spec"
+	"github.com/Peakchen/go-zero/tools/goctl/api/spec"
 )
 
 const dataTemplate = `// --{{with .Info}}{{.Title}}{{end}}--

@@ -5,9 +5,9 @@ import (
 	"database/sql"
 	"time"
 
-	"github.com/Peakchen/peakchen-go-zero/core/logx"
-	"github.com/Peakchen/peakchen-go-zero/core/syncx"
-	"github.com/Peakchen/peakchen-go-zero/core/timex"
+	"github.com/Peakchen/go-zero/core/logx"
+	"github.com/Peakchen/go-zero/core/syncx"
+	"github.com/Peakchen/go-zero/core/timex"
 )
 
 const defaultSlowThreshold = time.Millisecond * 500

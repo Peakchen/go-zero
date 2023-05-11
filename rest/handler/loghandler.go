@@ -14,15 +14,15 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Peakchen/peakchen-go-zero/core/color"
-	"github.com/Peakchen/peakchen-go-zero/core/iox"
-	"github.com/Peakchen/peakchen-go-zero/core/logx"
-	"github.com/Peakchen/peakchen-go-zero/core/syncx"
-	"github.com/Peakchen/peakchen-go-zero/core/timex"
-	"github.com/Peakchen/peakchen-go-zero/core/utils"
-	"github.com/Peakchen/peakchen-go-zero/rest/httpx"
-	"github.com/Peakchen/peakchen-go-zero/rest/internal"
-	"github.com/Peakchen/peakchen-go-zero/rest/internal/response"
+	"github.com/Peakchen/go-zero/core/color"
+	"github.com/Peakchen/go-zero/core/iox"
+	"github.com/Peakchen/go-zero/core/logx"
+	"github.com/Peakchen/go-zero/core/syncx"
+	"github.com/Peakchen/go-zero/core/timex"
+	"github.com/Peakchen/go-zero/core/utils"
+	"github.com/Peakchen/go-zero/rest/httpx"
+	"github.com/Peakchen/go-zero/rest/internal"
+	"github.com/Peakchen/go-zero/rest/internal/response"
 )
 
 const (

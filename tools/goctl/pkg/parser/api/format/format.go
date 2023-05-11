@@ -5,7 +5,7 @@ import (
 	"io"
 	"io/ioutil"
 
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/parser/api/parser"
+	"github.com/Peakchen/go-zero/tools/goctl/pkg/parser/api/parser"
 )
 
 // File formats the api file.

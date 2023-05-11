@@ -4,9 +4,9 @@ import (
 	"context"
 	"sync"
 
-	"github.com/Peakchen/peakchen-go-zero/core/syncx"
-	"github.com/Peakchen/peakchen-go-zero/zrpc/internal"
-	"github.com/Peakchen/peakchen-go-zero/zrpc/internal/auth"
+	"github.com/Peakchen/go-zero/core/syncx"
+	"github.com/Peakchen/go-zero/zrpc/internal"
+	"github.com/Peakchen/go-zero/zrpc/internal/auth"
 	"google.golang.org/grpc"
 )
 

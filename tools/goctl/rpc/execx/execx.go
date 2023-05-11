@@ -8,8 +8,8 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/pathx"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/vars"
+	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/go-zero/tools/goctl/vars"
 )
 
 // RunFunc defines a function type of Run function

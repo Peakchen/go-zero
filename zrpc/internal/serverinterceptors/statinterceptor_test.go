@@ -8,10 +8,10 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/Peakchen/peakchen-go-zero/core/collection"
-	"github.com/Peakchen/peakchen-go-zero/core/lang"
-	"github.com/Peakchen/peakchen-go-zero/core/stat"
-	"github.com/Peakchen/peakchen-go-zero/core/syncx"
+	"github.com/Peakchen/go-zero/core/collection"
+	"github.com/Peakchen/go-zero/core/lang"
+	"github.com/Peakchen/go-zero/core/stat"
+	"github.com/Peakchen/go-zero/core/syncx"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/peer"
 )

@@ -8,11 +8,11 @@ import (
 	"path"
 	"strings"
 
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/api/spec"
-	apiutil "github.com/Peakchen/peakchen-go-zero/tools/goctl/api/util"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/config"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/format"
+	"github.com/Peakchen/go-zero/tools/goctl/api/spec"
+	apiutil "github.com/Peakchen/go-zero/tools/goctl/api/util"
+	"github.com/Peakchen/go-zero/tools/goctl/config"
+	"github.com/Peakchen/go-zero/tools/goctl/util"
+	"github.com/Peakchen/go-zero/tools/goctl/util/format"
 )
 
 const typesFile = "types"

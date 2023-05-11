@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/parser/api/token"
+	"github.com/Peakchen/go-zero/tools/goctl/pkg/parser/api/token"
 )
 
 const (

@@ -11,10 +11,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Peakchen/peakchen-go-zero/core/jsonx"
-	"github.com/Peakchen/peakchen-go-zero/core/lang"
-	"github.com/Peakchen/peakchen-go-zero/core/proc"
-	"github.com/Peakchen/peakchen-go-zero/core/stringx"
+	"github.com/Peakchen/go-zero/core/jsonx"
+	"github.com/Peakchen/go-zero/core/lang"
+	"github.com/Peakchen/go-zero/core/proc"
+	"github.com/Peakchen/go-zero/core/stringx"
 )
 
 const (

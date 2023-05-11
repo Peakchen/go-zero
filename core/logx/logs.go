@@ -11,7 +11,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/Peakchen/peakchen-go-zero/core/sysx"
+	"github.com/Peakchen/go-zero/core/sysx"
 )
 
 const callerDepth = 4

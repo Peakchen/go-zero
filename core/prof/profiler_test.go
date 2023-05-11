@@ -3,7 +3,7 @@ package prof
 import (
 	"testing"
 
-	"github.com/Peakchen/peakchen-go-zero/core/utils"
+	"github.com/Peakchen/go-zero/core/utils"
 )
 
 func TestProfiler(t *testing.T) {

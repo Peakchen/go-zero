@@ -1,6 +1,6 @@
 package stringx
 
-import "github.com/Peakchen/peakchen-go-zero/core/lang"
+import "github.com/Peakchen/go-zero/core/lang"
 
 const defaultMask = '*'
 

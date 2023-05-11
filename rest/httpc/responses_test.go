@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/Peakchen/peakchen-go-zero/rest/internal/header"
+	"github.com/Peakchen/go-zero/rest/internal/header"
 )
 
 func TestParse(t *testing.T) {

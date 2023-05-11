@@ -27,8 +27,8 @@ $ goctl model mongo -t User -c --dir .
 package model
 
 import (
-	"github.com/Peakchen/peakchen-go-zero/core/stores/cache"
-	"github.com/Peakchen/peakchen-go-zero/core/stores/monc"
+	"github.com/Peakchen/go-zero/core/stores/cache"
+	"github.com/Peakchen/go-zero/core/stores/monc"
 )
 
 var _ UserModel = (*customUserModel)(nil)
@@ -64,7 +64,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/Peakchen/peakchen-go-zero/core/stores/monc"
+	"github.com/Peakchen/go-zero/core/stores/monc"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -163,7 +163,7 @@ package model
 import (
 	"errors"
 
-	"github.com/Peakchen/peakchen-go-zero/core/stores/mon"
+	"github.com/Peakchen/go-zero/core/stores/mon"
 )
 
 var (
@@ -197,8 +197,8 @@ Flags:
   -h, --help            help for mongo
       --home string     The goctl home path of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority
       --remote string   The remote git repo of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority
-                                The git repo directory must be consistent with the https://github.com/Peakchen/peakchen-go-zero-template directory structure
-      --style string    The file naming format, see [https://github.com/Peakchen/peakchen-go-zero/tree/master/tools/goctl/config/readme.md]
+                                The git repo directory must be consistent with the https://github.com/Peakchen/go-zero-template directory structure
+      --style string    The file naming format, see [https://github.com/Peakchen/go-zero/tree/master/tools/goctl/config/readme.md]
   -t, --type strings    Specified model type name
 
 ```

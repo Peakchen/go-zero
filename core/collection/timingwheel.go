@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/Peakchen/peakchen-go-zero/core/lang"
-	"github.com/Peakchen/peakchen-go-zero/core/threading"
-	"github.com/Peakchen/peakchen-go-zero/core/timex"
+	"github.com/Peakchen/go-zero/core/lang"
+	"github.com/Peakchen/go-zero/core/threading"
+	"github.com/Peakchen/go-zero/core/timex"
 )
 
 const drainWorkers = 8

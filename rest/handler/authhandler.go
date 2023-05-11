@@ -7,9 +7,9 @@ import (
 	"net/http/httputil"
 
 	"github.com/golang-jwt/jwt/v4"
-	"github.com/Peakchen/peakchen-go-zero/core/logx"
-	"github.com/Peakchen/peakchen-go-zero/rest/internal/response"
-	"github.com/Peakchen/peakchen-go-zero/rest/token"
+	"github.com/Peakchen/go-zero/core/logx"
+	"github.com/Peakchen/go-zero/rest/internal/response"
+	"github.com/Peakchen/go-zero/rest/token"
 )
 
 const (

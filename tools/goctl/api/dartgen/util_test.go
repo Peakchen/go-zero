@@ -3,7 +3,7 @@ package dartgen
 import (
 	"testing"
 
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/api/spec"
+	"github.com/Peakchen/go-zero/tools/goctl/api/spec"
 )
 
 func Test_getPropertyFromMember(t *testing.T) {

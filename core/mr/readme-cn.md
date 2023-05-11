@@ -54,7 +54,7 @@ import (
     "fmt"
     "log"
 
-    "github.com/Peakchen/peakchen-go-zero/core/mr"
+    "github.com/Peakchen/go-zero/core/mr"
 )
 
 func main() {

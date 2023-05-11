@@ -10,9 +10,9 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/Peakchen/peakchen-go-zero/rest/httpx"
-	"github.com/Peakchen/peakchen-go-zero/rest/internal/header"
-	"github.com/Peakchen/peakchen-go-zero/rest/pathvar"
+	"github.com/Peakchen/go-zero/rest/httpx"
+	"github.com/Peakchen/go-zero/rest/internal/header"
+	"github.com/Peakchen/go-zero/rest/pathvar"
 )
 
 const contentLength = "Content-Length"

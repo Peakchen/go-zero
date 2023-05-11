@@ -11,9 +11,9 @@ import (
 
 	"github.com/logrusorgru/aurora"
 	"github.com/spf13/cobra"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/env"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/go-zero/tools/goctl/util"
+	"github.com/Peakchen/go-zero/tools/goctl/util/env"
+	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
 )
 
 const (

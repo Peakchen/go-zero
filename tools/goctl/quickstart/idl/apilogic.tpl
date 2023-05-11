@@ -3,7 +3,7 @@ package logic
 import (
 	"context"
 
-	"github.com/Peakchen/peakchen-go-zero/core/logx"
+	"github.com/Peakchen/go-zero/core/logx"
 
 	"{{.svcPkg}}"
 	"{{.typesPkg}}"{{if .callRPC}}

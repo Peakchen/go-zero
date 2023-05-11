@@ -8,8 +8,8 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/parser/api/assertx"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/parser/api/parser"
+	"github.com/Peakchen/go-zero/tools/goctl/pkg/parser/api/assertx"
+	"github.com/Peakchen/go-zero/tools/goctl/pkg/parser/api/parser"
 )
 
 type formatData struct {

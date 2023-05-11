@@ -4,7 +4,7 @@ import (
 	"errors"
 
 	"github.com/spf13/cobra"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/api/parser"
+	"github.com/Peakchen/go-zero/tools/goctl/api/parser"
 )
 
 var (

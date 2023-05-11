@@ -1,4 +1,4 @@
-module github.com/Peakchen/peakchen-go-zero
+module github.com/Peakchen/go-zero
 
 go 1.18
 

@@ -9,8 +9,8 @@ import (
 
 	red "github.com/go-redis/redis/v8"
 
-	"github.com/Peakchen/peakchen-go-zero/core/logx"
-	"github.com/Peakchen/peakchen-go-zero/core/stringx"
+	"github.com/Peakchen/go-zero/core/logx"
+	"github.com/Peakchen/go-zero/core/stringx"
 )
 
 const (

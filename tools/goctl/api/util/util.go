@@ -8,9 +8,9 @@ import (
 	"path"
 	"strings"
 
-	"github.com/Peakchen/peakchen-go-zero/core/logx"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/api/spec"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/go-zero/core/logx"
+	"github.com/Peakchen/go-zero/tools/goctl/api/spec"
+	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
 )
 
 // MaybeCreateFile creates file if not exists

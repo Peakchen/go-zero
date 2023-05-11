@@ -8,9 +8,9 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/model/sql/model"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/model/sql/util"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/go-zero/tools/goctl/model/sql/model"
+	"github.com/Peakchen/go-zero/tools/goctl/model/sql/util"
+	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
 )
 
 func TestParsePlainText(t *testing.T) {

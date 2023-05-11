@@ -3,7 +3,7 @@ package handler
 import (
 	"net/http"
 
-	"github.com/Peakchen/peakchen-go-zero/rest/internal"
+	"github.com/Peakchen/go-zero/rest/internal"
 )
 
 // MaxBytesHandler returns a middleware that limit reading of http request body.

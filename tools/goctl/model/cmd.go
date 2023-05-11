@@ -1,9 +1,9 @@
 package model
 
 import (
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/internal/cobrax"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/model/mongo"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/model/sql/command"
+	"github.com/Peakchen/go-zero/tools/goctl/internal/cobrax"
+	"github.com/Peakchen/go-zero/tools/goctl/model/mongo"
+	"github.com/Peakchen/go-zero/tools/goctl/model/sql/command"
 )
 
 var (

@@ -3,7 +3,7 @@ package syncx
 import (
 	"sync"
 
-	"github.com/Peakchen/peakchen-go-zero/core/lang"
+	"github.com/Peakchen/go-zero/core/lang"
 )
 
 // A DoneChan is used as a channel that can be closed multiple times and wait for done.

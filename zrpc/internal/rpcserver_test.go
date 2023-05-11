@@ -7,9 +7,9 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/Peakchen/peakchen-go-zero/core/proc"
-	"github.com/Peakchen/peakchen-go-zero/core/stat"
-	"github.com/Peakchen/peakchen-go-zero/internal/mock"
+	"github.com/Peakchen/go-zero/core/proc"
+	"github.com/Peakchen/go-zero/core/stat"
+	"github.com/Peakchen/go-zero/internal/mock"
 	"google.golang.org/grpc"
 )
 

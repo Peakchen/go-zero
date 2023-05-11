@@ -7,9 +7,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Peakchen/peakchen-go-zero/zrpc/internal/balancer/p2c"
-	"github.com/Peakchen/peakchen-go-zero/zrpc/internal/clientinterceptors"
-	"github.com/Peakchen/peakchen-go-zero/zrpc/resolver"
+	"github.com/Peakchen/go-zero/zrpc/internal/balancer/p2c"
+	"github.com/Peakchen/go-zero/zrpc/internal/clientinterceptors"
+	"github.com/Peakchen/go-zero/zrpc/resolver"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/credentials/insecure"

@@ -3,7 +3,7 @@ package internal
 import (
 	"time"
 
-	"github.com/Peakchen/peakchen-go-zero/core/stat"
+	"github.com/Peakchen/go-zero/core/stat"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/health"
 	"google.golang.org/grpc/keepalive"

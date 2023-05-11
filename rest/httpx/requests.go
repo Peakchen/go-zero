@@ -6,11 +6,11 @@ import (
 	"strings"
 	"sync/atomic"
 
-	"github.com/Peakchen/peakchen-go-zero/core/mapping"
-	"github.com/Peakchen/peakchen-go-zero/core/validation"
-	"github.com/Peakchen/peakchen-go-zero/rest/internal/encoding"
-	"github.com/Peakchen/peakchen-go-zero/rest/internal/header"
-	"github.com/Peakchen/peakchen-go-zero/rest/pathvar"
+	"github.com/Peakchen/go-zero/core/mapping"
+	"github.com/Peakchen/go-zero/core/validation"
+	"github.com/Peakchen/go-zero/rest/internal/encoding"
+	"github.com/Peakchen/go-zero/rest/internal/header"
+	"github.com/Peakchen/go-zero/rest/pathvar"
 )
 
 const (

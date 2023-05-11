@@ -6,10 +6,10 @@ import (
 	"strings"
 
 	"github.com/spf13/cobra"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/config"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/model/mongo/generate"
-	file "github.com/Peakchen/peakchen-go-zero/tools/goctl/util"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/go-zero/tools/goctl/config"
+	"github.com/Peakchen/go-zero/tools/goctl/model/mongo/generate"
+	file "github.com/Peakchen/go-zero/tools/goctl/util"
+	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
 )
 
 var (

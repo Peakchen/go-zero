@@ -6,9 +6,9 @@ import (
 	"io"
 	"strings"
 
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/api/spec"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/go-zero/tools/goctl/api/spec"
+	"github.com/Peakchen/go-zero/tools/goctl/util"
+	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
 )
 
 func writeProperty(writer io.Writer, member spec.Member, indent int) error {

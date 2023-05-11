@@ -6,13 +6,13 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/Peakchen/peakchen-go-zero/core/collection"
-	conf "github.com/Peakchen/peakchen-go-zero/tools/goctl/config"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/rpc/parser"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/format"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/pathx"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/stringx"
+	"github.com/Peakchen/go-zero/core/collection"
+	conf "github.com/Peakchen/go-zero/tools/goctl/config"
+	"github.com/Peakchen/go-zero/tools/goctl/rpc/parser"
+	"github.com/Peakchen/go-zero/tools/goctl/util"
+	"github.com/Peakchen/go-zero/tools/goctl/util/format"
+	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/go-zero/tools/goctl/util/stringx"
 )
 
 const logicFunctionTemplate = `{{if .hasComment}}{{.comment}}{{end}}

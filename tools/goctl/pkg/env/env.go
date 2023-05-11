@@ -8,12 +8,12 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/internal/version"
-	sortedmap "github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/collection"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/protoc"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/protocgengo"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/protocgengogrpc"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/go-zero/tools/goctl/internal/version"
+	sortedmap "github.com/Peakchen/go-zero/tools/goctl/pkg/collection"
+	"github.com/Peakchen/go-zero/tools/goctl/pkg/protoc"
+	"github.com/Peakchen/go-zero/tools/goctl/pkg/protocgengo"
+	"github.com/Peakchen/go-zero/tools/goctl/pkg/protocgengogrpc"
+	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
 )
 
 var goctlEnv *sortedmap.SortedMap

@@ -5,9 +5,9 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/Peakchen/peakchen-go-zero/core/metric"
-	"github.com/Peakchen/peakchen-go-zero/core/timex"
-	"github.com/Peakchen/peakchen-go-zero/rest/internal/response"
+	"github.com/Peakchen/go-zero/core/metric"
+	"github.com/Peakchen/go-zero/core/timex"
+	"github.com/Peakchen/go-zero/rest/internal/response"
 )
 
 const serverNamespace = "http_server"

@@ -6,7 +6,7 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/internal/version"
+	"github.com/Peakchen/go-zero/tools/goctl/internal/version"
 )
 
 type env map[string]string

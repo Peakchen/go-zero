@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/Peakchen/peakchen-go-zero/core/prometheus"
+	"github.com/Peakchen/go-zero/core/prometheus"
 )
 
 func TestPromMetricHandler_Disabled(t *testing.T) {

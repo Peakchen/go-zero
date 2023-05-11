@@ -9,12 +9,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Peakchen/peakchen-go-zero/core/jsonx"
-	"github.com/Peakchen/peakchen-go-zero/core/logx"
-	"github.com/Peakchen/peakchen-go-zero/core/mathx"
-	"github.com/Peakchen/peakchen-go-zero/core/stat"
-	"github.com/Peakchen/peakchen-go-zero/core/stores/redis"
-	"github.com/Peakchen/peakchen-go-zero/core/syncx"
+	"github.com/Peakchen/go-zero/core/jsonx"
+	"github.com/Peakchen/go-zero/core/logx"
+	"github.com/Peakchen/go-zero/core/mathx"
+	"github.com/Peakchen/go-zero/core/stat"
+	"github.com/Peakchen/go-zero/core/stores/redis"
+	"github.com/Peakchen/go-zero/core/syncx"
 )
 
 const (

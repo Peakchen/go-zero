@@ -2,7 +2,7 @@ package svc
 
 import (
 	"{{.configPkg}}"{{if .callRPC}}
-	"github.com/Peakchen/peakchen-go-zero/zrpc"
+	"github.com/Peakchen/go-zero/zrpc"
 	"{{.rpcClientPkg}}"{{end}}
 )
 

@@ -4,12 +4,12 @@ import (
 	"errors"
 	"path/filepath"
 
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/config"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/model/mongo/template"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/format"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/pathx"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/stringx"
+	"github.com/Peakchen/go-zero/tools/goctl/config"
+	"github.com/Peakchen/go-zero/tools/goctl/model/mongo/template"
+	"github.com/Peakchen/go-zero/tools/goctl/util"
+	"github.com/Peakchen/go-zero/tools/goctl/util/format"
+	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/go-zero/tools/goctl/util/stringx"
 )
 
 // Context defines the model generation data what they needs

@@ -5,8 +5,8 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/api/parser/g4/ast"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/api/parser/g4/gen/api"
+	"github.com/Peakchen/go-zero/tools/goctl/api/parser/g4/ast"
+	"github.com/Peakchen/go-zero/tools/goctl/api/parser/g4/gen/api"
 )
 
 //go:embed apis/test.api

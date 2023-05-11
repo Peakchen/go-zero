@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"sync"
 
-	"github.com/Peakchen/peakchen-go-zero/core/logx"
-	"github.com/Peakchen/peakchen-go-zero/rest/httpx"
+	"github.com/Peakchen/go-zero/core/logx"
+	"github.com/Peakchen/go-zero/rest/httpx"
 )
 
 // LogContext is a context key.

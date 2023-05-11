@@ -7,10 +7,10 @@ import (
 	"log"
 	"time"
 
-	"github.com/Peakchen/peakchen-go-zero/core/errorx"
-	"github.com/Peakchen/peakchen-go-zero/core/hash"
-	"github.com/Peakchen/peakchen-go-zero/core/stores/redis"
-	"github.com/Peakchen/peakchen-go-zero/core/syncx"
+	"github.com/Peakchen/go-zero/core/errorx"
+	"github.com/Peakchen/go-zero/core/hash"
+	"github.com/Peakchen/go-zero/core/stores/redis"
+	"github.com/Peakchen/go-zero/core/syncx"
 )
 
 type (

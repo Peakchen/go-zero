@@ -8,14 +8,14 @@ import (
 	"sort"
 	"time"
 
-	"github.com/Peakchen/peakchen-go-zero/core/codec"
-	"github.com/Peakchen/peakchen-go-zero/core/load"
-	"github.com/Peakchen/peakchen-go-zero/core/stat"
-	"github.com/Peakchen/peakchen-go-zero/rest/chain"
-	"github.com/Peakchen/peakchen-go-zero/rest/handler"
-	"github.com/Peakchen/peakchen-go-zero/rest/httpx"
-	"github.com/Peakchen/peakchen-go-zero/rest/internal"
-	"github.com/Peakchen/peakchen-go-zero/rest/internal/response"
+	"github.com/Peakchen/go-zero/core/codec"
+	"github.com/Peakchen/go-zero/core/load"
+	"github.com/Peakchen/go-zero/core/stat"
+	"github.com/Peakchen/go-zero/rest/chain"
+	"github.com/Peakchen/go-zero/rest/handler"
+	"github.com/Peakchen/go-zero/rest/httpx"
+	"github.com/Peakchen/go-zero/rest/internal"
+	"github.com/Peakchen/go-zero/rest/internal/response"
 )
 
 // use 1000m to represent 100%

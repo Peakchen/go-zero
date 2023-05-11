@@ -3,7 +3,7 @@ package cache
 import (
 	"testing"
 
-	"github.com/Peakchen/peakchen-go-zero/core/timex"
+	"github.com/Peakchen/go-zero/core/timex"
 )
 
 func TestCacheStat_statLoop(t *testing.T) {

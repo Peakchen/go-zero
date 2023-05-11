@@ -1,7 +1,7 @@
 package internal
 
 import (
-	"github.com/Peakchen/peakchen-go-zero/core/logx"
+	"github.com/Peakchen/go-zero/core/logx"
 	"google.golang.org/grpc/grpclog"
 )
 

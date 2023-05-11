@@ -1,12 +1,12 @@
 package {{.pkg}}
 {{if .withCache}}
 import (
-	"github.com/Peakchen/peakchen-go-zero/core/stores/cache"
-	"github.com/Peakchen/peakchen-go-zero/core/stores/sqlx"
+	"github.com/Peakchen/go-zero/core/stores/cache"
+	"github.com/Peakchen/go-zero/core/stores/sqlx"
 )
 {{else}}
 
-import "github.com/Peakchen/peakchen-go-zero/core/stores/sqlx"
+import "github.com/Peakchen/go-zero/core/stores/sqlx"
 {{end}}
 var _ {{.upperStartCamelObject}}Model = (*custom{{.upperStartCamelObject}}Model)(nil)
 

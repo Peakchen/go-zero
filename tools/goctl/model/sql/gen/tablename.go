@@ -1,9 +1,9 @@
 package gen
 
 import (
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/model/sql/template"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/go-zero/tools/goctl/model/sql/template"
+	"github.com/Peakchen/go-zero/tools/goctl/util"
+	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
 )
 
 func genTableName(table Table) (string, error) {

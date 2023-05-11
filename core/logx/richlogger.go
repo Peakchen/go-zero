@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/Peakchen/peakchen-go-zero/core/timex"
-	"github.com/Peakchen/peakchen-go-zero/internal/trace"
+	"github.com/Peakchen/go-zero/core/timex"
+	"github.com/Peakchen/go-zero/internal/trace"
 )
 
 // WithCallerSkip returns a Logger with given caller skip.

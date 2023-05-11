@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/Peakchen/peakchen-go-zero/core/stores/sqlx"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/model/sql/util"
+	"github.com/Peakchen/go-zero/core/stores/sqlx"
+	"github.com/Peakchen/go-zero/tools/goctl/model/sql/util"
 )
 
 const indexPri = "PRIMARY"

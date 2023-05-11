@@ -5,15 +5,15 @@ import (
 	"runtime"
 
 	"github.com/spf13/cobra"
-	"github.com/Peakchen/peakchen-go-zero/tools/goctl/rpc/execx"
+	"github.com/Peakchen/go-zero/tools/goctl/rpc/execx"
 )
 
 // upgrade gets the latest goctl by
-// go install github.com/Peakchen/peakchen-go-zero/tools/goctl@latest
+// go install github.com/Peakchen/go-zero/tools/goctl@latest
 func upgrade(_ *cobra.Command, _ []string) error {
-	cmd := `GO111MODULE=on GOPROXY=https://goproxy.cn/,direct go install github.com/Peakchen/peakchen-go-zero/tools/goctl@latest`
+	cmd := `GO111MODULE=on GOPROXY=https://goproxy.cn/,direct go install github.com/Peakchen/go-zero/tools/goctl@latest`
 	if runtime.GOOS == "windows" {
-		cmd = `set GOPROXY=https://goproxy.cn,direct && go install github.com/Peakchen/peakchen-go-zero/tools/goctl@latest`
+		cmd = `set GOPROXY=https://goproxy.cn,direct && go install github.com/Peakchen/go-zero/tools/goctl@latest`
 	}
 	info, err := execx.Run(cmd, "")
 	if err != nil {

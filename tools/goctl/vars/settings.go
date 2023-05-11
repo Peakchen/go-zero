@@ -4,7 +4,7 @@ const (
 	// ProjectName the const value of zero
 	ProjectName = "zero"
 	// ProjectOpenSourceURL the github url of go-zero
-	ProjectOpenSourceURL = "github.com/Peakchen/peakchen-go-zero"
+	ProjectOpenSourceURL = "github.com/Peakchen/go-zero"
 	// OsWindows represents os windows
 	OsWindows = "windows"
 	// OsMac represents os mac
