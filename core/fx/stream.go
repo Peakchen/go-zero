@@ -4,9 +4,9 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/Peakchen/go-zero/core/collection"
-	"github.com/Peakchen/go-zero/core/lang"
-	"github.com/Peakchen/go-zero/core/threading"
+	"github.com/Peakchen/peakchen-go-zero/core/collection"
+	"github.com/Peakchen/peakchen-go-zero/core/lang"
+	"github.com/Peakchen/peakchen-go-zero/core/threading"
 )
 
 const (

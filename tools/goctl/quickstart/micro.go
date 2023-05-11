@@ -5,9 +5,9 @@ import (
 	"io/ioutil"
 	"path/filepath"
 
-	"github.com/Peakchen/go-zero/core/logx"
-	"github.com/Peakchen/go-zero/core/service"
-	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/peakchen-go-zero/core/logx"
+	"github.com/Peakchen/peakchen-go-zero/core/service"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/pathx"
 )
 
 const protoName = "greet.proto"

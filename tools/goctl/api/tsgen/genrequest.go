@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/pathx"
 )
 
 //go:embed request.ts

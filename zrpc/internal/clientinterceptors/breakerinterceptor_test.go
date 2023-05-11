@@ -6,9 +6,9 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/Peakchen/go-zero/core/breaker"
-	"github.com/Peakchen/go-zero/core/stat"
-	rcodes "github.com/Peakchen/go-zero/zrpc/internal/codes"
+	"github.com/Peakchen/peakchen-go-zero/core/breaker"
+	"github.com/Peakchen/peakchen-go-zero/core/stat"
+	rcodes "github.com/Peakchen/peakchen-go-zero/zrpc/internal/codes"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"

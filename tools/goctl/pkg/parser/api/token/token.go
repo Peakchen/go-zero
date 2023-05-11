@@ -3,8 +3,8 @@ package token
 import (
 	"fmt"
 
-	"github.com/Peakchen/go-zero/tools/goctl/pkg/parser/api/placeholder"
-	"github.com/Peakchen/go-zero/tools/goctl/util"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/parser/api/placeholder"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util"
 )
 
 const (

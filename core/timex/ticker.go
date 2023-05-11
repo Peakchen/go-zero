@@ -4,7 +4,7 @@ import (
 	"errors"
 	"time"
 
-	"github.com/Peakchen/go-zero/core/lang"
+	"github.com/Peakchen/peakchen-go-zero/core/lang"
 )
 
 // errTimeout indicates a timeout.

@@ -3,11 +3,11 @@ package zrpc
 import (
 	"time"
 
-	"github.com/Peakchen/go-zero/core/discov"
-	"github.com/Peakchen/go-zero/core/service"
-	"github.com/Peakchen/go-zero/core/stores/redis"
-	"github.com/Peakchen/go-zero/zrpc/internal"
-	"github.com/Peakchen/go-zero/zrpc/resolver"
+	"github.com/Peakchen/peakchen-go-zero/core/discov"
+	"github.com/Peakchen/peakchen-go-zero/core/service"
+	"github.com/Peakchen/peakchen-go-zero/core/stores/redis"
+	"github.com/Peakchen/peakchen-go-zero/zrpc/internal"
+	"github.com/Peakchen/peakchen-go-zero/zrpc/resolver"
 )
 
 type (

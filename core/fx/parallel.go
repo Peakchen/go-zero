@@ -1,6 +1,6 @@
 package fx
 
-import "github.com/Peakchen/go-zero/core/threading"
+import "github.com/Peakchen/peakchen-go-zero/core/threading"
 
 // Parallel runs fns parallelly and waits for done.
 func Parallel(fns ...func()) {

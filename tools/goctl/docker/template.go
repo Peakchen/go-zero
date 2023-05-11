@@ -3,7 +3,7 @@ package docker
 import (
 	_ "embed"
 
-	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/pathx"
 )
 
 const (

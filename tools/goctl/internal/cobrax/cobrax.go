@@ -5,7 +5,7 @@ import (
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
-	"github.com/Peakchen/go-zero/tools/goctl/internal/flags"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/internal/flags"
 )
 
 type Option func(*cobra.Command)

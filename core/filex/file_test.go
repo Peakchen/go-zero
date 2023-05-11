@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/Peakchen/go-zero/core/fs"
+	"github.com/Peakchen/peakchen-go-zero/core/fs"
 )
 
 const (

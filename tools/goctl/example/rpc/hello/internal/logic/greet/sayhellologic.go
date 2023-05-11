@@ -3,10 +3,10 @@ package greetlogic
 import (
 	"context"
 
-	"github.com/Peakchen/go-zero/tools/goctl/example/rpc/hello/internal/svc"
-	"github.com/Peakchen/go-zero/tools/goctl/example/rpc/hello/pb/hello"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/example/rpc/hello/internal/svc"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/example/rpc/hello/pb/hello"
 
-	"github.com/Peakchen/go-zero/core/logx"
+	"github.com/Peakchen/peakchen-go-zero/core/logx"
 )
 
 type SayHelloLogic struct {

@@ -14,10 +14,10 @@ import (
 	"strings"
 
 	"github.com/spf13/cobra"
-	"github.com/Peakchen/go-zero/tools/goctl/api/parser"
-	"github.com/Peakchen/go-zero/tools/goctl/api/spec"
-	"github.com/Peakchen/go-zero/tools/goctl/rpc/execx"
-	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/api/parser"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/api/spec"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/rpc/execx"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/pathx"
 )
 
 const pluginArg = "_plugin"

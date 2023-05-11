@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"sync"
 
-	"github.com/Peakchen/go-zero/core/lang"
+	"github.com/Peakchen/peakchen-go-zero/core/lang"
 )
 
 const (

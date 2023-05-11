@@ -12,9 +12,9 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/Peakchen/go-zero/core/conf"
-	"github.com/Peakchen/go-zero/core/fs"
-	"github.com/Peakchen/go-zero/core/logx"
+	"github.com/Peakchen/peakchen-go-zero/core/conf"
+	"github.com/Peakchen/peakchen-go-zero/core/fs"
+	"github.com/Peakchen/peakchen-go-zero/core/logx"
 )
 
 const (

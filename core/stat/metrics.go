@@ -5,9 +5,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Peakchen/go-zero/core/executors"
-	"github.com/Peakchen/go-zero/core/logx"
-	"github.com/Peakchen/go-zero/core/syncx"
+	"github.com/Peakchen/peakchen-go-zero/core/executors"
+	"github.com/Peakchen/peakchen-go-zero/core/logx"
+	"github.com/Peakchen/peakchen-go-zero/core/syncx"
 )
 
 var (

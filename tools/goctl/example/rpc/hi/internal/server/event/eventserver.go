@@ -6,9 +6,9 @@ package server
 import (
 	"context"
 
-	eventlogic "github.com/Peakchen/go-zero/tools/goctl/example/rpc/hi/internal/logic/event"
-	"github.com/Peakchen/go-zero/tools/goctl/example/rpc/hi/internal/svc"
-	"github.com/Peakchen/go-zero/tools/goctl/example/rpc/hi/pb/hi"
+	eventlogic "github.com/Peakchen/peakchen-go-zero/tools/goctl/example/rpc/hi/internal/logic/event"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/example/rpc/hi/internal/svc"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/example/rpc/hi/pb/hi"
 )
 
 type EventServer struct {

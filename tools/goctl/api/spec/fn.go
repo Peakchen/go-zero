@@ -5,8 +5,8 @@ import (
 	"path"
 	"strings"
 
-	"github.com/Peakchen/go-zero/core/stringx"
-	"github.com/Peakchen/go-zero/tools/goctl/util"
+	"github.com/Peakchen/peakchen-go-zero/core/stringx"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util"
 )
 
 const (

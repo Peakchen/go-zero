@@ -6,17 +6,17 @@ import (
 	"os"
 	"time"
 
-	"github.com/Peakchen/go-zero/core/stringx"
-	"github.com/Peakchen/go-zero/tools/goctl/rpc/execx"
-	"github.com/Peakchen/go-zero/tools/goctl/util/console"
-	"github.com/Peakchen/go-zero/tools/goctl/util/ctx"
+	"github.com/Peakchen/peakchen-go-zero/core/stringx"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/rpc/execx"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/console"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/ctx"
 )
 
 const (
 	deprecatedGoZeroMod = "github.com/tal-tech/go-zero"
 	deprecatedBuilderx  = "github.com/tal-tech/go-zero/tools/goctl/model/sql/builderx"
-	replacementBuilderx = "github.com/Peakchen/go-zero/core/stores/builder"
-	goZeroMod           = "github.com/Peakchen/go-zero"
+	replacementBuilderx = "github.com/Peakchen/peakchen-go-zero/core/stores/builder"
+	goZeroMod           = "github.com/Peakchen/peakchen-go-zero"
 )
 
 var errInvalidGoMod = errors.New("it's only working for go module")

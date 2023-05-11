@@ -1,6 +1,6 @@
 package queue
 
-import "github.com/Peakchen/go-zero/core/errorx"
+import "github.com/Peakchen/peakchen-go-zero/core/errorx"
 
 // A MultiPusher is a pusher that can push messages to multiple underlying pushers.
 type MultiPusher struct {

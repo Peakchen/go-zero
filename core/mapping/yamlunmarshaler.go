@@ -3,7 +3,7 @@ package mapping
 import (
 	"io"
 
-	"github.com/Peakchen/go-zero/internal/encoding"
+	"github.com/Peakchen/peakchen-go-zero/internal/encoding"
 )
 
 // UnmarshalYamlBytes unmarshals content into v.

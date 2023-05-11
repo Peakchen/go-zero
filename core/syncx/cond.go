@@ -3,8 +3,8 @@ package syncx
 import (
 	"time"
 
-	"github.com/Peakchen/go-zero/core/lang"
-	"github.com/Peakchen/go-zero/core/timex"
+	"github.com/Peakchen/peakchen-go-zero/core/lang"
+	"github.com/Peakchen/peakchen-go-zero/core/timex"
 )
 
 // A Cond is used to wait for conditions.

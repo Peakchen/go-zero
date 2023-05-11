@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/Peakchen/go-zero/tools/goctl/api/spec"
-	"github.com/Peakchen/go-zero/tools/goctl/pkg/parser/api/ast"
-	"github.com/Peakchen/go-zero/tools/goctl/pkg/parser/api/placeholder"
-	"github.com/Peakchen/go-zero/tools/goctl/pkg/parser/api/token"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/api/spec"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/parser/api/ast"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/parser/api/placeholder"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/parser/api/token"
 )
 
 // Analyzer analyzes the ast and converts it to spec.

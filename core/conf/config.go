@@ -8,9 +8,9 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/Peakchen/go-zero/core/jsonx"
-	"github.com/Peakchen/go-zero/core/mapping"
-	"github.com/Peakchen/go-zero/internal/encoding"
+	"github.com/Peakchen/peakchen-go-zero/core/jsonx"
+	"github.com/Peakchen/peakchen-go-zero/core/mapping"
+	"github.com/Peakchen/peakchen-go-zero/internal/encoding"
 )
 
 const (

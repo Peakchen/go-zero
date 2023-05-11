@@ -4,9 +4,9 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/Peakchen/go-zero/core/discov/internal"
-	"github.com/Peakchen/go-zero/core/logx"
-	"github.com/Peakchen/go-zero/core/syncx"
+	"github.com/Peakchen/peakchen-go-zero/core/discov/internal"
+	"github.com/Peakchen/peakchen-go-zero/core/logx"
+	"github.com/Peakchen/peakchen-go-zero/core/syncx"
 )
 
 type (

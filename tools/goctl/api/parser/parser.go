@@ -5,11 +5,11 @@ import (
 	"path/filepath"
 	"unicode"
 
-	"github.com/Peakchen/go-zero/tools/goctl/api/parser/g4/ast"
-	"github.com/Peakchen/go-zero/tools/goctl/api/parser/g4/gen/api"
-	"github.com/Peakchen/go-zero/tools/goctl/api/spec"
-	"github.com/Peakchen/go-zero/tools/goctl/pkg/env"
-	apiParser "github.com/Peakchen/go-zero/tools/goctl/pkg/parser/api/parser"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/api/parser/g4/ast"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/api/parser/g4/gen/api"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/api/spec"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/env"
+	apiParser "github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/parser/api/parser"
 )
 
 type parser struct {

@@ -1,6 +1,6 @@
 package ast
 
-import "github.com/Peakchen/go-zero/tools/goctl/pkg/parser/api/token"
+import "github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/parser/api/token"
 
 // SyntaxStmt represents a syntax statement.
 type SyntaxStmt struct {

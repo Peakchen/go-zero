@@ -5,9 +5,9 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/Peakchen/go-zero/tools/goctl/model/sql/parser"
-	"github.com/Peakchen/go-zero/tools/goctl/util"
-	"github.com/Peakchen/go-zero/tools/goctl/util/stringx"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/model/sql/parser"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/stringx"
 )
 
 // Key describes cache key

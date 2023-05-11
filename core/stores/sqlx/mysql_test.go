@@ -7,9 +7,9 @@ import (
 
 	"github.com/go-sql-driver/mysql"
 	"github.com/stretchr/testify/assert"
-	"github.com/Peakchen/go-zero/core/breaker"
-	"github.com/Peakchen/go-zero/core/logx"
-	"github.com/Peakchen/go-zero/core/stat"
+	"github.com/Peakchen/peakchen-go-zero/core/breaker"
+	"github.com/Peakchen/peakchen-go-zero/core/logx"
+	"github.com/Peakchen/peakchen-go-zero/core/stat"
 )
 
 func init() {

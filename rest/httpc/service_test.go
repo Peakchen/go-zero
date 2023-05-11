@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/Peakchen/go-zero/rest/internal/header"
+	"github.com/Peakchen/peakchen-go-zero/rest/internal/header"
 )
 
 func TestNamedService_DoRequest(t *testing.T) {

@@ -17,8 +17,8 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/Peakchen/go-zero/core/codec"
-	"github.com/Peakchen/go-zero/rest/httpx"
+	"github.com/Peakchen/peakchen-go-zero/core/codec"
+	"github.com/Peakchen/peakchen-go-zero/rest/httpx"
 )
 
 const timeDiff = time.Hour * 2 * 24

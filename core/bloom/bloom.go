@@ -5,8 +5,8 @@ import (
 	"errors"
 	"strconv"
 
-	"github.com/Peakchen/go-zero/core/hash"
-	"github.com/Peakchen/go-zero/core/stores/redis"
+	"github.com/Peakchen/peakchen-go-zero/core/hash"
+	"github.com/Peakchen/peakchen-go-zero/core/stores/redis"
 )
 
 // for detailed error rate table, see http://pages.cs.wisc.edu/~cao/papers/summary-cache/node8.html

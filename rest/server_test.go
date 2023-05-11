@@ -13,12 +13,12 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/Peakchen/go-zero/core/conf"
-	"github.com/Peakchen/go-zero/core/logx/logtest"
-	"github.com/Peakchen/go-zero/rest/chain"
-	"github.com/Peakchen/go-zero/rest/httpx"
-	"github.com/Peakchen/go-zero/rest/internal/cors"
-	"github.com/Peakchen/go-zero/rest/router"
+	"github.com/Peakchen/peakchen-go-zero/core/conf"
+	"github.com/Peakchen/peakchen-go-zero/core/logx/logtest"
+	"github.com/Peakchen/peakchen-go-zero/rest/chain"
+	"github.com/Peakchen/peakchen-go-zero/rest/httpx"
+	"github.com/Peakchen/peakchen-go-zero/rest/internal/cors"
+	"github.com/Peakchen/peakchen-go-zero/rest/router"
 )
 
 func TestNewServer(t *testing.T) {

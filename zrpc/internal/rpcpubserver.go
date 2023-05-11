@@ -4,8 +4,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/Peakchen/go-zero/core/discov"
-	"github.com/Peakchen/go-zero/core/netx"
+	"github.com/Peakchen/peakchen-go-zero/core/discov"
+	"github.com/Peakchen/peakchen-go-zero/core/netx"
 )
 
 const (

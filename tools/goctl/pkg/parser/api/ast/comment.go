@@ -3,8 +3,8 @@ package ast
 import (
 	"strings"
 
-	"github.com/Peakchen/go-zero/tools/goctl/pkg/parser/api/token"
-	"github.com/Peakchen/go-zero/tools/goctl/util"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/parser/api/token"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util"
 )
 
 // CommentGroup represents a list of comments.

@@ -6,9 +6,9 @@ import (
 	"path/filepath"
 
 	"github.com/spf13/cobra"
-	"github.com/Peakchen/go-zero/tools/goctl/internal/cobrax"
-	"github.com/Peakchen/go-zero/tools/goctl/util/ctx"
-	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/internal/cobrax"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/ctx"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/pathx"
 )
 
 var (

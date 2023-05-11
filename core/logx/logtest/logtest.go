@@ -6,7 +6,7 @@ import (
 	"io"
 	"testing"
 
-	"github.com/Peakchen/go-zero/core/logx"
+	"github.com/Peakchen/peakchen-go-zero/core/logx"
 )
 
 type Buffer struct {

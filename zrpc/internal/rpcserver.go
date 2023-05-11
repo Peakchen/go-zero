@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/Peakchen/go-zero/core/proc"
-	"github.com/Peakchen/go-zero/core/stat"
-	"github.com/Peakchen/go-zero/internal/health"
-	"github.com/Peakchen/go-zero/zrpc/internal/serverinterceptors"
+	"github.com/Peakchen/peakchen-go-zero/core/proc"
+	"github.com/Peakchen/peakchen-go-zero/core/stat"
+	"github.com/Peakchen/peakchen-go-zero/internal/health"
+	"github.com/Peakchen/peakchen-go-zero/zrpc/internal/serverinterceptors"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/health/grpc_health_v1"
 )

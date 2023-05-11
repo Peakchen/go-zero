@@ -6,10 +6,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Peakchen/go-zero/core/lang"
-	"github.com/Peakchen/go-zero/core/logx"
-	"github.com/Peakchen/go-zero/core/syncx"
-	"github.com/Peakchen/go-zero/core/timex"
+	"github.com/Peakchen/peakchen-go-zero/core/lang"
+	"github.com/Peakchen/peakchen-go-zero/core/logx"
+	"github.com/Peakchen/peakchen-go-zero/core/syncx"
+	"github.com/Peakchen/peakchen-go-zero/core/timex"
 	"google.golang.org/grpc"
 )
 

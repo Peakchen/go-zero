@@ -3,7 +3,7 @@ package syncx
 import (
 	"errors"
 
-	"github.com/Peakchen/go-zero/core/lang"
+	"github.com/Peakchen/peakchen-go-zero/core/lang"
 )
 
 // ErrLimitReturn indicates that the more than borrowed elements were returned.

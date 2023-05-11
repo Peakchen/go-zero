@@ -7,13 +7,13 @@ import (
 	"strings"
 
 	"github.com/Peakchen/ddl-parser/parser"
-	"github.com/Peakchen/go-zero/core/collection"
+	"github.com/Peakchen/peakchen-go-zero/core/collection"
 
-	"github.com/Peakchen/go-zero/tools/goctl/model/sql/converter"
-	"github.com/Peakchen/go-zero/tools/goctl/model/sql/model"
-	"github.com/Peakchen/go-zero/tools/goctl/model/sql/util"
-	"github.com/Peakchen/go-zero/tools/goctl/util/console"
-	"github.com/Peakchen/go-zero/tools/goctl/util/stringx"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/model/sql/converter"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/model/sql/model"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/model/sql/util"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/console"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/stringx"
 )
 
 const timeImport = "time.Time"

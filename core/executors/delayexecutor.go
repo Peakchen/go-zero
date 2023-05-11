@@ -4,7 +4,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Peakchen/go-zero/core/threading"
+	"github.com/Peakchen/peakchen-go-zero/core/threading"
 )
 
 // A DelayExecutor delays a tasks on given delay interval.

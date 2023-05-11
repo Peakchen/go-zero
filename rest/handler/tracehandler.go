@@ -3,9 +3,9 @@ package handler
 import (
 	"net/http"
 
-	"github.com/Peakchen/go-zero/core/collection"
-	"github.com/Peakchen/go-zero/core/trace"
-	"github.com/Peakchen/go-zero/rest/internal/response"
+	"github.com/Peakchen/peakchen-go-zero/core/collection"
+	"github.com/Peakchen/peakchen-go-zero/core/trace"
+	"github.com/Peakchen/peakchen-go-zero/rest/internal/response"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/propagation"
 	semconv "go.opentelemetry.io/otel/semconv/v1.4.0"

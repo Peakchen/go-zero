@@ -3,7 +3,7 @@ package rest
 import (
 	"time"
 
-	"github.com/Peakchen/go-zero/core/service"
+	"github.com/Peakchen/peakchen-go-zero/core/service"
 )
 
 type (

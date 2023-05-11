@@ -6,9 +6,9 @@ import (
 	"io"
 	"strings"
 
-	"github.com/Peakchen/go-zero/tools/goctl/api/spec"
-	apiutil "github.com/Peakchen/go-zero/tools/goctl/api/util"
-	"github.com/Peakchen/go-zero/tools/goctl/util"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/api/spec"
+	apiutil "github.com/Peakchen/peakchen-go-zero/tools/goctl/api/util"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util"
 )
 
 const (

@@ -7,8 +7,8 @@ import (
 	"path"
 	"strings"
 
-	"github.com/Peakchen/go-zero/tools/goctl/api/spec"
-	"github.com/Peakchen/go-zero/tools/goctl/api/util"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/api/spec"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/api/util"
 )
 
 const (

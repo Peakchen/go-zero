@@ -7,7 +7,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/Peakchen/go-zero/core/iox"
+	"github.com/Peakchen/peakchen-go-zero/core/iox"
 )
 
 // PropertyError represents a configuration error message.

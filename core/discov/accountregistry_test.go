@@ -4,8 +4,8 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/Peakchen/go-zero/core/discov/internal"
-	"github.com/Peakchen/go-zero/core/stringx"
+	"github.com/Peakchen/peakchen-go-zero/core/discov/internal"
+	"github.com/Peakchen/peakchen-go-zero/core/stringx"
 )
 
 func TestRegisterAccount(t *testing.T) {

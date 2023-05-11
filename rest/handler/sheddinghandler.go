@@ -4,11 +4,11 @@ import (
 	"net/http"
 	"sync"
 
-	"github.com/Peakchen/go-zero/core/load"
-	"github.com/Peakchen/go-zero/core/logx"
-	"github.com/Peakchen/go-zero/core/stat"
-	"github.com/Peakchen/go-zero/rest/httpx"
-	"github.com/Peakchen/go-zero/rest/internal/response"
+	"github.com/Peakchen/peakchen-go-zero/core/load"
+	"github.com/Peakchen/peakchen-go-zero/core/logx"
+	"github.com/Peakchen/peakchen-go-zero/core/stat"
+	"github.com/Peakchen/peakchen-go-zero/rest/httpx"
+	"github.com/Peakchen/peakchen-go-zero/rest/internal/response"
 )
 
 const serviceType = "api"

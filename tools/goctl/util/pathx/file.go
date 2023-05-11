@@ -13,7 +13,7 @@ import (
 	"strings"
 
 	"github.com/logrusorgru/aurora"
-	"github.com/Peakchen/go-zero/tools/goctl/internal/version"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/internal/version"
 )
 
 // NL defines a new line.

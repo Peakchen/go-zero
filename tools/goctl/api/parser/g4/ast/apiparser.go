@@ -8,8 +8,8 @@ import (
 	"strings"
 
 	"github.com/Peakchen/antlr"
-	"github.com/Peakchen/go-zero/tools/goctl/api/parser/g4/gen/api"
-	"github.com/Peakchen/go-zero/tools/goctl/util/console"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/api/parser/g4/gen/api"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/console"
 )
 
 type (

@@ -3,7 +3,7 @@ package contextx
 import (
 	"context"
 
-	"github.com/Peakchen/go-zero/core/mapping"
+	"github.com/Peakchen/peakchen-go-zero/core/mapping"
 )
 
 const contextTagKey = "ctx"

@@ -3,9 +3,9 @@ package handler
 import (
 	"net/http"
 
-	"github.com/Peakchen/go-zero/core/logx"
-	"github.com/Peakchen/go-zero/core/syncx"
-	"github.com/Peakchen/go-zero/rest/internal"
+	"github.com/Peakchen/peakchen-go-zero/core/logx"
+	"github.com/Peakchen/peakchen-go-zero/core/syncx"
+	"github.com/Peakchen/peakchen-go-zero/rest/internal"
 )
 
 // MaxConnsHandler returns a middleware that limit the concurrent connections.

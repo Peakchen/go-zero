@@ -3,7 +3,7 @@ package load
 import (
 	"io"
 
-	"github.com/Peakchen/go-zero/core/syncx"
+	"github.com/Peakchen/peakchen-go-zero/core/syncx"
 )
 
 // A ShedderGroup is a manager to manage key based shedders.

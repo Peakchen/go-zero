@@ -4,8 +4,8 @@ import (
 	"math"
 	"time"
 
-	"github.com/Peakchen/go-zero/core/collection"
-	"github.com/Peakchen/go-zero/core/mathx"
+	"github.com/Peakchen/peakchen-go-zero/core/collection"
+	"github.com/Peakchen/peakchen-go-zero/core/mathx"
 )
 
 const (

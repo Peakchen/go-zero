@@ -1,6 +1,6 @@
 package prof
 
-import "github.com/Peakchen/go-zero/core/utils"
+import "github.com/Peakchen/peakchen-go-zero/core/utils"
 
 type (
 	// A ProfilePoint is a profile time point.

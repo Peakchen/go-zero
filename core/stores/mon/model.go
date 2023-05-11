@@ -4,9 +4,9 @@ import (
 	"context"
 	"strings"
 
-	"github.com/Peakchen/go-zero/core/breaker"
-	"github.com/Peakchen/go-zero/core/logx"
-	"github.com/Peakchen/go-zero/core/timex"
+	"github.com/Peakchen/peakchen-go-zero/core/breaker"
+	"github.com/Peakchen/peakchen-go-zero/core/logx"
+	"github.com/Peakchen/peakchen-go-zero/core/timex"
 	"go.mongodb.org/mongo-driver/mongo"
 	mopt "go.mongodb.org/mongo-driver/mongo/options"
 )

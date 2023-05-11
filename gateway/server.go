@@ -9,12 +9,12 @@ import (
 	"github.com/fullstorydev/grpcurl"
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/jhump/protoreflect/grpcreflect"
-	"github.com/Peakchen/go-zero/core/logx"
-	"github.com/Peakchen/go-zero/core/mr"
-	"github.com/Peakchen/go-zero/gateway/internal"
-	"github.com/Peakchen/go-zero/rest"
-	"github.com/Peakchen/go-zero/rest/httpx"
-	"github.com/Peakchen/go-zero/zrpc"
+	"github.com/Peakchen/peakchen-go-zero/core/logx"
+	"github.com/Peakchen/peakchen-go-zero/core/mr"
+	"github.com/Peakchen/peakchen-go-zero/gateway/internal"
+	"github.com/Peakchen/peakchen-go-zero/rest"
+	"github.com/Peakchen/peakchen-go-zero/rest/httpx"
+	"github.com/Peakchen/peakchen-go-zero/zrpc"
 	"google.golang.org/grpc/codes"
 )
 

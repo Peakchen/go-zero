@@ -17,13 +17,13 @@ import (
 
 	"github.com/alicebob/miniredis/v2"
 	"github.com/stretchr/testify/assert"
-	"github.com/Peakchen/go-zero/core/fx"
-	"github.com/Peakchen/go-zero/core/logx"
-	"github.com/Peakchen/go-zero/core/stat"
-	"github.com/Peakchen/go-zero/core/stores/cache"
-	"github.com/Peakchen/go-zero/core/stores/redis"
-	"github.com/Peakchen/go-zero/core/stores/redis/redistest"
-	"github.com/Peakchen/go-zero/core/stores/sqlx"
+	"github.com/Peakchen/peakchen-go-zero/core/fx"
+	"github.com/Peakchen/peakchen-go-zero/core/logx"
+	"github.com/Peakchen/peakchen-go-zero/core/stat"
+	"github.com/Peakchen/peakchen-go-zero/core/stores/cache"
+	"github.com/Peakchen/peakchen-go-zero/core/stores/redis"
+	"github.com/Peakchen/peakchen-go-zero/core/stores/redis/redistest"
+	"github.com/Peakchen/peakchen-go-zero/core/stores/sqlx"
 )
 
 func init() {

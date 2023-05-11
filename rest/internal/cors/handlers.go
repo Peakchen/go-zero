@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/Peakchen/go-zero/rest/internal/response"
+	"github.com/Peakchen/peakchen-go-zero/rest/internal/response"
 )
 
 const (

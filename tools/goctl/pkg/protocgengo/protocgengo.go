@@ -4,10 +4,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Peakchen/go-zero/tools/goctl/pkg/goctl"
-	"github.com/Peakchen/go-zero/tools/goctl/pkg/golang"
-	"github.com/Peakchen/go-zero/tools/goctl/rpc/execx"
-	"github.com/Peakchen/go-zero/tools/goctl/util/env"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/goctl"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/golang"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/rpc/execx"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/env"
 )
 
 const (

@@ -6,7 +6,7 @@ import (
 	"context"
 	"database/sql"
 
-	"github.com/Peakchen/go-zero/core/stores/sqlx"
+	"github.com/Peakchen/peakchen-go-zero/core/stores/sqlx"
 )
 
 type (

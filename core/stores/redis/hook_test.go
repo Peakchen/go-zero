@@ -9,8 +9,8 @@ import (
 
 	red "github.com/go-redis/redis/v8"
 	"github.com/stretchr/testify/assert"
-	"github.com/Peakchen/go-zero/core/logx/logtest"
-	ztrace "github.com/Peakchen/go-zero/core/trace"
+	"github.com/Peakchen/peakchen-go-zero/core/logx/logtest"
+	ztrace "github.com/Peakchen/peakchen-go-zero/core/trace"
 	tracesdk "go.opentelemetry.io/otel/trace"
 )
 

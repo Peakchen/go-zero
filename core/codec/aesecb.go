@@ -7,7 +7,7 @@ import (
 	"encoding/base64"
 	"errors"
 
-	"github.com/Peakchen/go-zero/core/logx"
+	"github.com/Peakchen/peakchen-go-zero/core/logx"
 )
 
 // ErrPaddingSize indicates bad padding size.

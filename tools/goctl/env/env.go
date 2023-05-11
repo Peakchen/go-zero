@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/spf13/cobra"
-	"github.com/Peakchen/go-zero/tools/goctl/pkg/env"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/env"
 )
 
 func write(_ *cobra.Command, args []string) error {

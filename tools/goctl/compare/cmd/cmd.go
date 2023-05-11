@@ -2,8 +2,8 @@ package cmd
 
 import (
 	"github.com/spf13/cobra"
-	"github.com/Peakchen/go-zero/tools/goctl/compare/testdata"
-	"github.com/Peakchen/go-zero/tools/goctl/util/console"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/compare/testdata"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/console"
 )
 
 var rootCmd = &cobra.Command{

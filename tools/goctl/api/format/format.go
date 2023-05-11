@@ -12,12 +12,12 @@ import (
 	"strings"
 
 	"github.com/spf13/cobra"
-	"github.com/Peakchen/go-zero/core/errorx"
-	"github.com/Peakchen/go-zero/tools/goctl/api/parser"
-	"github.com/Peakchen/go-zero/tools/goctl/api/util"
-	"github.com/Peakchen/go-zero/tools/goctl/pkg/env"
-	apiF "github.com/Peakchen/go-zero/tools/goctl/pkg/parser/api/format"
-	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/peakchen-go-zero/core/errorx"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/api/parser"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/api/util"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/env"
+	apiF "github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/parser/api/format"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/pathx"
 )
 
 const (

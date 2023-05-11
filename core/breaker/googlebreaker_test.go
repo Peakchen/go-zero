@@ -7,9 +7,9 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/Peakchen/go-zero/core/collection"
-	"github.com/Peakchen/go-zero/core/mathx"
-	"github.com/Peakchen/go-zero/core/stat"
+	"github.com/Peakchen/peakchen-go-zero/core/collection"
+	"github.com/Peakchen/peakchen-go-zero/core/mathx"
+	"github.com/Peakchen/peakchen-go-zero/core/stat"
 )
 
 const (

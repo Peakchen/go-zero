@@ -3,7 +3,7 @@ package new
 import (
 	"fmt"
 
-	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/pathx"
 )
 
 const (

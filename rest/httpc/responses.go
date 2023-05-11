@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/Peakchen/go-zero/core/mapping"
-	"github.com/Peakchen/go-zero/rest/internal/encoding"
-	"github.com/Peakchen/go-zero/rest/internal/header"
+	"github.com/Peakchen/peakchen-go-zero/core/mapping"
+	"github.com/Peakchen/peakchen-go-zero/rest/internal/encoding"
+	"github.com/Peakchen/peakchen-go-zero/rest/internal/header"
 )
 
 // Parse parses the response.

@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/Peakchen/go-zero/tools/goctl/api/spec"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/api/spec"
 )
 
 func TestGenTsType(t *testing.T) {

@@ -10,8 +10,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/Peakchen/go-zero/core/lang"
-	"github.com/Peakchen/go-zero/core/stringx"
+	"github.com/Peakchen/peakchen-go-zero/core/lang"
+	"github.com/Peakchen/peakchen-go-zero/core/stringx"
 )
 
 const (

@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Peakchen/go-zero/core/logx"
-	"github.com/Peakchen/go-zero/core/mapping"
+	"github.com/Peakchen/peakchen-go-zero/core/logx"
+	"github.com/Peakchen/peakchen-go-zero/core/mapping"
 )
 
 var errUnbalancedEscape = errors.New("no char after escape char")

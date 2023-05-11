@@ -3,7 +3,7 @@ package spec_test
 import (
 	"fmt"
 
-	"github.com/Peakchen/go-zero/tools/goctl/api/spec"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/api/spec"
 )
 
 func ExampleMember_GetEnumOptions() {

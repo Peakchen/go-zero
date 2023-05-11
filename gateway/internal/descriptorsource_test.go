@@ -10,7 +10,7 @@ import (
 	"github.com/fullstorydev/grpcurl"
 	"github.com/jhump/protoreflect/desc"
 	"github.com/stretchr/testify/assert"
-	"github.com/Peakchen/go-zero/core/hash"
+	"github.com/Peakchen/peakchen-go-zero/core/hash"
 )
 
 const (

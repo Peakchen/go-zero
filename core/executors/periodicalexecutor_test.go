@@ -8,8 +8,8 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/Peakchen/go-zero/core/proc"
-	"github.com/Peakchen/go-zero/core/timex"
+	"github.com/Peakchen/peakchen-go-zero/core/proc"
+	"github.com/Peakchen/peakchen-go-zero/core/timex"
 )
 
 const threshold = 10

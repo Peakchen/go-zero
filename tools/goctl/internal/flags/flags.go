@@ -10,7 +10,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/Peakchen/go-zero/tools/goctl/util"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util"
 )
 
 //go:embed default_en.json

@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/Peakchen/go-zero/core/mapping"
+	"github.com/Peakchen/peakchen-go-zero/core/mapping"
 )
 
 const tagName = "db"

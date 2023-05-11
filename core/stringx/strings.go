@@ -4,7 +4,7 @@ import (
 	"errors"
 	"unicode"
 
-	"github.com/Peakchen/go-zero/core/lang"
+	"github.com/Peakchen/peakchen-go-zero/core/lang"
 )
 
 var (

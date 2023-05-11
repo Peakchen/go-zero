@@ -6,9 +6,9 @@ package server
 import (
 	"context"
 
-	greetlogic "github.com/Peakchen/go-zero/tools/goctl/example/rpc/hello/internal/logic/greet"
-	"github.com/Peakchen/go-zero/tools/goctl/example/rpc/hello/internal/svc"
-	"github.com/Peakchen/go-zero/tools/goctl/example/rpc/hello/pb/hello"
+	greetlogic "github.com/Peakchen/peakchen-go-zero/tools/goctl/example/rpc/hello/internal/logic/greet"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/example/rpc/hello/internal/svc"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/example/rpc/hello/pb/hello"
 )
 
 type GreetServer struct {

@@ -7,10 +7,10 @@ import (
 	"strings"
 
 	"github.com/spf13/cobra"
-	"github.com/Peakchen/go-zero/tools/goctl/rpc/generator"
-	"github.com/Peakchen/go-zero/tools/goctl/util"
-	"github.com/Peakchen/go-zero/tools/goctl/util/console"
-	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/rpc/generator"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/console"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/pathx"
 )
 
 var (

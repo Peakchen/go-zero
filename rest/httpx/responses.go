@@ -7,9 +7,9 @@ import (
 	"net/http"
 	"sync"
 
-	"github.com/Peakchen/go-zero/core/logx"
-	"github.com/Peakchen/go-zero/rest/internal/errcode"
-	"github.com/Peakchen/go-zero/rest/internal/header"
+	"github.com/Peakchen/peakchen-go-zero/core/logx"
+	"github.com/Peakchen/peakchen-go-zero/rest/internal/errcode"
+	"github.com/Peakchen/peakchen-go-zero/rest/internal/header"
 )
 
 var (

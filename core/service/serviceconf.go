@@ -1,13 +1,13 @@
 package service
 
 import (
-	"github.com/Peakchen/go-zero/core/load"
-	"github.com/Peakchen/go-zero/core/logx"
-	"github.com/Peakchen/go-zero/core/proc"
-	"github.com/Peakchen/go-zero/core/prometheus"
-	"github.com/Peakchen/go-zero/core/stat"
-	"github.com/Peakchen/go-zero/core/trace"
-	"github.com/Peakchen/go-zero/internal/devserver"
+	"github.com/Peakchen/peakchen-go-zero/core/load"
+	"github.com/Peakchen/peakchen-go-zero/core/logx"
+	"github.com/Peakchen/peakchen-go-zero/core/proc"
+	"github.com/Peakchen/peakchen-go-zero/core/prometheus"
+	"github.com/Peakchen/peakchen-go-zero/core/stat"
+	"github.com/Peakchen/peakchen-go-zero/core/trace"
+	"github.com/Peakchen/peakchen-go-zero/internal/devserver"
 )
 
 const (

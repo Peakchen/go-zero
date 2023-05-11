@@ -3,7 +3,7 @@ package mon
 import (
 	"context"
 
-	"github.com/Peakchen/go-zero/core/trace"
+	"github.com/Peakchen/peakchen-go-zero/core/trace"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/codes"

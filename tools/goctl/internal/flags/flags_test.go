@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/Peakchen/go-zero/tools/goctl/test"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/test"
 )
 
 func TestFlags_Get(t *testing.T) {

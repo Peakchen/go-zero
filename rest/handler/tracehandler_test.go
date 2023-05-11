@@ -9,9 +9,9 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	ztrace "github.com/Peakchen/go-zero/core/trace"
-	"github.com/Peakchen/go-zero/core/trace/tracetest"
-	"github.com/Peakchen/go-zero/rest/chain"
+	ztrace "github.com/Peakchen/peakchen-go-zero/core/trace"
+	"github.com/Peakchen/peakchen-go-zero/core/trace/tracetest"
+	"github.com/Peakchen/peakchen-go-zero/rest/chain"
 	"go.opentelemetry.io/otel"
 	tcodes "go.opentelemetry.io/otel/codes"
 	"go.opentelemetry.io/otel/propagation"

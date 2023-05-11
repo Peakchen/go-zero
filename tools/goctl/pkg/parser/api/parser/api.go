@@ -5,9 +5,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/Peakchen/go-zero/tools/goctl/pkg/parser/api/ast"
-	"github.com/Peakchen/go-zero/tools/goctl/pkg/parser/api/placeholder"
-	"github.com/Peakchen/go-zero/tools/goctl/pkg/parser/api/token"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/parser/api/ast"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/parser/api/placeholder"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/parser/api/token"
 )
 
 // API is the parsed api file.

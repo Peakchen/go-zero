@@ -6,9 +6,9 @@ import (
 	"path"
 	"strings"
 
-	"github.com/Peakchen/go-zero/core/search"
-	"github.com/Peakchen/go-zero/rest/httpx"
-	"github.com/Peakchen/go-zero/rest/pathvar"
+	"github.com/Peakchen/peakchen-go-zero/core/search"
+	"github.com/Peakchen/peakchen-go-zero/rest/httpx"
+	"github.com/Peakchen/peakchen-go-zero/rest/pathvar"
 )
 
 const (

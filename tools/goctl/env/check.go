@@ -6,11 +6,11 @@ import (
 	"time"
 
 	"github.com/spf13/cobra"
-	"github.com/Peakchen/go-zero/tools/goctl/pkg/env"
-	"github.com/Peakchen/go-zero/tools/goctl/pkg/protoc"
-	"github.com/Peakchen/go-zero/tools/goctl/pkg/protocgengo"
-	"github.com/Peakchen/go-zero/tools/goctl/pkg/protocgengogrpc"
-	"github.com/Peakchen/go-zero/tools/goctl/util/console"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/env"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/protoc"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/protocgengo"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/protocgengogrpc"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/console"
 )
 
 type bin struct {

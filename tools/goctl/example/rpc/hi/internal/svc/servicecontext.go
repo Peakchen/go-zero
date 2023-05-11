@@ -1,6 +1,6 @@
 package svc
 
-import "github.com/Peakchen/go-zero/tools/goctl/example/rpc/hi/internal/config"
+import "github.com/Peakchen/peakchen-go-zero/tools/goctl/example/rpc/hi/internal/config"
 
 type ServiceContext struct {
 	Config config.Config

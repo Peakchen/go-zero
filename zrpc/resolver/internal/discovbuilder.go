@@ -3,9 +3,9 @@ package internal
 import (
 	"strings"
 
-	"github.com/Peakchen/go-zero/core/discov"
-	"github.com/Peakchen/go-zero/core/logx"
-	"github.com/Peakchen/go-zero/zrpc/resolver/internal/targets"
+	"github.com/Peakchen/peakchen-go-zero/core/discov"
+	"github.com/Peakchen/peakchen-go-zero/core/logx"
+	"github.com/Peakchen/peakchen-go-zero/zrpc/resolver/internal/targets"
 	"google.golang.org/grpc/resolver"
 )
 

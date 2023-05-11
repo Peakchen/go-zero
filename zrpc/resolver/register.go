@@ -1,7 +1,7 @@
 package resolver
 
 import (
-	"github.com/Peakchen/go-zero/zrpc/resolver/internal"
+	"github.com/Peakchen/peakchen-go-zero/zrpc/resolver/internal"
 )
 
 // Register registers schemes defined zrpc.

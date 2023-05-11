@@ -6,8 +6,8 @@ import (
 	"strings"
 
 	"github.com/spf13/cobra"
-	"github.com/Peakchen/go-zero/core/logx"
-	"github.com/Peakchen/go-zero/tools/goctl/api/parser"
+	"github.com/Peakchen/peakchen-go-zero/core/logx"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/api/parser"
 )
 
 var (

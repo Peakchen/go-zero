@@ -14,8 +14,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Peakchen/go-zero/core/fs"
-	"github.com/Peakchen/go-zero/core/lang"
+	"github.com/Peakchen/peakchen-go-zero/core/fs"
+	"github.com/Peakchen/peakchen-go-zero/core/lang"
 )
 
 const (

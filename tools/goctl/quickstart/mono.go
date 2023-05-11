@@ -5,11 +5,11 @@ import (
 	"io/ioutil"
 	"path/filepath"
 
-	"github.com/Peakchen/go-zero/core/logx"
-	"github.com/Peakchen/go-zero/tools/goctl/api/gogen"
-	"github.com/Peakchen/go-zero/tools/goctl/pkg/golang"
-	"github.com/Peakchen/go-zero/tools/goctl/util"
-	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/peakchen-go-zero/core/logx"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/api/gogen"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/pkg/golang"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util"
+	"github.com/Peakchen/peakchen-go-zero/tools/goctl/util/pathx"
 )
 
 var (

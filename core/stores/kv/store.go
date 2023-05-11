@@ -5,10 +5,10 @@ import (
 	"errors"
 	"log"
 
-	"github.com/Peakchen/go-zero/core/errorx"
-	"github.com/Peakchen/go-zero/core/hash"
-	"github.com/Peakchen/go-zero/core/stores/cache"
-	"github.com/Peakchen/go-zero/core/stores/redis"
+	"github.com/Peakchen/peakchen-go-zero/core/errorx"
+	"github.com/Peakchen/peakchen-go-zero/core/hash"
+	"github.com/Peakchen/peakchen-go-zero/core/stores/cache"
+	"github.com/Peakchen/peakchen-go-zero/core/stores/redis"
 )
 
 // ErrNoRedisNode is an error that indicates no redis node.
