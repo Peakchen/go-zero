@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/zeromicro/go-zero/core/proc"
+	"github.com/Peakchen/go-zero/core/proc"
 )
 
 func TestStartHttp(t *testing.T) {

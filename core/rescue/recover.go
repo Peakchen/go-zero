@@ -1,6 +1,6 @@
 package rescue
 
-import "github.com/zeromicro/go-zero/core/logx"
+import "github.com/Peakchen/go-zero/core/logx"
 
 // Recover is used with defer to do cleanup on panics.
 // Use it like:

@@ -4,8 +4,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/zeromicro/go-zero/core/logx"
-	"github.com/zeromicro/go-zero/core/stat"
+	"github.com/Peakchen/go-zero/core/logx"
+	"github.com/Peakchen/go-zero/core/stat"
 )
 
 type (

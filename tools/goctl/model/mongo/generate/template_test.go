@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/zeromicro/go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
 )
 
 func TestTemplate(t *testing.T) {

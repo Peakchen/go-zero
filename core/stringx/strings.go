@@ -4,7 +4,7 @@ import (
 	"errors"
 	"unicode"
 
-	"github.com/zeromicro/go-zero/core/lang"
+	"github.com/Peakchen/go-zero/core/lang"
 )
 
 var (

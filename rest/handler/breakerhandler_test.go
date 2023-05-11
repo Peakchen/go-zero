@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/zeromicro/go-zero/core/stat"
+	"github.com/Peakchen/go-zero/core/stat"
 )
 
 func init() {

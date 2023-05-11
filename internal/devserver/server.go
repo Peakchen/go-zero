@@ -9,10 +9,10 @@ import (
 
 	"github.com/felixge/fgprof"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
-	"github.com/zeromicro/go-zero/core/logx"
-	"github.com/zeromicro/go-zero/core/prometheus"
-	"github.com/zeromicro/go-zero/core/threading"
-	"github.com/zeromicro/go-zero/internal/health"
+	"github.com/Peakchen/go-zero/core/logx"
+	"github.com/Peakchen/go-zero/core/prometheus"
+	"github.com/Peakchen/go-zero/core/threading"
+	"github.com/Peakchen/go-zero/internal/health"
 )
 
 var once sync.Once

@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/zeromicro/go-zero/core/logx/logtest"
+	"github.com/Peakchen/go-zero/core/logx/logtest"
 )
 
 const content = "foo"

@@ -7,11 +7,11 @@ go-zero is a web and rpc framework with lots of builtin engineering practices. I
 
 <div align=center>
 
-[![Go](https://github.com/zeromicro/go-zero/workflows/Go/badge.svg?branch=master)](https://github.com/zeromicro/go-zero/actions)
+[![Go](https://github.com/Peakchen/go-zero/workflows/Go/badge.svg?branch=master)](https://github.com/Peakchen/go-zero/actions)
 [![codecov](https://codecov.io/gh/zeromicro/go-zero/branch/master/graph/badge.svg)](https://codecov.io/gh/zeromicro/go-zero)
-[![Go Report Card](https://goreportcard.com/badge/github.com/zeromicro/go-zero)](https://goreportcard.com/report/github.com/zeromicro/go-zero)
-[![Release](https://img.shields.io/github/v/release/zeromicro/go-zero.svg?style=flat-square)](https://github.com/zeromicro/go-zero)
-[![Go Reference](https://pkg.go.dev/badge/github.com/zeromicro/go-zero.svg)](https://pkg.go.dev/github.com/zeromicro/go-zero)
+[![Go Report Card](https://goreportcard.com/badge/github.com/Peakchen/go-zero)](https://goreportcard.com/report/github.com/Peakchen/go-zero)
+[![Release](https://img.shields.io/github/v/release/zeromicro/go-zero.svg?style=flat-square)](https://github.com/Peakchen/go-zero)
+[![Go Reference](https://pkg.go.dev/badge/github.com/Peakchen/go-zero.svg)](https://pkg.go.dev/github.com/Peakchen/go-zero)
 [![Awesome Go](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/avelino/awesome-go)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Discord](https://img.shields.io/discord/794530774463414292?label=chat&logo=discord)](https://discord.gg/4JQvC5A4Fe)
@@ -100,14 +100,14 @@ As below, go-zero protects the system with a couple of layers and mechanisms:
 Run the following command under your project:
 
 ```shell
-go get -u github.com/zeromicro/go-zero
+go get -u github.com/Peakchen/go-zero
 ```
 ## Upgrade
 
 To upgrade from versions eariler than v1.3.0, run the following commands.
 
 ```shell
-go install github.com/zeromicro/go-zero/tools/goctl@latest
+go install github.com/Peakchen/go-zero/tools/goctl@latest
 ```
 
 ```shell
@@ -118,9 +118,9 @@ goctl migrate —verbose —version v1.5.2
 
 1. full examples can be checked out from below:
 
-     [Rapid development of microservice systems](https://github.com/zeromicro/zero-doc/blob/main/doc/shorturl-en.md)
+     [Rapid development of microservice systems](https://github.com/Peakchen/zero-doc/blob/main/doc/shorturl-en.md)
 
-     [Rapid development of microservice systems - multiple RPCs](https://github.com/zeromicro/zero-doc/blob/main/docs/zero/bookstore-en.md)
+     [Rapid development of microservice systems - multiple RPCs](https://github.com/Peakchen/zero-doc/blob/main/docs/zero/bookstore-en.md)
 
 2. install goctl
 
@@ -128,7 +128,7 @@ goctl migrate —verbose —version v1.5.2
 
    ```shell
    # for Go
-   go install github.com/zeromicro/go-zero/tools/goctl@latest
+   go install github.com/Peakchen/go-zero/tools/goctl@latest
    
    # For Mac
    brew install goctl
@@ -246,9 +246,9 @@ goctl migrate —verbose —version v1.5.2
 ## Documents
 
 * [Documents](https://go-zero.dev/)
-* [Rapid development of microservice systems](https://github.com/zeromicro/zero-doc/blob/main/doc/shorturl-en.md)
-* [Rapid development of microservice systems - multiple RPCs](https://github.com/zeromicro/zero-doc/blob/main/docs/zero/bookstore-en.md)
-* [Examples](https://github.com/zeromicro/zero-examples)
+* [Rapid development of microservice systems](https://github.com/Peakchen/zero-doc/blob/main/doc/shorturl-en.md)
+* [Rapid development of microservice systems - multiple RPCs](https://github.com/Peakchen/zero-doc/blob/main/docs/zero/bookstore-en.md)
+* [Examples](https://github.com/Peakchen/zero-examples)
 
 ##  Chat group
 

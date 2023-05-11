@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/zeromicro/go-zero/rest/httpx"
+	"github.com/Peakchen/go-zero/rest/httpx"
 )
 
 const gzipEncoding = "gzip"

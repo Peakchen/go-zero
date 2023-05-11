@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/zeromicro/go-zero/core/logx"
-	"github.com/zeromicro/go-zero/core/proc"
-	"github.com/zeromicro/go-zero/internal/health"
+	"github.com/Peakchen/go-zero/core/logx"
+	"github.com/Peakchen/go-zero/core/proc"
+	"github.com/Peakchen/go-zero/internal/health"
 )
 
 const probeNamePrefix = "rest"

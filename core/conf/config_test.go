@@ -6,8 +6,8 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/zeromicro/go-zero/core/fs"
-	"github.com/zeromicro/go-zero/core/hash"
+	"github.com/Peakchen/go-zero/core/fs"
+	"github.com/Peakchen/go-zero/core/hash"
 )
 
 var dupErr conflictKeyError

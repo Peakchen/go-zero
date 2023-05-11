@@ -6,9 +6,9 @@ import (
 	"sync"
 
 	"github.com/prometheus/client_golang/prometheus/promhttp"
-	"github.com/zeromicro/go-zero/core/logx"
-	"github.com/zeromicro/go-zero/core/syncx"
-	"github.com/zeromicro/go-zero/core/threading"
+	"github.com/Peakchen/go-zero/core/logx"
+	"github.com/Peakchen/go-zero/core/syncx"
+	"github.com/Peakchen/go-zero/core/threading"
 )
 
 var (

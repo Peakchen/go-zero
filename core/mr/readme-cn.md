@@ -54,7 +54,7 @@ import (
     "fmt"
     "log"
 
-    "github.com/zeromicro/go-zero/core/mr"
+    "github.com/Peakchen/go-zero/core/mr"
 )
 
 func main() {
@@ -81,7 +81,7 @@ func main() {
 }
 ```
 
-更多示例：[https://github.com/zeromicro/zero-examples/tree/main/mapreduce](https://github.com/zeromicro/zero-examples/tree/main/mapreduce)
+更多示例：[https://github.com/Peakchen/zero-examples/tree/main/mapreduce](https://github.com/Peakchen/zero-examples/tree/main/mapreduce)
 
 ## 欢迎 star！⭐
 

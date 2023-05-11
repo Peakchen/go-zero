@@ -6,7 +6,7 @@ import (
 
 	"github.com/logrusorgru/aurora"
 	"github.com/spf13/cobra"
-	"github.com/zeromicro/go-zero/tools/goctl/api/parser"
+	"github.com/Peakchen/go-zero/tools/goctl/api/parser"
 )
 
 // VarStringAPI describes an API.

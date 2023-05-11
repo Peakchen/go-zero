@@ -6,11 +6,11 @@ import (
 	"os"
 	"path"
 
-	"github.com/zeromicro/go-zero/core/conf"
-	"github.com/zeromicro/go-zero/core/hash"
-	"github.com/zeromicro/go-zero/core/logx"
-	"github.com/zeromicro/go-zero/tools/goctl/update/config"
-	"github.com/zeromicro/go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/go-zero/core/conf"
+	"github.com/Peakchen/go-zero/core/hash"
+	"github.com/Peakchen/go-zero/core/logx"
+	"github.com/Peakchen/go-zero/tools/goctl/update/config"
+	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
 )
 
 const (

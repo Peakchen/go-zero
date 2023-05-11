@@ -1,6 +1,6 @@
 package main
 
-import "github.com/zeromicro/go-zero/tools/goctl/compare/cmd"
+import "github.com/Peakchen/go-zero/tools/goctl/compare/cmd"
 
 // EXPRIMENTAL: compare goctl generated code results between old and new, it will be removed in the feature.
 // TODO: BEFORE RUNNING: export DSN=$datasource, the database must be gozero, and there has no limit for tables.

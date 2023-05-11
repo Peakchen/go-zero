@@ -8,8 +8,8 @@ import (
 	"time"
 
 	"github.com/olekukonko/tablewriter"
-	"github.com/zeromicro/go-zero/core/logx"
-	"github.com/zeromicro/go-zero/core/threading"
+	"github.com/Peakchen/go-zero/core/logx"
+	"github.com/Peakchen/go-zero/core/threading"
 )
 
 type (

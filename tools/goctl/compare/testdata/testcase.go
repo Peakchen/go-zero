@@ -34,22 +34,22 @@ var (
 		{
 			IsDir: true,
 			Path:  "api/sample_file/remote",
-			Cmd:   "goctl api --o sample.api --remote https://github.com/zeromicro/go-zero-template --branch main",
+			Cmd:   "goctl api --o sample.api --remote https://github.com/Peakchen/go-zero-template --branch main",
 		},
 		{
 			IsDir: true,
 			Path:  "api/sample_file/remote/shorthand",
-			Cmd:   "goctl api -o sample.api -remote https://github.com/zeromicro/go-zero-template -branch main",
+			Cmd:   "goctl api -o sample.api -remote https://github.com/Peakchen/go-zero-template -branch main",
 		},
 		{
 			IsDir: true,
 			Path:  "api/sample_file/remote/assign",
-			Cmd:   "goctl api --o=sample.api --remote https://github.com/zeromicro/go-zero-template --branch=main",
+			Cmd:   "goctl api --o=sample.api --remote https://github.com/Peakchen/go-zero-template --branch=main",
 		},
 		{
 			IsDir: true,
 			Path:  "api/sample_file/remote/assign/shorthand",
-			Cmd:   "goctl api -o=sample.api -remote https://github.com/zeromicro/go-zero-template -branch=main",
+			Cmd:   "goctl api -o=sample.api -remote https://github.com/Peakchen/go-zero-template -branch=main",
 		},
 		{
 			IsDir: true,

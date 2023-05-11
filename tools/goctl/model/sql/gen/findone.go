@@ -1,10 +1,10 @@
 package gen
 
 import (
-	"github.com/zeromicro/go-zero/tools/goctl/model/sql/template"
-	"github.com/zeromicro/go-zero/tools/goctl/util"
-	"github.com/zeromicro/go-zero/tools/goctl/util/pathx"
-	"github.com/zeromicro/go-zero/tools/goctl/util/stringx"
+	"github.com/Peakchen/go-zero/tools/goctl/model/sql/template"
+	"github.com/Peakchen/go-zero/tools/goctl/util"
+	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/go-zero/tools/goctl/util/stringx"
 )
 
 func genFindOne(table Table, withCache, postgreSql bool) (string, string, error) {

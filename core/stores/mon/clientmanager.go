@@ -4,7 +4,7 @@ import (
 	"context"
 	"io"
 
-	"github.com/zeromicro/go-zero/core/syncx"
+	"github.com/Peakchen/go-zero/core/syncx"
 	"go.mongodb.org/mongo-driver/mongo"
 	mopt "go.mongodb.org/mongo-driver/mongo/options"
 )

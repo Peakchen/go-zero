@@ -12,7 +12,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/stretchr/testify/assert"
-	"github.com/zeromicro/go-zero/core/stringx"
+	"github.com/Peakchen/go-zero/core/stringx"
 )
 
 // because json.Number doesn't support strconv.ParseUint(...),

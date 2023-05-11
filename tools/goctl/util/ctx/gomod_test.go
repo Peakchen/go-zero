@@ -9,9 +9,9 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/zeromicro/go-zero/core/stringx"
-	"github.com/zeromicro/go-zero/tools/goctl/rpc/execx"
-	"github.com/zeromicro/go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/go-zero/core/stringx"
+	"github.com/Peakchen/go-zero/tools/goctl/rpc/execx"
+	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
 )
 
 func TestProjectFromGoMod(t *testing.T) {

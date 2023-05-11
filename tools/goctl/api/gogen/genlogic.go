@@ -7,12 +7,12 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/zeromicro/go-zero/tools/goctl/api/parser/g4/gen/api"
-	"github.com/zeromicro/go-zero/tools/goctl/api/spec"
-	"github.com/zeromicro/go-zero/tools/goctl/config"
-	"github.com/zeromicro/go-zero/tools/goctl/util/format"
-	"github.com/zeromicro/go-zero/tools/goctl/util/pathx"
-	"github.com/zeromicro/go-zero/tools/goctl/vars"
+	"github.com/Peakchen/go-zero/tools/goctl/api/parser/g4/gen/api"
+	"github.com/Peakchen/go-zero/tools/goctl/api/spec"
+	"github.com/Peakchen/go-zero/tools/goctl/config"
+	"github.com/Peakchen/go-zero/tools/goctl/util/format"
+	"github.com/Peakchen/go-zero/tools/goctl/util/pathx"
+	"github.com/Peakchen/go-zero/tools/goctl/vars"
 )
 
 //go:embed logic.tpl

@@ -1,6 +1,6 @@
 package ast
 
-import "github.com/zeromicro/go-zero/tools/goctl/pkg/parser/api/token"
+import "github.com/Peakchen/go-zero/tools/goctl/pkg/parser/api/token"
 
 // KVExpr is a key value expression.
 type KVExpr struct {

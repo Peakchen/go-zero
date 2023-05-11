@@ -1,7 +1,7 @@
 {
   "goctl": {
     "short": "A cli tool to generate go-zero code",
-    "long": "A cli tool to generate api, zrpc, model code\n\nGitHub: https://github.com/zeromicro/go-zero\nSite:   https://go-zero.dev",
+    "long": "A cli tool to generate api, zrpc, model code\n\nGitHub: https://github.com/Peakchen/go-zero\nSite:   https://go-zero.dev",
     "api": {
       "short": "Generate api related files",
       "o": "Output a sample api file",
@@ -207,7 +207,7 @@
       "short": "Migrate from tal-tech to zeromicro",
       "long": "Migrate is a transition command to help users migrate their projects from tal-tech to zeromicro version",
       "verbose": "Verbose enables extra logging",
-      "version": "The target release version of github.com/zeromicro/go-zero to migrate"
+      "version": "The target release version of github.com/Peakchen/go-zero to migrate"
     },
     "quickstart": {
       "short": "quickly start a project",
@@ -276,8 +276,8 @@
   },
   "global": {
     "home": "The goctl home path of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority",
-    "remote": "The remote git repo of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority\nThe git repo directory must be consistent with the https://github.com/zeromicro/go-zero-template directory structure",
+    "remote": "The remote git repo of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority\nThe git repo directory must be consistent with the https://github.com/Peakchen/go-zero-template directory structure",
     "branch": "The branch of the remote repo, it does work with --remote",
-    "style": "The file naming format, see [https://github.com/zeromicro/go-zero/blob/master/tools/goctl/config/readme.md]"
+    "style": "The file naming format, see [https://github.com/Peakchen/go-zero/blob/master/tools/goctl/config/readme.md]"
   }
 }

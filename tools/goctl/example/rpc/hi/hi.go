@@ -4,15 +4,15 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/zeromicro/go-zero/tools/goctl/example/rpc/hi/internal/config"
-	eventServer "github.com/zeromicro/go-zero/tools/goctl/example/rpc/hi/internal/server/event"
-	greetServer "github.com/zeromicro/go-zero/tools/goctl/example/rpc/hi/internal/server/greet"
-	"github.com/zeromicro/go-zero/tools/goctl/example/rpc/hi/internal/svc"
-	"github.com/zeromicro/go-zero/tools/goctl/example/rpc/hi/pb/hi"
+	"github.com/Peakchen/go-zero/tools/goctl/example/rpc/hi/internal/config"
+	eventServer "github.com/Peakchen/go-zero/tools/goctl/example/rpc/hi/internal/server/event"
+	greetServer "github.com/Peakchen/go-zero/tools/goctl/example/rpc/hi/internal/server/greet"
+	"github.com/Peakchen/go-zero/tools/goctl/example/rpc/hi/internal/svc"
+	"github.com/Peakchen/go-zero/tools/goctl/example/rpc/hi/pb/hi"
 
-	"github.com/zeromicro/go-zero/core/conf"
-	"github.com/zeromicro/go-zero/core/service"
-	"github.com/zeromicro/go-zero/zrpc"
+	"github.com/Peakchen/go-zero/core/conf"
+	"github.com/Peakchen/go-zero/core/service"
+	"github.com/Peakchen/go-zero/zrpc"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 )

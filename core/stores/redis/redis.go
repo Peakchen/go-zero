@@ -8,11 +8,11 @@ import (
 	"time"
 
 	red "github.com/go-redis/redis/v8"
-	"github.com/zeromicro/go-zero/core/breaker"
-	"github.com/zeromicro/go-zero/core/errorx"
-	"github.com/zeromicro/go-zero/core/logx"
-	"github.com/zeromicro/go-zero/core/mapping"
-	"github.com/zeromicro/go-zero/core/syncx"
+	"github.com/Peakchen/go-zero/core/breaker"
+	"github.com/Peakchen/go-zero/core/errorx"
+	"github.com/Peakchen/go-zero/core/logx"
+	"github.com/Peakchen/go-zero/core/mapping"
+	"github.com/Peakchen/go-zero/core/syncx"
 )
 
 const (

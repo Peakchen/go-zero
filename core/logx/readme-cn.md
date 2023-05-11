@@ -92,13 +92,13 @@ type Logger interface {
 ## 与第三方日志库集成
 
 - zap
-  - 实现：[https://github.com/zeromicro/zero-contrib/blob/main/logx/zapx/zap.go](https://github.com/zeromicro/zero-contrib/blob/main/logx/zapx/zap.go)
-  - 使用示例：[https://github.com/zeromicro/zero-examples/blob/main/logx/zaplog/main.go](https://github.com/zeromicro/zero-examples/blob/main/logx/zaplog/main.go)
+  - 实现：[https://github.com/Peakchen/zero-contrib/blob/main/logx/zapx/zap.go](https://github.com/Peakchen/zero-contrib/blob/main/logx/zapx/zap.go)
+  - 使用示例：[https://github.com/Peakchen/zero-examples/blob/main/logx/zaplog/main.go](https://github.com/Peakchen/zero-examples/blob/main/logx/zaplog/main.go)
 - logrus
-  - 实现：[https://github.com/zeromicro/zero-contrib/blob/main/logx/logrusx/logrus.go](https://github.com/zeromicro/zero-contrib/blob/main/logx/logrusx/logrus.go)
-  - 使用示例：[https://github.com/zeromicro/zero-examples/blob/main/logx/logrus/main.go](https://github.com/zeromicro/zero-examples/blob/main/logx/logrus/main.go)
+  - 实现：[https://github.com/Peakchen/zero-contrib/blob/main/logx/logrusx/logrus.go](https://github.com/Peakchen/zero-contrib/blob/main/logx/logrusx/logrus.go)
+  - 使用示例：[https://github.com/Peakchen/zero-examples/blob/main/logx/logrus/main.go](https://github.com/Peakchen/zero-examples/blob/main/logx/logrus/main.go)
 
-对于其它的日志库，请参考上面示例实现，并欢迎提交 `PR` 到 [https://github.com/zeromicro/zero-contrib](https://github.com/zeromicro/zero-contrib)
+对于其它的日志库，请参考上面示例实现，并欢迎提交 `PR` 到 [https://github.com/Peakchen/zero-contrib](https://github.com/Peakchen/zero-contrib)
 
 ## 将日志写到指定的存储
 
@@ -140,7 +140,7 @@ func main() {
 }
 ```
 
-完整代码：[https://github.com/zeromicro/zero-examples/blob/main/logx/tokafka/main.go](https://github.com/zeromicro/zero-examples/blob/main/logx/tokafka/main.go)
+完整代码：[https://github.com/Peakchen/zero-examples/blob/main/logx/tokafka/main.go](https://github.com/Peakchen/zero-examples/blob/main/logx/tokafka/main.go)
 
 ## 过滤敏感字段
 
@@ -195,11 +195,11 @@ func main() {
 }
 ```
 
-完整代码：[https://github.com/zeromicro/zero-examples/blob/main/logx/filterfields/main.go](https://github.com/zeromicro/zero-examples/blob/main/logx/filterfields/main.go)
+完整代码：[https://github.com/Peakchen/zero-examples/blob/main/logx/filterfields/main.go](https://github.com/Peakchen/zero-examples/blob/main/logx/filterfields/main.go)
 
 ## 更多示例
 
-[https://github.com/zeromicro/zero-examples/tree/main/logx](https://github.com/zeromicro/zero-examples/tree/main/logx)
+[https://github.com/Peakchen/zero-examples/tree/main/logx](https://github.com/Peakchen/zero-examples/tree/main/logx)
 
 ## Give a Star! ⭐
 

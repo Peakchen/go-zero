@@ -3,10 +3,10 @@ package greetlogic
 import (
 	"context"
 
-	"github.com/zeromicro/go-zero/tools/goctl/example/rpc/hi/internal/svc"
-	"github.com/zeromicro/go-zero/tools/goctl/example/rpc/hi/pb/hi"
+	"github.com/Peakchen/go-zero/tools/goctl/example/rpc/hi/internal/svc"
+	"github.com/Peakchen/go-zero/tools/goctl/example/rpc/hi/pb/hi"
 
-	"github.com/zeromicro/go-zero/core/logx"
+	"github.com/Peakchen/go-zero/core/logx"
 )
 
 type SayHelloLogic struct {

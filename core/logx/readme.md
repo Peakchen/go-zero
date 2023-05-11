@@ -91,13 +91,13 @@ type Logger interface {
 ## Integrating with third-party logging libs
 
 - zap
-  - implementation: [https://github.com/zeromicro/zero-contrib/blob/main/logx/zapx/zap.go](https://github.com/zeromicro/zero-contrib/blob/main/logx/zapx/zap.go)
-  - usage example: [https://github.com/zeromicro/zero-examples/blob/main/logx/zaplog/main.go](https://github.com/zeromicro/zero-examples/blob/main/logx/zaplog/main.go)
+  - implementation: [https://github.com/Peakchen/zero-contrib/blob/main/logx/zapx/zap.go](https://github.com/Peakchen/zero-contrib/blob/main/logx/zapx/zap.go)
+  - usage example: [https://github.com/Peakchen/zero-examples/blob/main/logx/zaplog/main.go](https://github.com/Peakchen/zero-examples/blob/main/logx/zaplog/main.go)
 - logrus
-  - implementation: [https://github.com/zeromicro/zero-contrib/blob/main/logx/logrusx/logrus.go](https://github.com/zeromicro/zero-contrib/blob/main/logx/logrusx/logrus.go)
-  - usage example: [https://github.com/zeromicro/zero-examples/blob/main/logx/logrus/main.go](https://github.com/zeromicro/zero-examples/blob/main/logx/logrus/main.go)
+  - implementation: [https://github.com/Peakchen/zero-contrib/blob/main/logx/logrusx/logrus.go](https://github.com/Peakchen/zero-contrib/blob/main/logx/logrusx/logrus.go)
+  - usage example: [https://github.com/Peakchen/zero-examples/blob/main/logx/logrus/main.go](https://github.com/Peakchen/zero-examples/blob/main/logx/logrus/main.go)
 
-For more libs, please implement and PR to [https://github.com/zeromicro/zero-contrib](https://github.com/zeromicro/zero-contrib)
+For more libs, please implement and PR to [https://github.com/Peakchen/zero-contrib](https://github.com/Peakchen/zero-contrib)
 
 ## Write the logs to specific stores
 
@@ -139,7 +139,7 @@ func main() {
 }
 ```
 
-Complete code: [https://github.com/zeromicro/zero-examples/blob/main/logx/tokafka/main.go](https://github.com/zeromicro/zero-examples/blob/main/logx/tokafka/main.go)
+Complete code: [https://github.com/Peakchen/zero-examples/blob/main/logx/tokafka/main.go](https://github.com/Peakchen/zero-examples/blob/main/logx/tokafka/main.go)
 
 ## Filtering sensitive fields
 
@@ -194,11 +194,11 @@ func main() {
 }
 ```
 
-Complete code: [https://github.com/zeromicro/zero-examples/blob/main/logx/filterfields/main.go](https://github.com/zeromicro/zero-examples/blob/main/logx/filterfields/main.go)
+Complete code: [https://github.com/Peakchen/zero-examples/blob/main/logx/filterfields/main.go](https://github.com/Peakchen/zero-examples/blob/main/logx/filterfields/main.go)
 
 ## More examples
 
-[https://github.com/zeromicro/zero-examples/tree/main/logx](https://github.com/zeromicro/zero-examples/tree/main/logx)
+[https://github.com/Peakchen/zero-examples/tree/main/logx](https://github.com/Peakchen/zero-examples/tree/main/logx)
 
 ## Give a Star! ⭐
 

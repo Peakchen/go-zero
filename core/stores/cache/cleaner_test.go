@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/zeromicro/go-zero/core/proc"
+	"github.com/Peakchen/go-zero/core/proc"
 )
 
 func TestNextDelay(t *testing.T) {
