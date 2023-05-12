@@ -20,6 +20,10 @@ type (
 		Del(keys ...string) error
 		// DelCtx deletes cached values with keys.
 		DelCtx(ctx context.Context, keys ...string) error
+		// Delx deletes cached values with key and fields.
+		Delx(key string, fields ...string) error {
+		// DelxCtx deletes cached values with key and fields.
+		DelxCtx(ctx context.Context, key string, fields ...string) error
 		// Get gets the cache with key and fills into v.
 		Get(key string, val any) error
 		// GetCtx gets the cache with key and fills into v.
@@ -37,9 +41,15 @@ type (
 		// Take takes the result from cache first, if not found,
 		// query from DB and set cache using c.expiry, then return the result.
 		Take(val any, key string, query func(val any) error) error
+		// Takex takes the result from cache first, key and field, if not found,
+		// query from DB and set cache using c.expiry, then return the result.
+		Takex(val any, key, field string, query func(val any) error) error
 		// TakeCtx takes the result from cache first, if not found,
 		// query from DB and set cache using c.expiry, then return the result.
 		TakeCtx(ctx context.Context, val any, key string, query func(val any) error) error
+		// TakexCtx takes the result from cache first, key and field, if not found,
+		// query from DB and set cache using c.expiry, then return the result.
+		TakexCtx(ctx context.Context, val any, key, field string, query func(val any) error) error
 		// TakeWithExpire takes the result from cache first, if not found,
 		// query from DB and set cache using given expire, then return the result.
 		TakeWithExpire(val any, key string, query func(val any, expire time.Duration) error) error

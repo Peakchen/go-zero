@@ -88,7 +88,7 @@ func (cc CachedConn) DelCacheCtx(ctx context.Context, keys ...string) error {
 
 // DelCache deletes cache with keys.
 func (cc CachedConn) DelxCache(key string, fields ...string) error {
-	return cc.DelxCacheCtx(context.Background(), key, field)
+	return cc.DelxCacheCtx(context.Background(), key, fields...)
 }
 
 // DelCacheCtx deletes cache with keys.
@@ -135,7 +135,7 @@ func (cc CachedConn) Execx(exec ExecFn, key string, fields ...string) (sql.Resul
 	execCtx := func(_ context.Context, conn sqlx.SqlConn) (sql.Result, error) {
 		return exec(conn)
 	}
-	return cc.ExecCtx(context.Background(), execCtx, key, fields...)
+	return cc.ExecxCtx(context.Background(), execCtx, key, fields...)
 }
 
 // ExecCtx runs given exec on given keys, and returns execution result.
@@ -181,7 +181,7 @@ func (cc CachedConn) QueryRowCtx(ctx context.Context, v any, key string, query Q
 
 // QueryRowx unmarshals into v with given key and query func.
 func (cc CachedConn) QueryRowx(v any, key, field string, query QueryFnx) error {
-	queryCtx := func(_ context.Context, conn sqlx.SqlConn, v any) error {
+	queryCtx := func(_ context.Context, conn sqlx.SqlConn, v any, field string) error {
 		return query(conn, v, field)
 	}
 	return cc.QueryRowxCtx(context.Background(), v, key, field, queryCtx)
