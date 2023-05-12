@@ -44,6 +44,26 @@ func (mc *mockedNode) DelCtx(_ context.Context, keys ...string) error {
 	return be.Err()
 }
 
+func (mc *mockedNode) Delx(key string, fields ...string) error {
+	return nil
+}
+
+func (mc *mockedNode) DelxCtx(_ context.Context, key string, fields ...string) error {
+	return nil
+}
+
+// Takex takes the result from cache first, if not found,
+// query from DB and set cache using c.expiry, then return the result.
+func (cc mockedNode) Takex(val any, key string, field string, query func(val any) error) error {
+	return nil
+}
+
+// TakexCtx takes the result from cache first, if not found,
+// query from DB and set cache using c.expiry, then return the result.
+func (cc mockedNode) TakexCtx(ctx context.Context, val any, key string, field string, query func(val any) error) error {
+	return nil
+}
+
 func (mc *mockedNode) Get(key string, val any) error {
 	return mc.GetCtx(context.Background(), key, val)
 }

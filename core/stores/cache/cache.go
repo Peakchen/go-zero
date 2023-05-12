@@ -93,6 +93,46 @@ func (cc cacheCluster) Del(keys ...string) error {
 	return cc.DelCtx(context.Background(), keys...)
 }
 
+// Delx deletes cached values with key and fields.
+func (cc cacheCluster) Delx(key string, fields ...string) error {
+	return cc.DelxCtx(context.Background(), key, fields...)
+}
+
+// DelxCtx deletes cached values with key and fields.
+func (cc cacheCluster) DelxCtx(ctx context.Context, key string, fields ...string) error {
+	switch len(fields) {
+	case 0:
+		return nil
+	case 1:
+		field := fields[0]
+		c, ok := cc.dispatcher.Get(field)
+		if !ok {
+			return cc.errNotFound
+		}
+
+		return c.(Cache).DelxCtx(ctx, key, field)
+	default:
+		var be errorx.BatchError
+		nodes := make(map[any][]string)
+		for _, field := range fields {
+			c, ok := cc.dispatcher.Get(field)
+			if !ok {
+				be.Add(fmt.Errorf("key %q not found", field))
+				continue
+			}
+
+			nodes[c] = append(nodes[c], field)
+		}
+		for c, fs := range nodes {
+			if err := c.(Cache).DelxCtx(ctx, key, fs...); err != nil {
+				be.Add(err)
+			}
+		}
+
+		return be.Err()
+	}
+}
+
 // DelCtx deletes cached values with keys.
 func (cc cacheCluster) DelCtx(ctx context.Context, keys ...string) error {
 	switch len(keys) {
@@ -193,6 +233,23 @@ func (cc cacheCluster) TakeCtx(ctx context.Context, val any, key string, query f
 	}
 
 	return c.(Cache).TakeCtx(ctx, val, key, query)
+}
+
+// Takex takes the result from cache first, if not found,
+// query from DB and set cache using c.expiry, then return the result.
+func (cc cacheCluster) Takex(val any, key string, field string, query func(val any) error) error {
+	return cc.TakexCtx(context.Background(), val, key, field, query)
+}
+
+// TakexCtx takes the result from cache first, if not found,
+// query from DB and set cache using c.expiry, then return the result.
+func (cc cacheCluster) TakexCtx(ctx context.Context, val any, key string, field string, query func(val any) error) error {
+	c, ok := cc.dispatcher.Get(key)
+	if !ok {
+		return cc.errNotFound
+	}
+
+	return c.(Cache).TakexCtx(ctx, val, key, field, query)
 }
 
 // TakeWithExpire takes the result from cache first, if not found,
