@@ -46,6 +46,8 @@ type (
 	// QueryCtxFnx defines the query method for table field.
 	QueryCtxFnx func(ctx context.Context, conn sqlx.SqlConn, v any, field string) error
 
+	// ExecFn defines the sql exec method.
+	ExecxFn func(conn sqlx.SqlConn, fields ...string) (sql.Result, error)
 	// ExecxCtxFn defines the sql exec method.
 	ExecxCtxFn func(ctx context.Context, conn sqlx.SqlConn, fields ...string) (sql.Result, error)
 
@@ -131,9 +133,9 @@ func (cc CachedConn) ExecCtx(ctx context.Context, exec ExecCtxFn, keys ...string
 
 
 // Execx runs given exec on given key and fields, and returns execution result.
-func (cc CachedConn) Execx(exec ExecFn, key string, fields ...string) (sql.Result, error) {
-	execCtx := func(_ context.Context, conn sqlx.SqlConn) (sql.Result, error) {
-		return exec(conn)
+func (cc CachedConn) Execx(exec ExecxFn, key string, fields ...string) (sql.Result, error) {
+	execCtx := func(_ context.Context, conn sqlx.SqlConn, fields ...string) (sql.Result, error) {
+		return exec(conn, fields...)
 	}
 	return cc.ExecxCtx(context.Background(), execCtx, key, fields...)
 }
