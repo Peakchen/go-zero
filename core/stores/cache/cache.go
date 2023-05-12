@@ -21,7 +21,7 @@ type (
 		// DelCtx deletes cached values with keys.
 		DelCtx(ctx context.Context, keys ...string) error
 		// Delx deletes cached values with key and fields.
-		Delx(key string, fields ...string) error {
+		Delx(key string, fields ...string) error 
 		// DelxCtx deletes cached values with key and fields.
 		DelxCtx(ctx context.Context, key string, fields ...string) error
 		// Get gets the cache with key and fills into v.
