@@ -34,6 +34,14 @@ type (
 		Set(key string, val any) error
 		// SetCtx sets the cache with key and v, using c.expiry.
 		SetCtx(ctx context.Context, key string, val any) error
+		// Set sets the cache with key and v, using c.expiry.
+		HSet(key string, fields string, val any) error
+		// SetCtx sets the cache with key and v, using c.expiry.
+		HsetCtx(ctx context.Context, key string, fields string, val any) error
+		// Get gets the cache with key and fills into v.
+		HGet(key string, fields string, val any) error
+		// GetCtx gets the cache with key and fills into v.
+		HGetCtx(ctx context.Context, key string, fields string, val any) error
 		// SetWithExpire sets the cache with key and v, using given expire.
 		SetWithExpire(key string, val any, expire time.Duration) error
 		// SetWithExpireCtx sets the cache with key and v, using given expire.
@@ -201,6 +209,37 @@ func (cc cacheCluster) SetCtx(ctx context.Context, key string, val any) error {
 	}
 
 	return c.(Cache).SetCtx(ctx, key, val)
+}
+
+
+// Get gets the cache with key and fills into v.
+func (cc cacheCluster) HGet(key string, field string, val any) error {
+	return cc.HGetCtx(context.Background(), key, field, val)
+}
+
+// GetCtx gets the cache with key and fills into v.
+func (cc cacheCluster) HGetCtx(ctx context.Context, key string, field string, val any) error {
+	c, ok := cc.dispatcher.Get(key)
+	if !ok {
+		return cc.errNotFound
+	}
+
+	return c.(Cache).HGetCtx(ctx, key, field, val)
+}
+
+// Set sets the cache with key and v, using c.expiry.
+func (cc cacheCluster) HSet(key string, field string, val any) error {
+	return cc.HsetCtx(context.Background(), key, field, val)
+}
+
+// SetCtx sets the cache with key and v, using c.expiry.
+func (cc cacheCluster) HsetCtx(ctx context.Context, key string, field string, val any) error {
+	c, ok := cc.dispatcher.Get(key)
+	if !ok {
+		return cc.errNotFound
+	}
+
+	return c.(Cache).HsetCtx(ctx, key, field, val)
 }
 
 // SetWithExpire sets the cache with key and v, using given expire.

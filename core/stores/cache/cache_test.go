@@ -129,6 +129,23 @@ func (mc *mockedNode) TakeWithExpireCtx(ctx context.Context, val any, key string
 	})
 }
 
+func (mc *mockedNode)HGet(key string, fields string, val any) error {
+	return nil
+}
+
+func (mc *mockedNode)HGetCtx(ctx context.Context, key string, fields string, val any) error {
+	return nil
+}
+
+// Set sets the cache with key and v, using c.expiry.
+func (mc *mockedNode)HSet(key string, fields string, val any) error{
+	return nil
+}
+// SetCtx sets the cache with key and v, using c.expiry.
+func (mc *mockedNode)HsetCtx(ctx context.Context, key string, fields string, val any) error{
+	return nil
+}
+
 func TestCache_SetDel(t *testing.T) {
 	t.Run("test set del", func(t *testing.T) {
 		const total = 1000

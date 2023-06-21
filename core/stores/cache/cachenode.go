@@ -161,6 +161,11 @@ func (c cacheNode) SetCtx(ctx context.Context, key string, val any) error {
 }
 
 // SetCtx sets the cache with key and v, using c.expiry.
+func (c cacheNode) HSet(key, field string, val any) error {
+	return c.HsetCtx(context.Background(), key, field, val)
+}
+
+// SetCtx sets the cache with key and v, using c.expiry.
 func (c cacheNode) HsetCtx(ctx context.Context, key, field string, val any) error {
 	data, err := jsonx.Marshal(val)
 	if err != nil {
