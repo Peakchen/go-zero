@@ -313,7 +313,8 @@ func (c cacheNode) doTake(ctx context.Context, v any, key string,
 		if err := c.doGetCache(ctx, key, v); err != nil {
 			/*if err == errPlaceholder {
 				return nil, c.errNotFound
-			} else */if err != c.errNotFound && err.Error() != "redis: nil"{
+			} else */
+			if err != errPlaceholder && err != c.errNotFound && err.Error() != "redis: nil"{
 				// why we just return the error instead of query from db,
 				// because we don't allow the disaster pass to the dbs.
 				// fail fast, in case we bring down the dbs.
@@ -364,7 +365,8 @@ func (c cacheNode) doTakex(ctx context.Context, v any, key, field string,
 		if err := c.doHGetCache(ctx, key, field, v); err != nil {
 			/*if err == errPlaceholder {
 				return nil, c.errNotFound
-			} else */if err != c.errNotFound && err.Error() != "redis: nil"{
+			} else */
+			if err != errPlaceholder && err != c.errNotFound && err.Error() != "redis: nil"{
 				// why we just return the error instead of query from db,
 				// because we don't allow the disaster pass to the dbs.
 				// fail fast, in case we bring down the dbs.
