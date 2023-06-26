@@ -275,13 +275,13 @@ func (cc CachedConn) SetCacheCtx(ctx context.Context, key string, val any) error
 
 // Transact runs given fn in transaction mode.
 func (cc CachedConn) Transact(fn func(sqlx.Session) error) error {
-	fnCtx := func(_ context.Context, session sqlx.Session) error {
+	fnCtx := func(_ context.Context, c cache.Cache, session sqlx.Session) error {
 		return fn(session)
 	}
 	return cc.TransactCtx(context.Background(), fnCtx)
 }
 
 // TransactCtx runs given fn in transaction mode.
-func (cc CachedConn) TransactCtx(ctx context.Context, fn func(context.Context, sqlx.Session) error) error {
-	return cc.db.TransactCtx(ctx, fn)
+func (cc CachedConn) TransactCtx(ctx context.Context, fn func(context.Context, cache.Cache, sqlx.Session) error) error {
+	return cc.db.TransactCtx(ctx, cc.cache, fn)
 }

@@ -574,7 +574,7 @@ func (d dummySqlConn) QueryRowsPartialCtx(ctx context.Context, v any, query stri
 	return nil
 }
 
-func (d dummySqlConn) TransactCtx(ctx context.Context, fn func(context.Context, sqlx.Session) error) error {
+func (d dummySqlConn) TransactCtx(ctx context.Context, c cache.Cache, fn func(context.Context, cache.Cache, sqlx.Session) error) error {
 	return nil
 }
 
@@ -613,7 +613,7 @@ func (d dummySqlConn) RawDB() (*sql.DB, error) {
 	return nil, nil
 }
 
-func (d dummySqlConn) Transact(func(session sqlx.Session) error) error {
+func (d dummySqlConn) Transact(cache.Cache, func(session sqlx.Session) error) error {
 	return nil
 }
 
@@ -646,13 +646,13 @@ func (c *trackedConn) RawDB() (*sql.DB, error) {
 	return nil, nil
 }
 
-func (c *trackedConn) Transact(fn func(session sqlx.Session) error) error {
-	return c.TransactCtx(context.Background(), func(_ context.Context, session sqlx.Session) error {
+func (c *trackedConn) Transact(cc cache.Cache, fn func(session sqlx.Session) error) error {
+	return c.TransactCtx(context.Background(), cc, func(_ context.Context, cc cache.Cache, session sqlx.Session) error {
 		return fn(session)
 	})
 }
 
-func (c *trackedConn) TransactCtx(ctx context.Context, fn func(context.Context, sqlx.Session) error) error {
+func (c *trackedConn) TransactCtx(ctx context.Context, cc cache.Cache, fn func(context.Context, cache.Cache, sqlx.Session) error) error {
 	c.transactValue = true
-	return c.dummySqlConn.TransactCtx(ctx, fn)
+	return c.dummySqlConn.TransactCtx(ctx, cc, fn)
 }

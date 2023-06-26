@@ -45,10 +45,10 @@ func TestSqlConn(t *testing.T) {
 	assert.NotNil(t, badConn.QueryRows(&val, "any"))
 	assert.NotNil(t, conn.QueryRowsPartial(&val, "any"))
 	assert.NotNil(t, badConn.QueryRowsPartial(&val, "any"))
-	assert.NotNil(t, conn.Transact(func(session Session) error {
+	assert.NotNil(t, conn.Transact(nil, func(session Session) error {
 		return nil
 	}))
-	assert.NotNil(t, badConn.Transact(func(session Session) error {
+	assert.NotNil(t, badConn.Transact(nil,func(session Session) error {
 		return nil
 	}))
 	assert.Equal(t, 14, len(me.GetSpans()))

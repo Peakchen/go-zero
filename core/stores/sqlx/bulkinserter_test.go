@@ -6,7 +6,7 @@ import (
 	"errors"
 	"strconv"
 	"testing"
-
+	"github.com/Peakchen/go-zero/core/stores/cache"
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/stretchr/testify/assert"
 	"github.com/Peakchen/go-zero/core/logx"
@@ -44,7 +44,7 @@ func (c *mockedConn) QueryRowsPartialCtx(ctx context.Context, v any, query strin
 	panic("implement me")
 }
 
-func (c *mockedConn) TransactCtx(ctx context.Context, fn func(context.Context, Session) error) error {
+func (c *mockedConn) TransactCtx(ctx context.Context, cc cache.Cache, fn func(context.Context, cache.Cache, Session) error) error {
 	panic("should not called")
 }
 
@@ -76,7 +76,7 @@ func (c *mockedConn) RawDB() (*sql.DB, error) {
 	panic("should not called")
 }
 
-func (c *mockedConn) Transact(func(session Session) error) error {
+func (c *mockedConn) Transact(cc cache.Cache, f func(session Session) error) error {
 	panic("should not called")
 }
 

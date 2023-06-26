@@ -7,6 +7,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"github.com/Peakchen/go-zero/core/stores/cache"
 )
 
 const (
@@ -77,15 +78,15 @@ func (mt *mockTx) Rollback() error {
 }
 
 func beginMock(mock *mockTx) beginnable {
-	return func(*sql.DB) (trans, error) {
+	return func(*sql.DB, cache.Cache) (trans, error) {
 		return mock, nil
 	}
 }
 
 func TestTransactCommit(t *testing.T) {
 	mock := &mockTx{}
-	err := transactOnConn(context.Background(), nil, beginMock(mock),
-		func(context.Context, Session) error {
+	err := transactOnConn(context.Background(), nil, nil, beginMock(mock),
+		func(context.Context, cache.Cache, Session) error {
 			return nil
 		})
 	assert.Equal(t, mockCommit, mock.status)
@@ -94,8 +95,8 @@ func TestTransactCommit(t *testing.T) {
 
 func TestTransactRollback(t *testing.T) {
 	mock := &mockTx{}
-	err := transactOnConn(context.Background(), nil, beginMock(mock),
-		func(context.Context, Session) error {
+	err := transactOnConn(context.Background(), nil, nil, beginMock(mock),
+		func(context.Context, cache.Cache, Session) error {
 			return errors.New("rollback")
 		})
 	assert.Equal(t, mockRollback, mock.status)

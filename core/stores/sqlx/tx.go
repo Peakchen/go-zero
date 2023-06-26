@@ -4,10 +4,11 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
+	"github.com/Peakchen/go-zero/core/stores/cache"
 )
 
 type (
-	beginnable func(*sql.DB) (trans, error)
+	beginnable func(*sql.DB, cache.Cache) (trans, error)
 
 	trans interface {
 		Session
@@ -17,6 +18,9 @@ type (
 
 	txSession struct {
 		*sql.Tx
+		c cache.Cache
+		key string
+		field string
 	}
 )
 
@@ -24,6 +28,11 @@ type (
 // Use it with caution, it's provided for other ORM to interact with.
 func NewSessionFromTx(tx *sql.Tx) Session {
 	return txSession{Tx: tx}
+}
+
+func (t txSession) SetContext(key string, field string){
+	t.key = key
+	t.field = field
 }
 
 func (t txSession) Exec(q string, args ...any) (sql.Result, error) {
@@ -37,7 +46,17 @@ func (t txSession) ExecCtx(ctx context.Context, q string, args ...any) (result s
 	}()
 
 	result, err = exec(ctx, t.Tx, q, args...)
-
+	if t.field == "" && t.key != ""{
+		if err := t.c.DelCtx(ctx, t.key); err != nil {
+			return nil, err
+		}
+	}else {
+		if t.field != "" && t.key != ""{
+			if err := t.c.DelxCtx(ctx, t.key, t.field); err != nil {
+				return nil, err
+			}
+		}
+	}
 	return
 }
 
@@ -124,7 +143,7 @@ func (t txSession) QueryRowsPartialCtx(ctx context.Context, v any, q string,
 	}, q, args...)
 }
 
-func begin(db *sql.DB) (trans, error) {
+func begin(db *sql.DB, cc cache.Cache) (trans, error) {
 	tx, err := db.Begin()
 	if err != nil {
 		return nil, err
@@ -135,21 +154,21 @@ func begin(db *sql.DB) (trans, error) {
 	}, nil
 }
 
-func transact(ctx context.Context, db *commonSqlConn, b beginnable,
-	fn func(context.Context, Session) error) (err error) {
+func transact(ctx context.Context, db *commonSqlConn, c cache.Cache, b beginnable,
+	fn func(context.Context, cache.Cache, Session) error) (err error) {
 	conn, err := db.connProv()
 	if err != nil {
 		db.onError(ctx, err)
 		return err
 	}
 
-	return transactOnConn(ctx, conn, b, fn)
+	return transactOnConn(ctx, conn, c, b, fn)
 }
 
-func transactOnConn(ctx context.Context, conn *sql.DB, b beginnable,
-	fn func(context.Context, Session) error) (err error) {
+func transactOnConn(ctx context.Context, conn *sql.DB, c cache.Cache, b beginnable,
+	fn func(context.Context, cache.Cache, Session) error) (err error) {
 	var tx trans
-	tx, err = b(conn)
+	tx, err = b(conn, c)
 	if err != nil {
 		return
 	}
@@ -170,5 +189,5 @@ func transactOnConn(ctx context.Context, conn *sql.DB, b beginnable,
 		}
 	}()
 
-	return fn(ctx, tx)
+	return fn(ctx, c, tx)
 }

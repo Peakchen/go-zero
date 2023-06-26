@@ -3,7 +3,7 @@ package sqlx
 import (
 	"context"
 	"database/sql"
-
+	"github.com/Peakchen/go-zero/core/stores/cache"
 	"github.com/Peakchen/go-zero/core/breaker"
 	"github.com/Peakchen/go-zero/core/logx"
 )
@@ -37,8 +37,8 @@ type (
 		// RawDB is for other ORM to operate with, use it with caution.
 		// Notice: don't close it.
 		RawDB() (*sql.DB, error)
-		Transact(fn func(Session) error) error
-		TransactCtx(ctx context.Context, fn func(context.Context, Session) error) error
+		Transact(c cache.Cache, fn func(Session) error) error
+		TransactCtx(ctx context.Context, c cache.Cache, fn func(context.Context, cache.Cache, Session) error) error
 	}
 
 	// SqlOption defines the method to customize a sql connection.
@@ -264,20 +264,20 @@ func (db *commonSqlConn) RawDB() (*sql.DB, error) {
 	return db.connProv()
 }
 
-func (db *commonSqlConn) Transact(fn func(Session) error) error {
-	return db.TransactCtx(context.Background(), func(_ context.Context, session Session) error {
+func (db *commonSqlConn) Transact(c cache.Cache, fn func(Session) error) error {
+	return db.TransactCtx(context.Background(), c, func(_ context.Context, c cache.Cache, session Session) error {
 		return fn(session)
 	})
 }
 
-func (db *commonSqlConn) TransactCtx(ctx context.Context, fn func(context.Context, Session) error) (err error) {
+func (db *commonSqlConn) TransactCtx(ctx context.Context, c cache.Cache, fn func(context.Context, cache.Cache, Session) error) (err error) {
 	ctx, span := startSpan(ctx, "Transact")
 	defer func() {
 		endSpan(span, err)
 	}()
 
 	err = db.brk.DoWithAcceptable(func() error {
-		return transact(ctx, db, db.beginTx, fn)
+		return transact(ctx, db, c, db.beginTx, fn)
 	}, db.acceptable)
 	if err == breaker.ErrServiceUnavailable {
 		metricReqErr.Inc("Transact", "breaker")
