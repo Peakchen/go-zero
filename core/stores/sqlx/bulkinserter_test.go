@@ -80,6 +80,10 @@ func (c *mockedConn) Transact(cc cache.Cache, f func(session Session) error) err
 	panic("should not called")
 }
 
+func (db *mockedConn) SetContext(key string, field string){
+	
+}
+
 func TestBulkInserter(t *testing.T) {
 	runSqlTest(t, func(db *sql.DB, mock sqlmock.Sqlmock) {
 		var conn mockedConn

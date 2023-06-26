@@ -29,6 +29,7 @@ type (
 		QueryRowsCtx(ctx context.Context, v any, query string, args ...any) error
 		QueryRowsPartial(v any, query string, args ...any) error
 		QueryRowsPartialCtx(ctx context.Context, v any, query string, args ...any) error
+		SetContext(key string, field string)
 	}
 
 	// SqlConn only stands for raw connections, so Transact method can be called.
@@ -129,6 +130,10 @@ func NewSqlConnFromDB(db *sql.DB, opts ...SqlOption) SqlConn {
 	}
 
 	return conn
+}
+
+func (db *commonSqlConn)SetContext(key string, field string){
+	
 }
 
 func (db *commonSqlConn) Exec(q string, args ...any) (result sql.Result, err error) {

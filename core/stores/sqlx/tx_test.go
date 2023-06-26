@@ -72,6 +72,10 @@ func (mt *mockTx) QueryRowsPartialCtx(ctx context.Context, v any, query string, 
 	return nil
 }
 
+func (mt *mockTx) SetContext(key string, field string){
+	
+}
+
 func (mt *mockTx) Rollback() error {
 	mt.status |= mockRollback
 	return nil

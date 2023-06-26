@@ -151,6 +151,7 @@ func begin(db *sql.DB, cc cache.Cache) (trans, error) {
 
 	return txSession{
 		Tx: tx,
+		c: cc,
 	}, nil
 }
 
