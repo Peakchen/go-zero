@@ -55,7 +55,7 @@ func (t txSession) ExecCtx(ctx context.Context, q string, args ...any) (result s
 		}
 	}else {
 		if t.field != "" && t.key != ""{
-			if exist, _ := t.c.Hexists(ctx, t.key, t.field); !exist {
+			if exist, _ := t.c.HexistsCtx(ctx, t.key, t.field); !exist {
 				return result, err
 			}
 			if err := t.c.DelxCtx(ctx, t.key, t.field); err != nil {
