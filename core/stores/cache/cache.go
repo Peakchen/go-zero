@@ -16,6 +16,10 @@ import (
 type (
 	// Cache interface is used to define the cache implementation.
 	Cache interface {
+		Exists(key string)(bool, error)
+		ExistsCtx(ctx context.Context, key string)(bool, error)
+		Hexists(key string, field string)(bool, error)
+		HexistsCtx(ctx context.Context, key string, field string)(bool, error)
 		// Del deletes cached values with keys.
 		Del(keys ...string) error
 		// DelCtx deletes cached values with keys.
@@ -306,4 +310,20 @@ func (cc cacheCluster) TakeWithExpireCtx(ctx context.Context, val any, key strin
 	}
 
 	return c.(Cache).TakeWithExpireCtx(ctx, val, key, query)
+}
+
+func (cc cacheCluster) Exists(key string)(bool, error){
+	return cc.ExistsCtx(context.Background(), key)
+}
+
+func (cc cacheCluster) ExistsCtx(ctx context.Context, key string)(bool, error){
+	return cc.ExistsCtx(ctx, key)
+}
+
+func (cc cacheCluster) Hexists(key string, field string)(bool, error){
+	return cc.HexistsCtx(context.Background(), key, field)
+}
+
+func (cc cacheCluster) HexistsCtx(ctx context.Context, key string, field string)(bool, error){
+	return cc.HexistsCtx(context.Background(), key, field)
 }

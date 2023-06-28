@@ -459,3 +459,19 @@ func (c cacheNode) setHCacheWithNotFound(ctx context.Context, key, field string)
 	_, err := c.rds.HsetnxCtx(ctx, key, field, notFoundPlaceholder)
 	return err
 }
+
+func (c cacheNode) Exists(key string)(bool, error){
+	return c.ExistsCtx(context.Background(), key)
+}
+
+func (c cacheNode) ExistsCtx(ctx context.Context, key string)(bool, error){
+	return c.rds.ExistsCtx(ctx, key)
+}
+
+func (c cacheNode) Hexists(key string, field string)(bool, error){
+	return c.HexistsCtx(context.Background(), key, field)
+}
+
+func (c cacheNode) HexistsCtx(ctx context.Context, key string, field string)(bool, error){
+	return c.rds.HexistsCtx(context.Background(), key, field)
+}

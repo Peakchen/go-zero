@@ -47,11 +47,17 @@ func (t txSession) ExecCtx(ctx context.Context, q string, args ...any) (result s
 
 	result, err = exec(ctx, t.Tx, q, args...)
 	if t.field == "" && t.key != ""{
+		if exist, _ := t.c.ExistsCtx(ctx, t.key); !exist {
+			return result, err
+		}
 		if err := t.c.DelCtx(ctx, t.key); err != nil {
 			return nil, err
 		}
 	}else {
 		if t.field != "" && t.key != ""{
+			if exist, _ := t.c.Hexists(ctx, t.key, t.field); !exist {
+				return result, err
+			}
 			if err := t.c.DelxCtx(ctx, t.key, t.field); err != nil {
 				return nil, err
 			}

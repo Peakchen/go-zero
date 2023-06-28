@@ -146,6 +146,23 @@ func (mc *mockedNode)HsetCtx(ctx context.Context, key string, fields string, val
 	return nil
 }
 
+
+func (mc *mockedNode) Exists(key string)(bool, error){
+	return true, nil
+}
+
+func (mc *mockedNode) ExistsCtx(ctx context.Context, key string)(bool, error){
+	return true, nil
+}
+
+func (mc *mockedNode) Hexists(key string, field string)(bool, error){
+	return true, nil
+}
+
+func (mc *mockedNode) HexistsCtx(ctx context.Context, key string, field string)(bool, error){
+	return true, nil
+}
+
 func TestCache_SetDel(t *testing.T) {
 	t.Run("test set del", func(t *testing.T) {
 		const total = 1000
