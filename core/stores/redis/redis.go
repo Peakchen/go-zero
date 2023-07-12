@@ -56,6 +56,13 @@ type (
 		Addr  string
 		Type  string
 		Pass  string
+		DB    int
+		// Maximum number of retries before giving up.
+		// Default is 3 retries; -1 (not 0) disables retries.
+		MaxRetries int
+		// Minimum number of idle connections which is useful when establishing
+		// new connection is slow. default 8
+		MinIdleConns int
 		tls   bool
 		brk   breaker.Breaker
 		hooks []red.Hook
@@ -120,7 +127,7 @@ func NewRedis(conf RedisConf, opts ...Option) (*Redis, error) {
 		opts = append([]Option{WithTLS()}, opts...)
 	}
 
-	rds := newRedis(conf.Host, opts...)
+	rds := newRedisV2(conf, opts...)
 	if !conf.NonBlock {
 		if err := rds.checkConnection(conf.PingTimeout); err != nil {
 			return nil, errorx.Wrap(err, fmt.Sprintf("redis connect error, addr: %s", conf.Host))
@@ -133,6 +140,23 @@ func NewRedis(conf RedisConf, opts ...Option) (*Redis, error) {
 func newRedis(addr string, opts ...Option) *Redis {
 	r := &Redis{
 		Addr: addr,
+		Type: NodeType,
+		brk:  breaker.NewBreaker(),
+	}
+
+	for _, opt := range opts {
+		opt(r)
+	}
+
+	return r
+}
+
+func newRedisV2(conf RedisConf, opts ...Option) *Redis {
+	r := &Redis{
+		Addr: conf.Host,
+		DB: conf.DB,
+		MaxRetries: conf.MaxRetries,
+		MinIdleConns: conf.MinIdleConns,
 		Type: NodeType,
 		brk:  breaker.NewBreaker(),
 	}

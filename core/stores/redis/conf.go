@@ -17,7 +17,14 @@ var (
 type (
 	// A RedisConf is a redis config.
 	RedisConf struct {
-		Host     string
+		Host     		string
+		DB    	 		int //default database is 0.
+		// Maximum number of retries before giving up.
+		// Default is 3 retries; -1 (not 0) disables retries.
+		MaxRetries 		int
+		// Minimum number of idle connections which is useful when establishing
+		// new connection is slow. default 8
+		MinIdleConns 	int
 		Type     string `json:",default=node,options=node|cluster"`
 		Pass     string `json:",optional"`
 		Tls      bool   `json:",optional"`
