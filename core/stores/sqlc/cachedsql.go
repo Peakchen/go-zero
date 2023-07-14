@@ -9,6 +9,7 @@ import (
 	"github.com/Peakchen/go-zero/core/stores/redis"
 	"github.com/Peakchen/go-zero/core/stores/sqlx"
 	"github.com/Peakchen/go-zero/core/syncx"
+	"github.com/Peakchen/go-zero/core/stores/kv"
 )
 
 // see doc/sql-cache.md
@@ -55,13 +56,16 @@ type (
 	CachedConn struct {
 		db    sqlx.SqlConn
 		cache cache.Cache
+		red   kv.Store
 	}
 )
 
 // NewConn returns a CachedConn with a redis cluster cache.
 func NewConn(db sqlx.SqlConn, c cache.CacheConf, opts ...cache.Option) CachedConn {
 	cc := cache.New(c, singleFlights, stats, sql.ErrNoRows, opts...)
-	return NewConnWithCache(db, cc)
+	conn := NewConnWithCache(db, cc)
+	conn.red = kv.NewStore(c)
+	return conn
 }
 
 // NewConnWithCache returns a CachedConn with a custom cache.
@@ -76,6 +80,11 @@ func NewConnWithCache(db sqlx.SqlConn, c cache.Cache) CachedConn {
 func NewNodeConn(db sqlx.SqlConn, rds *redis.Redis, opts ...cache.Option) CachedConn {
 	c := cache.NewNode(rds, singleFlights, stats, sql.ErrNoRows, opts...)
 	return NewConnWithCache(db, c)
+}
+
+// store operate redis 
+func (cc CachedConn) GetRedis()kv.Store{
+	return cc.red
 }
 
 // DelCache deletes cache with keys.

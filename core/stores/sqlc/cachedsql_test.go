@@ -617,6 +617,10 @@ func (d dummySqlConn) Transact(cache.Cache, func(session sqlx.Session) error) er
 	return nil
 }
 
+func (d dummySqlConn) SetContext(key string, field string){
+
+}
+
 type trackedConn struct {
 	dummySqlConn
 	execValue      bool
