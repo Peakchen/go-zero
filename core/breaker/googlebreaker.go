@@ -61,13 +61,14 @@ func (b *googleBreaker) allow() (internalPromise, error) {
 }
 
 func (b *googleBreaker) doReq(req func() error, fallback func(err error) error, acceptable Acceptable) error {
-	if err := b.accept(); err != nil {
-		if fallback != nil {
-			return fallback(err)
-		}
+	//暂时屏蔽请求过载处理
+	// if err := b.accept(); err != nil {
+	// 	if fallback != nil {
+	// 		return fallback(err)
+	// 	}
 
-		return err
-	}
+	// 	return err
+	// }
 
 	defer func() {
 		if e := recover(); e != nil {
