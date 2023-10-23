@@ -446,8 +446,8 @@ func (c cacheNode) doTakeAllOne(ctx context.Context, v any, key string,
 	logger := logx.WithContext(ctx)
 	val, fresh, err := c.barrier.DoEx(fmt.Sprintf("allone:%v", key), func() (any, error) {
 		val := reflect.ValueOf(v)
-		typ := val.Type()
 		vElem := val.Elem()
+		typ := vElem.Type()
 		var leftFields = make([]string, 0, typ.NumField())
 		for fi := 0; fi < typ.NumField(); fi++ {
 			fi := typ.Field(fi)
