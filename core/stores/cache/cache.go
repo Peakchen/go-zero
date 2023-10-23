@@ -16,16 +16,16 @@ import (
 type (
 	// Cache interface is used to define the cache implementation.
 	Cache interface {
-		Exists(key string)(bool, error)
-		ExistsCtx(ctx context.Context, key string)(bool, error)
-		Hexists(key string, field string)(bool, error)
-		HexistsCtx(ctx context.Context, key string, field string)(bool, error)
+		Exists(key string) (bool, error)
+		ExistsCtx(ctx context.Context, key string) (bool, error)
+		Hexists(key string, field string) (bool, error)
+		HexistsCtx(ctx context.Context, key string, field string) (bool, error)
 		// Del deletes cached values with keys.
 		Del(keys ...string) error
 		// DelCtx deletes cached values with keys.
 		DelCtx(ctx context.Context, keys ...string) error
 		// Delx deletes cached values with key and fields.
-		Delx(key string, fields ...string) error 
+		Delx(key string, fields ...string) error
 		// DelxCtx deletes cached values with key and fields.
 		DelxCtx(ctx context.Context, key string, fields ...string) error
 		// Get gets the cache with key and fills into v.
@@ -69,6 +69,15 @@ type (
 		// query from DB and set cache using given expire, then return the result.
 		TakeWithExpireCtx(ctx context.Context, val any, key string,
 			query func(val any, expire time.Duration) error) error
+
+		// TakeAllOne takes the result from cache first, key and fields, if not found,
+		// query from DB and set cache using c.expiry, then return the result.
+		TakeAllOne(val any, key string, query func(val any, leftFields ...string) error) error
+
+		// TakeAllOneCtx takes the result from cache first by key and struct tag fields, if not found,
+		// query from DB and set cache using c.expiry, then return the result.
+		TakeAllOneCtx(ctx context.Context, val any, key string,
+			query func(val any, leftFields ...string) error) error
 	}
 
 	cacheCluster struct {
@@ -215,7 +224,6 @@ func (cc cacheCluster) SetCtx(ctx context.Context, key string, val any) error {
 	return c.(Cache).SetCtx(ctx, key, val)
 }
 
-
 // Get gets the cache with key and fills into v.
 func (cc cacheCluster) HGet(key string, field string, val any) error {
 	return cc.HGetCtx(context.Background(), key, field, val)
@@ -295,6 +303,23 @@ func (cc cacheCluster) TakexCtx(ctx context.Context, val any, key string, field 
 	return c.(Cache).TakexCtx(ctx, val, key, field, query)
 }
 
+// TakeAllOne takes the result from cache first, if not found,
+// query from DB and set cache using c.expiry, then return the result.
+func (cc cacheCluster) TakeAllOne(val any, key string, query func(val any, fields ...string) error) error {
+	return cc.TakeAllOneCtx(context.Background(), val, key, query)
+}
+
+// TakeAllOneCtx takes the result from cache first, if not found,
+// query from DB and set cache using c.expiry, then return the result.
+func (cc cacheCluster) TakeAllOneCtx(ctx context.Context, val any, key string, query func(val any, fields ...string) error) error {
+	c, ok := cc.dispatcher.Get(key)
+	if !ok {
+		return cc.errNotFound
+	}
+
+	return c.(Cache).TakeAllOneCtx(ctx, val, key, query)
+}
+
 // TakeWithExpire takes the result from cache first, if not found,
 // query from DB and set cache using given expire, then return the result.
 func (cc cacheCluster) TakeWithExpire(val any, key string, query func(val any, expire time.Duration) error) error {
@@ -312,18 +337,26 @@ func (cc cacheCluster) TakeWithExpireCtx(ctx context.Context, val any, key strin
 	return c.(Cache).TakeWithExpireCtx(ctx, val, key, query)
 }
 
-func (cc cacheCluster) Exists(key string)(bool, error){
+func (cc cacheCluster) Exists(key string) (bool, error) {
 	return cc.ExistsCtx(context.Background(), key)
 }
 
-func (cc cacheCluster) ExistsCtx(ctx context.Context, key string)(bool, error){
-	return cc.ExistsCtx(ctx, key)
+func (cc cacheCluster) ExistsCtx(ctx context.Context, key string) (bool, error) {
+	c, ok := cc.dispatcher.Get(key)
+	if !ok {
+		return false, cc.errNotFound
+	}
+	return c.(Cache).ExistsCtx(ctx, key)
 }
 
-func (cc cacheCluster) Hexists(key string, field string)(bool, error){
+func (cc cacheCluster) Hexists(key string, field string) (bool, error) {
 	return cc.HexistsCtx(context.Background(), key, field)
 }
 
-func (cc cacheCluster) HexistsCtx(ctx context.Context, key string, field string)(bool, error){
-	return cc.HexistsCtx(context.Background(), key, field)
+func (cc cacheCluster) HexistsCtx(ctx context.Context, key string, field string) (bool, error) {
+	c, ok := cc.dispatcher.Get(key)
+	if !ok {
+		return false, cc.errNotFound
+	}
+	return c.(Cache).HexistsCtx(context.Background(), key, field)
 }

@@ -24,7 +24,7 @@ func NewEventHandler(update func([]string)) *EventHandler {
 }
 
 // OnAdd handles the endpoints add events.
-func (h *EventHandler) OnAdd(obj any) {
+func (h *EventHandler) OnAdd(obj any, isInInitialList bool) {
 	endpoints, ok := obj.(*v1.Endpoints)
 	if !ok {
 		logx.Errorf("%v is not an object with type *v1.Endpoints", obj)

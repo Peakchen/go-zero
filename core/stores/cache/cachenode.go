@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"math"
 	"math/rand"
+	"reflect"
 	"sync"
 	"time"
 
@@ -226,6 +227,37 @@ func (c cacheNode) TakexCtx(ctx context.Context, val any, key, field string,
 	})
 }
 
+// Takex takes the result from cache first by key and field, if not found,
+// query from DB and set cache using c.expiry, then return the result.
+func (c cacheNode) TakeAllOne(val any, key string, query func(val any, leftFields ...string) error) error {
+	return c.TakeAllOneCtx(context.Background(), val, key, query)
+}
+
+// TakeAllOneCtx takes the result from cache first by key and struct tag fields, if not found,
+// query from DB and set cache using c.expiry, then return the result.
+func (c cacheNode) TakeAllOneCtx(ctx context.Context, val any, key string,
+	query func(val any, leftFields ...string) error) error {
+	return c.doTakeAllOne(ctx, val, key, query, func(v any, leftFields ...string) error {
+		val := reflect.ValueOf(v)
+		typ := val.Type()
+		vElem := val.Elem()
+		var err error
+		for _, field := range leftFields {
+			for fi := 0; fi < val.NumField(); fi++ {
+				fi := typ.Field(fi)
+				if fi.Name != field {
+					continue
+				}
+				fieldVal := vElem.FieldByName(fi.Name)
+				if err = c.HsetCtx(ctx, key, fi.Name, fieldVal); err != nil {
+					return err
+				}
+			}
+		}
+		return err
+	})
+}
+
 // TakeWithExpire takes the result from cache first, if not found,
 // query from DB and set cache using given expire, then return the result.
 func (c cacheNode) TakeWithExpire(val any, key string, query func(val any,
@@ -284,7 +316,6 @@ func (c cacheNode) doGetCache(ctx context.Context, key string, v any) error {
 	return c.processCache(ctx, key, data, v)
 }
 
-
 func (c cacheNode) doHGetCache(ctx context.Context, key string, field string, v any) error {
 	c.stat.IncrementTotal()
 	data, err := c.rds.Hget(key, field)
@@ -314,7 +345,7 @@ func (c cacheNode) doTake(ctx context.Context, v any, key string,
 			/*if err == errPlaceholder {
 				return nil, c.errNotFound
 			} else */
-			if err != errPlaceholder && err != c.errNotFound && err.Error() != "redis: nil"{
+			if err != errPlaceholder && err != c.errNotFound && err.Error() != "redis: nil" {
 				// why we just return the error instead of query from db,
 				// because we don't allow the disaster pass to the dbs.
 				// fail fast, in case we bring down the dbs.
@@ -357,7 +388,7 @@ func (c cacheNode) doTake(ctx context.Context, v any, key string,
 	return jsonx.Unmarshal(val.([]byte), v)
 }
 
-//doTakex: for redis hash struct data. 
+// doTakex: for redis hash struct data.
 func (c cacheNode) doTakex(ctx context.Context, v any, key, field string,
 	query func(v any) error, cacheVal func(v any) error) error {
 	logger := logx.WithContext(ctx)
@@ -366,7 +397,7 @@ func (c cacheNode) doTakex(ctx context.Context, v any, key, field string,
 			/*if err == errPlaceholder {
 				return nil, c.errNotFound
 			} else */
-			if err != errPlaceholder && err != c.errNotFound && err.Error() != "redis: nil"{
+			if err != errPlaceholder && err != c.errNotFound && err.Error() != "redis: nil" {
 				// why we just return the error instead of query from db,
 				// because we don't allow the disaster pass to the dbs.
 				// fail fast, in case we bring down the dbs.
@@ -389,6 +420,95 @@ func (c cacheNode) doTakex(ctx context.Context, v any, key, field string,
 			}
 		}
 
+		return jsonx.Marshal(v)
+	})
+	if err != nil {
+		return err
+	}
+	if fresh {
+		return nil
+	}
+
+	// got the result from previous ongoing query.
+	// why not call IncrementTotal at the beginning of this function?
+	// because a shared error is returned, and we don't want to count.
+	// for example, if the db is down, the query will be failed, we count
+	// the shared errors with one db failure.
+	c.stat.IncrementTotal()
+	c.stat.IncrementHit()
+
+	return jsonx.Unmarshal(val.([]byte), v)
+}
+
+// doTakeAllOne: for redis hash struct data.
+func (c cacheNode) doTakeAllOne(ctx context.Context, v any, key string,
+	query func(v any, leftFields ...string) error, cacheVal func(v any, leftFields ...string) error) error {
+	logger := logx.WithContext(ctx)
+	val, fresh, err := c.barrier.DoEx(fmt.Sprintf("allone:%v", key), func() (any, error) {
+		val := reflect.ValueOf(v)
+		typ := val.Type()
+		vElem := val.Elem()
+		var leftFields = make([]string, 0, val.NumField())
+		for fi := 0; fi < val.NumField(); fi++ {
+			fi := typ.Field(fi)
+			fieldVal := vElem.FieldByName(fi.Name)
+			if fieldVal.IsValid() && fieldVal.CanSet() {
+				if fieldVal.CanInterface() {
+					if err := c.doHGetCache(ctx, key, fi.Name, fieldVal.Interface()); err != nil {
+						if err != errPlaceholder && err != c.errNotFound && err.Error() != "redis: nil" {
+							return nil, err
+						} else {
+							leftFields = append(leftFields, fi.Name)
+						}
+					}
+				} else if fieldVal.CanInt() {
+					if err := c.doHGetCache(ctx, key, fi.Name, fieldVal.Int()); err != nil {
+						if err != errPlaceholder && err != c.errNotFound && err.Error() != "redis: nil" {
+							return nil, err
+						} else {
+							leftFields = append(leftFields, fi.Name)
+						}
+					}
+				} else if fieldVal.CanUint() {
+					if err := c.doHGetCache(ctx, key, fi.Name, fieldVal.Uint()); err != nil {
+						if err != errPlaceholder && err != c.errNotFound && err.Error() != "redis: nil" {
+							return nil, err
+						} else {
+							leftFields = append(leftFields, fi.Name)
+						}
+					}
+				} else if fieldVal.CanFloat() {
+					if err := c.doHGetCache(ctx, key, fi.Name, fieldVal.Float()); err != nil {
+						if err != errPlaceholder && err != c.errNotFound && err.Error() != "redis: nil" {
+							return nil, err
+						} else {
+							leftFields = append(leftFields, fi.Name)
+						}
+					}
+				} else {
+					return nil, fmt.Errorf("valid and can set, reflect type to get cache, but not realy can set, name: %v, type: %v", fi.Name, fi.Type.Name())
+				}
+			} else {
+				return nil, fmt.Errorf("invalid reflect type to get cache, name: %v, type: %v", fi.Name, fi.Type.Name())
+			}
+		}
+		if len(leftFields) > 0 {
+			if err := query(v, leftFields...); err == c.errNotFound {
+				for _, field := range leftFields {
+					if err = c.setHCacheWithNotFound(ctx, key, field); err != nil {
+						logger.Error(err)
+					}
+				}
+				return nil, c.errNotFound
+			} else if err != nil {
+				c.stat.IncrementDbFails()
+				return nil, err
+			}
+
+			if err := cacheVal(v, leftFields...); err != nil {
+				logger.Error(err)
+			}
+		}
 		return jsonx.Marshal(v)
 	})
 	if err != nil {
@@ -460,18 +580,18 @@ func (c cacheNode) setHCacheWithNotFound(ctx context.Context, key, field string)
 	return err
 }
 
-func (c cacheNode) Exists(key string)(bool, error){
+func (c cacheNode) Exists(key string) (bool, error) {
 	return c.ExistsCtx(context.Background(), key)
 }
 
-func (c cacheNode) ExistsCtx(ctx context.Context, key string)(bool, error){
+func (c cacheNode) ExistsCtx(ctx context.Context, key string) (bool, error) {
 	return c.rds.ExistsCtx(ctx, key)
 }
 
-func (c cacheNode) Hexists(key string, field string)(bool, error){
+func (c cacheNode) Hexists(key string, field string) (bool, error) {
 	return c.HexistsCtx(context.Background(), key, field)
 }
 
-func (c cacheNode) HexistsCtx(ctx context.Context, key string, field string)(bool, error){
+func (c cacheNode) HexistsCtx(ctx context.Context, key string, field string) (bool, error) {
 	return c.rds.HexistsCtx(context.Background(), key, field)
 }

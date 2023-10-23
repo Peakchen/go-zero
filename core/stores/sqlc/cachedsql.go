@@ -6,10 +6,10 @@ import (
 	"time"
 
 	"github.com/Peakchen/go-zero/core/stores/cache"
+	"github.com/Peakchen/go-zero/core/stores/kv"
 	"github.com/Peakchen/go-zero/core/stores/redis"
 	"github.com/Peakchen/go-zero/core/stores/sqlx"
 	"github.com/Peakchen/go-zero/core/syncx"
-	"github.com/Peakchen/go-zero/core/stores/kv"
 )
 
 // see doc/sql-cache.md
@@ -46,6 +46,10 @@ type (
 	QueryFnx func(conn sqlx.SqlConn, v any, field string) error
 	// QueryCtxFnx defines the query method for table field.
 	QueryCtxFnx func(ctx context.Context, conn sqlx.SqlConn, v any, field string) error
+	// QueryAllOneFnx defines the query method for table field.
+	QueryAllOneFnx func(conn sqlx.SqlConn, v any, fields ...string) error
+	// QueryAllOneCtxFnx defines the query method for table fields.
+	QueryAllOneCtxFnx func(ctx context.Context, conn sqlx.SqlConn, v any, fields ...string) error
 
 	// ExecFn defines the sql exec method.
 	ExecxFn func(conn sqlx.SqlConn, fields ...string) (sql.Result, error)
@@ -82,8 +86,8 @@ func NewNodeConn(db sqlx.SqlConn, rds *redis.Redis, opts ...cache.Option) Cached
 	return NewConnWithCache(db, c)
 }
 
-// store operate redis 
-func (cc CachedConn) GetRedis()kv.Store{
+// store operate redis
+func (cc CachedConn) GetRedis() kv.Store {
 	return cc.red
 }
 
@@ -139,7 +143,6 @@ func (cc CachedConn) ExecCtx(ctx context.Context, exec ExecCtxFn, keys ...string
 
 	return res, nil
 }
-
 
 // Execx runs given exec on given key and fields, and returns execution result.
 func (cc CachedConn) Execx(exec ExecxFn, key string, fields ...string) (sql.Result, error) {
@@ -202,6 +205,21 @@ func (cc CachedConn) QueryRowx(v any, key, field string, query QueryFnx) error {
 func (cc CachedConn) QueryRowxCtx(ctx context.Context, v any, key, field string, query QueryCtxFnx) error {
 	return cc.cache.TakexCtx(ctx, v, key, field, func(v any) error {
 		return query(ctx, cc.db, v, field)
+	})
+}
+
+// QueryRowx unmarshals into v with given key and query func.
+func (cc CachedConn) QueryRowAllOne(v any, key, field string, query QueryAllOneFnx) error {
+	queryCtx := func(_ context.Context, conn sqlx.SqlConn, v any, fields ...string) error {
+		return query(conn, v, fields...)
+	}
+	return cc.QueryRowAllOneCtx(context.Background(), v, key, queryCtx)
+}
+
+// QueryRowxCtx unmarshals into v with given key and query func.
+func (cc CachedConn) QueryRowAllOneCtx(ctx context.Context, v any, key string, query QueryAllOneCtxFnx) error {
+	return cc.cache.TakeAllOneCtx(ctx, v, key, func(v any, fields ...string) error {
+		return query(ctx, cc.db, v, fields...)
 	})
 }
 

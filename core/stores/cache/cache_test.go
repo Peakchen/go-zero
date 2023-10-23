@@ -10,13 +10,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/alicebob/miniredis/v2"
-	"github.com/stretchr/testify/assert"
 	"github.com/Peakchen/go-zero/core/errorx"
 	"github.com/Peakchen/go-zero/core/hash"
 	"github.com/Peakchen/go-zero/core/stores/redis"
 	"github.com/Peakchen/go-zero/core/stores/redis/redistest"
 	"github.com/Peakchen/go-zero/core/syncx"
+	"github.com/alicebob/miniredis/v2"
+	"github.com/stretchr/testify/assert"
 )
 
 var _ Cache = (*mockedNode)(nil)
@@ -61,6 +61,19 @@ func (cc mockedNode) Takex(val any, key string, field string, query func(val any
 // TakexCtx takes the result from cache first, if not found,
 // query from DB and set cache using c.expiry, then return the result.
 func (cc mockedNode) TakexCtx(ctx context.Context, val any, key string, field string, query func(val any) error) error {
+	return nil
+}
+
+// Takex takes the result from cache first by key and field, if not found,
+// query from DB and set cache using c.expiry, then return the result.
+func (c mockedNode) TakeAllOne(val any, key string, query func(val any, leftFields ...string) error) error {
+	return c.TakeAllOneCtx(context.Background(), val, key, query)
+}
+
+// TakeAllOneCtx takes the result from cache first by key and struct tag fields, if not found,
+// query from DB and set cache using c.expiry, then return the result.
+func (c mockedNode) TakeAllOneCtx(ctx context.Context, val any, key string,
+	query func(val any, leftFields ...string) error) error {
 	return nil
 }
 
@@ -129,37 +142,37 @@ func (mc *mockedNode) TakeWithExpireCtx(ctx context.Context, val any, key string
 	})
 }
 
-func (mc *mockedNode)HGet(key string, fields string, val any) error {
+func (mc *mockedNode) HGet(key string, fields string, val any) error {
 	return nil
 }
 
-func (mc *mockedNode)HGetCtx(ctx context.Context, key string, fields string, val any) error {
+func (mc *mockedNode) HGetCtx(ctx context.Context, key string, fields string, val any) error {
 	return nil
 }
 
 // Set sets the cache with key and v, using c.expiry.
-func (mc *mockedNode)HSet(key string, fields string, val any) error{
+func (mc *mockedNode) HSet(key string, fields string, val any) error {
 	return nil
 }
+
 // SetCtx sets the cache with key and v, using c.expiry.
-func (mc *mockedNode)HsetCtx(ctx context.Context, key string, fields string, val any) error{
+func (mc *mockedNode) HsetCtx(ctx context.Context, key string, fields string, val any) error {
 	return nil
 }
 
-
-func (mc *mockedNode) Exists(key string)(bool, error){
+func (mc *mockedNode) Exists(key string) (bool, error) {
 	return true, nil
 }
 
-func (mc *mockedNode) ExistsCtx(ctx context.Context, key string)(bool, error){
+func (mc *mockedNode) ExistsCtx(ctx context.Context, key string) (bool, error) {
 	return true, nil
 }
 
-func (mc *mockedNode) Hexists(key string, field string)(bool, error){
+func (mc *mockedNode) Hexists(key string, field string) (bool, error) {
 	return true, nil
 }
 
-func (mc *mockedNode) HexistsCtx(ctx context.Context, key string, field string)(bool, error){
+func (mc *mockedNode) HexistsCtx(ctx context.Context, key string, field string) (bool, error) {
 	return true, nil
 }
 
