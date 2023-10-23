@@ -448,8 +448,8 @@ func (c cacheNode) doTakeAllOne(ctx context.Context, v any, key string,
 		val := reflect.ValueOf(v)
 		typ := val.Type()
 		vElem := val.Elem()
-		var leftFields = make([]string, 0, val.NumField())
-		for fi := 0; fi < val.NumField(); fi++ {
+		var leftFields = make([]string, 0, typ.NumField())
+		for fi := 0; fi < typ.NumField(); fi++ {
 			fi := typ.Field(fi)
 			fieldVal := vElem.FieldByName(fi.Name)
 			if fieldVal.IsValid() && fieldVal.CanSet() {

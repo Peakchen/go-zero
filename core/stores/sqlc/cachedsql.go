@@ -209,7 +209,7 @@ func (cc CachedConn) QueryRowxCtx(ctx context.Context, v any, key, field string,
 }
 
 // QueryRowx unmarshals into v with given key and query func.
-func (cc CachedConn) QueryRowAllOne(v any, key, field string, query QueryAllOneFnx) error {
+func (cc CachedConn) QueryRowAllOne(v any, key string, query QueryAllOneFnx) error {
 	queryCtx := func(_ context.Context, conn sqlx.SqlConn, v any, fields ...string) error {
 		return query(conn, v, fields...)
 	}
