@@ -451,45 +451,46 @@ func (c cacheNode) doTakeAllOne(ctx context.Context, v any, key string,
 		var leftFields = make([]string, 0, typ.NumField())
 		for fi := 0; fi < typ.NumField(); fi++ {
 			fi := typ.Field(fi)
+			tagv := fi.Tag.Get("db")
 			fieldVal := vElem.FieldByName(fi.Name)
 			if fieldVal.IsValid() && fieldVal.CanSet() {
 				if fieldVal.CanInterface() {
-					if err := c.doHGetCache(ctx, key, fi.Name, fieldVal.Interface()); err != nil {
+					if err := c.doHGetCache(ctx, key, tagv, fieldVal.Interface()); err != nil {
 						if err != errPlaceholder && err != c.errNotFound && err.Error() != "redis: nil" {
 							return nil, err
 						} else {
-							leftFields = append(leftFields, fi.Name)
+							leftFields = append(leftFields, tagv)
 						}
 					}
 				} else if fieldVal.CanInt() {
-					if err := c.doHGetCache(ctx, key, fi.Name, fieldVal.Int()); err != nil {
+					if err := c.doHGetCache(ctx, key, tagv, fieldVal.Int()); err != nil {
 						if err != errPlaceholder && err != c.errNotFound && err.Error() != "redis: nil" {
 							return nil, err
 						} else {
-							leftFields = append(leftFields, fi.Name)
+							leftFields = append(leftFields, tagv)
 						}
 					}
 				} else if fieldVal.CanUint() {
-					if err := c.doHGetCache(ctx, key, fi.Name, fieldVal.Uint()); err != nil {
+					if err := c.doHGetCache(ctx, key, tagv, fieldVal.Uint()); err != nil {
 						if err != errPlaceholder && err != c.errNotFound && err.Error() != "redis: nil" {
 							return nil, err
 						} else {
-							leftFields = append(leftFields, fi.Name)
+							leftFields = append(leftFields, tagv)
 						}
 					}
 				} else if fieldVal.CanFloat() {
-					if err := c.doHGetCache(ctx, key, fi.Name, fieldVal.Float()); err != nil {
+					if err := c.doHGetCache(ctx, key, tagv, fieldVal.Float()); err != nil {
 						if err != errPlaceholder && err != c.errNotFound && err.Error() != "redis: nil" {
 							return nil, err
 						} else {
-							leftFields = append(leftFields, fi.Name)
+							leftFields = append(leftFields, tagv)
 						}
 					}
 				} else {
-					return nil, fmt.Errorf("valid and can set, reflect type to get cache, but not realy can set, name: %v, type: %v", fi.Name, fi.Type.Name())
+					return nil, fmt.Errorf("valid and can set, reflect type to get cache, but not realy can set, tagv: %v, type: %v", tagv, fi.Type.Name())
 				}
 			} else {
-				return nil, fmt.Errorf("invalid reflect type to get cache, name: %v, type: %v", fi.Name, fi.Type.Name())
+				return nil, fmt.Errorf("invalid reflect type to get cache, tagv: %v, type: %v", tagv, fi.Type.Name())
 			}
 		}
 		if len(leftFields) > 0 {
