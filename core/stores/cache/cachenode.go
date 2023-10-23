@@ -250,8 +250,32 @@ func (c cacheNode) TakeAllOneCtx(ctx context.Context, val any, key string,
 					continue
 				}
 				fieldVal := vElem.FieldByName(fi.Name)
-				if err = c.HsetCtx(ctx, key, tagv, fieldVal); err != nil {
-					return err
+				if fieldVal.CanInterface() {
+					if err := c.HsetCtx(ctx, key, tagv, fieldVal.Interface()); err != nil {
+						if err != errPlaceholder && err != c.errNotFound && err.Error() != "redis: nil" {
+							return fmt.Errorf("[redis] key[%v] set interface field[%v], err: %v", key, tagv, err)
+						}
+					}
+				} else if fieldVal.CanInt() {
+					if err := c.HsetCtx(ctx, key, tagv, fieldVal.Int()); err != nil {
+						if err != errPlaceholder && err != c.errNotFound && err.Error() != "redis: nil" {
+							return fmt.Errorf("[redis] key[%v] set int field[%v], err: %v", key, tagv, err)
+						}
+					}
+				} else if fieldVal.CanUint() {
+					if err := c.HsetCtx(ctx, key, tagv, fieldVal.Uint()); err != nil {
+						if err != errPlaceholder && err != c.errNotFound && err.Error() != "redis: nil" {
+							return fmt.Errorf("[redis] key[%v] set uint field[%v], err: %v", key, tagv, err)
+						}
+					}
+				} else if fieldVal.CanFloat() {
+					if err := c.HsetCtx(ctx, key, tagv, fieldVal.Float()); err != nil {
+						if err != errPlaceholder && err != c.errNotFound && err.Error() != "redis: nil" {
+							return fmt.Errorf("[redis] key[%v] set float field[%v], err: %v", key, tagv, err)
+						}
+					}
+				} else {
+					return fmt.Errorf("[redis] valid and can set, reflect type to get cache, but not realy can set, tagv: %v, type: %v", tagv, fi.Type.Name())
 				}
 			}
 		}
