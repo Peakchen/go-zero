@@ -239,17 +239,18 @@ func (c cacheNode) TakeAllOneCtx(ctx context.Context, val any, key string,
 	query func(val any, leftFields ...string) error) error {
 	return c.doTakeAllOne(ctx, val, key, query, func(v any, leftFields ...string) error {
 		val := reflect.ValueOf(v)
-		typ := val.Type()
 		vElem := val.Elem()
+		typ := vElem.Type()
 		var err error
 		for _, field := range leftFields {
-			for fi := 0; fi < val.NumField(); fi++ {
+			for fi := 0; fi < typ.NumField(); fi++ {
 				fi := typ.Field(fi)
-				if fi.Name != field {
+				tagv := fi.Tag.Get("db")
+				if tagv != field {
 					continue
 				}
 				fieldVal := vElem.FieldByName(fi.Name)
-				if err = c.HsetCtx(ctx, key, fi.Name, fieldVal); err != nil {
+				if err = c.HsetCtx(ctx, key, tagv, fieldVal); err != nil {
 					return err
 				}
 			}
