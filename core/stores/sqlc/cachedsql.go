@@ -91,6 +91,11 @@ func (cc CachedConn) GetRedis() kv.Store {
 	return cc.red
 }
 
+// Redis with key
+func (cc CachedConn) Redis(key string) (*redis.Redis, error) {
+	return cc.red.Redis(key)
+}
+
 // DelCache deletes cache with keys.
 func (cc CachedConn) DelCache(keys ...string) error {
 	return cc.DelCacheCtx(context.Background(), keys...)

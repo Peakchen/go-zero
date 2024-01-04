@@ -36,12 +36,11 @@ func getClient(r *Redis) (*red.Client, error) {
 		for _, hook := range r.hooks {
 			store.AddHook(hook)
 		}
-
 		return store, nil
 	})
 	if err != nil {
 		return nil, err
 	}
-
+	r.red = val.(*red.Client)
 	return val.(*red.Client), nil
 }

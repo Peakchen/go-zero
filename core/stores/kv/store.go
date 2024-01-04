@@ -3,12 +3,12 @@ package kv
 import (
 	"context"
 	"errors"
-	"log"
-
 	"github.com/Peakchen/go-zero/core/errorx"
 	"github.com/Peakchen/go-zero/core/hash"
 	"github.com/Peakchen/go-zero/core/stores/cache"
 	"github.com/Peakchen/go-zero/core/stores/redis"
+	"log"
+	"time"
 )
 
 // ErrNoRedisNode is an error that indicates no redis node.
@@ -21,10 +21,10 @@ type (
 		DecrCtx(ctx context.Context, key string) (int64, error)
 		Decrby(key string, decrement int64) (int64, error)
 		DecrbyCtx(ctx context.Context, key string, decrement int64) (int64, error)
-		Del(keys ...string) (int, error)
-		DelCtx(ctx context.Context, keys ...string) (int, error)
-		Eval(script, key string, args ...any) (any, error)
-		EvalCtx(ctx context.Context, script, key string, args ...any) (any, error)
+		Del(keys ...string) (int64, error)
+		DelCtx(ctx context.Context, keys ...string) (int64, error)
+		Eval(script string, keys []string, args ...any) (any, error)
+		EvalCtx(ctx context.Context, script string, keys []string, args ...any) (any, error)
 		Exists(key string) (bool, error)
 		ExistsCtx(ctx context.Context, key string) (bool, error)
 		Expire(key string, seconds int) error
@@ -33,8 +33,8 @@ type (
 		ExpireatCtx(ctx context.Context, key string, expireTime int64) error
 		Get(key string) (string, error)
 		GetCtx(ctx context.Context, key string) (string, error)
-		GetSet(key, value string) (string, error)
-		GetSetCtx(ctx context.Context, key, value string) (string, error)
+		GetSet(key string, value interface{}) (string, error)
+		GetSetCtx(ctx context.Context, key string, value interface{}) (string, error)
 		Hdel(key, field string) (bool, error)
 		HdelCtx(ctx context.Context, key, field string) (bool, error)
 		Hexists(key, field string) (bool, error)
@@ -43,18 +43,18 @@ type (
 		HgetCtx(ctx context.Context, key, field string) (string, error)
 		Hgetall(key string) (map[string]string, error)
 		HgetallCtx(ctx context.Context, key string) (map[string]string, error)
-		Hincrby(key, field string, increment int) (int, error)
-		HincrbyCtx(ctx context.Context, key, field string, increment int) (int, error)
+		Hincrby(key, field string, increment int) (int64, error)
+		HincrbyCtx(ctx context.Context, key, field string, increment int) (int64, error)
 		Hkeys(key string) ([]string, error)
 		HkeysCtx(ctx context.Context, key string) ([]string, error)
-		Hlen(key string) (int, error)
-		HlenCtx(ctx context.Context, key string) (int, error)
+		Hlen(key string) (int64, error)
+		HlenCtx(ctx context.Context, key string) (int64, error)
 		Hmget(key string, fields ...string) ([]string, error)
 		HmgetCtx(ctx context.Context, key string, fields ...string) ([]string, error)
-		Hset(key, field, value string) error
-		HsetCtx(ctx context.Context, key, field, value string) error
-		Hsetnx(key, field, value string) (bool, error)
-		HsetnxCtx(ctx context.Context, key, field, value string) (bool, error)
+		Hset(key, field string, value interface{}) error
+		HsetCtx(ctx context.Context, key, field string, value interface{}) error
+		Hsetnx(key, field string, value interface{}) (bool, error)
+		HsetnxCtx(ctx context.Context, key, field string, value interface{}) (bool, error)
 		Hmset(key string, fieldsAndValues map[string]string) error
 		HmsetCtx(ctx context.Context, key string, fieldsAndValues map[string]string) error
 		Hvals(key string) ([]string, error)
@@ -65,36 +65,36 @@ type (
 		IncrbyCtx(ctx context.Context, key string, increment int64) (int64, error)
 		Lindex(key string, index int64) (string, error)
 		LindexCtx(ctx context.Context, key string, index int64) (string, error)
-		Llen(key string) (int, error)
-		LlenCtx(ctx context.Context, key string) (int, error)
+		Llen(key string) (int64, error)
+		LlenCtx(ctx context.Context, key string) (int64, error)
 		Lpop(key string) (string, error)
 		LpopCtx(ctx context.Context, key string) (string, error)
-		Lpush(key string, values ...any) (int, error)
-		LpushCtx(ctx context.Context, key string, values ...any) (int, error)
+		Lpush(key string, values ...any) (int64, error)
+		LpushCtx(ctx context.Context, key string, values ...any) (int64, error)
 		Lrange(key string, start, stop int) ([]string, error)
 		LrangeCtx(ctx context.Context, key string, start, stop int) ([]string, error)
-		Lrem(key string, count int, value string) (int, error)
-		LremCtx(ctx context.Context, key string, count int, value string) (int, error)
+		Lrem(key string, count int, value interface{}) (int64, error)
+		LremCtx(ctx context.Context, key string, count int, value interface{}) (int64, error)
 		Persist(key string) (bool, error)
 		PersistCtx(ctx context.Context, key string) (bool, error)
 		Pfadd(key string, values ...any) (bool, error)
 		PfaddCtx(ctx context.Context, key string, values ...any) (bool, error)
 		Pfcount(key string) (int64, error)
 		PfcountCtx(ctx context.Context, key string) (int64, error)
-		Rpush(key string, values ...any) (int, error)
-		RpushCtx(ctx context.Context, key string, values ...any) (int, error)
-		Sadd(key string, values ...any) (int, error)
-		SaddCtx(ctx context.Context, key string, values ...any) (int, error)
+		Rpush(key string, values ...any) (int64, error)
+		RpushCtx(ctx context.Context, key string, values ...any) (int64, error)
+		Sadd(key string, values ...any) (int64, error)
+		SaddCtx(ctx context.Context, key string, values ...any) (int64, error)
 		Scard(key string) (int64, error)
 		ScardCtx(ctx context.Context, key string) (int64, error)
-		Set(key, value string) error
-		SetCtx(ctx context.Context, key, value string) error
-		Setex(key, value string, seconds int) error
-		SetexCtx(ctx context.Context, key, value string, seconds int) error
-		Setnx(key, value string) (bool, error)
-		SetnxCtx(ctx context.Context, key, value string) (bool, error)
-		SetnxEx(key, value string, seconds int) (bool, error)
-		SetnxExCtx(ctx context.Context, key, value string, seconds int) (bool, error)
+		Set(key string, value interface{}) error
+		SetCtx(ctx context.Context, key string, value interface{}) error
+		Setex(key string, value interface{}, seconds int) error
+		SetexCtx(ctx context.Context, key string, value interface{}, seconds int) error
+		Setnx(key string, value interface{}) (bool, error)
+		SetnxCtx(ctx context.Context, key string, value interface{}) (bool, error)
+		SetnxEx(key string, value interface{}, seconds int) (bool, error)
+		SetnxExCtx(ctx context.Context, key string, value interface{}, seconds int) (bool, error)
 		Sismember(key string, value any) (bool, error)
 		SismemberCtx(ctx context.Context, key string, value any) (bool, error)
 		Smembers(key string) ([]string, error)
@@ -103,22 +103,22 @@ type (
 		SpopCtx(ctx context.Context, key string) (string, error)
 		Srandmember(key string, count int) ([]string, error)
 		SrandmemberCtx(ctx context.Context, key string, count int) ([]string, error)
-		Srem(key string, values ...any) (int, error)
-		SremCtx(ctx context.Context, key string, values ...any) (int, error)
+		Srem(key string, values ...any) (int64, error)
+		SremCtx(ctx context.Context, key string, values ...any) (int64, error)
 		Sscan(key string, cursor uint64, match string, count int64) (keys []string, cur uint64, err error)
 		SscanCtx(ctx context.Context, key string, cursor uint64, match string, count int64) (keys []string, cur uint64, err error)
-		Ttl(key string) (int, error)
-		TtlCtx(ctx context.Context, key string) (int, error)
-		Zadd(key string, score int64, value string) (bool, error)
-		ZaddFloat(key string, score float64, value string) (bool, error)
-		ZaddCtx(ctx context.Context, key string, score int64, value string) (bool, error)
-		ZaddFloatCtx(ctx context.Context, key string, score float64, value string) (bool, error)
+		Ttl(key string) (time.Duration, error)
+		TtlCtx(ctx context.Context, key string) (time.Duration, error)
+		Zadd(key string, score int64, value interface{}) (bool, error)
+		ZaddFloat(key string, score float64, value interface{}) (bool, error)
+		ZaddCtx(ctx context.Context, key string, score int64, value interface{}) (bool, error)
+		ZaddFloatCtx(ctx context.Context, key string, score float64, value interface{}) (bool, error)
 		Zadds(key string, ps ...redis.Pair) (int64, error)
 		ZaddsCtx(ctx context.Context, key string, ps ...redis.Pair) (int64, error)
-		Zcard(key string) (int, error)
-		ZcardCtx(ctx context.Context, key string) (int, error)
-		Zcount(key string, start, stop int64) (int, error)
-		ZcountCtx(ctx context.Context, key string, start, stop int64) (int, error)
+		Zcard(key string) (int64, error)
+		ZcardCtx(ctx context.Context, key string) (int64, error)
+		Zcount(key string, start, stop int64) (int64, error)
+		ZcountCtx(ctx context.Context, key string, start, stop int64) (int64, error)
 		Zincrby(key string, increment int64, field string) (int64, error)
 		ZincrbyCtx(ctx context.Context, key string, increment int64, field string) (int64, error)
 		Zrange(key string, start, stop int64) ([]string, error)
@@ -131,12 +131,12 @@ type (
 		ZrangebyscoreWithScoresAndLimitCtx(ctx context.Context, key string, start, stop int64, page, size int) ([]redis.Pair, error)
 		Zrank(key, field string) (int64, error)
 		ZrankCtx(ctx context.Context, key, field string) (int64, error)
-		Zrem(key string, values ...any) (int, error)
-		ZremCtx(ctx context.Context, key string, values ...any) (int, error)
-		Zremrangebyrank(key string, start, stop int64) (int, error)
-		ZremrangebyrankCtx(ctx context.Context, key string, start, stop int64) (int, error)
-		Zremrangebyscore(key string, start, stop int64) (int, error)
-		ZremrangebyscoreCtx(ctx context.Context, key string, start, stop int64) (int, error)
+		Zrem(key string, values ...any) (int64, error)
+		ZremCtx(ctx context.Context, key string, values ...any) (int64, error)
+		Zremrangebyrank(key string, start, stop int64) (int64, error)
+		ZremrangebyrankCtx(ctx context.Context, key string, start, stop int64) (int64, error)
+		Zremrangebyscore(key string, start, stop int64) (int64, error)
+		ZremrangebyscoreCtx(ctx context.Context, key string, start, stop int64) (int64, error)
 		Zrevrange(key string, start, stop int64) ([]string, error)
 		ZrevrangeCtx(ctx context.Context, key string, start, stop int64) ([]string, error)
 		ZrevrangebyscoreWithScores(key string, start, stop int64) ([]redis.Pair, error)
@@ -147,6 +147,7 @@ type (
 		ZscoreCtx(ctx context.Context, key, value string) (int64, error)
 		Zrevrank(key, field string) (int64, error)
 		ZrevrankCtx(ctx context.Context, key, field string) (int64, error)
+		Redis(key string) (*redis.Redis, error)
 	}
 
 	clusterStore struct {
@@ -199,12 +200,12 @@ func (cs clusterStore) DecrbyCtx(ctx context.Context, key string, decrement int6
 	return node.DecrbyCtx(ctx, key, decrement)
 }
 
-func (cs clusterStore) Del(keys ...string) (int, error) {
+func (cs clusterStore) Del(keys ...string) (int64, error) {
 	return cs.DelCtx(context.Background(), keys...)
 }
 
-func (cs clusterStore) DelCtx(ctx context.Context, keys ...string) (int, error) {
-	var val int
+func (cs clusterStore) DelCtx(ctx context.Context, keys ...string) (int64, error) {
+	var val int64
 	var be errorx.BatchError
 
 	for _, key := range keys {
@@ -224,17 +225,17 @@ func (cs clusterStore) DelCtx(ctx context.Context, keys ...string) (int, error) 
 	return val, be.Err()
 }
 
-func (cs clusterStore) Eval(script, key string, args ...any) (any, error) {
-	return cs.EvalCtx(context.Background(), script, key, args...)
+func (cs clusterStore) Eval(script string, keys []string, args ...any) (any, error) {
+	return cs.EvalCtx(context.Background(), script, keys, args...)
 }
 
-func (cs clusterStore) EvalCtx(ctx context.Context, script, key string, args ...any) (any, error) {
-	node, err := cs.getRedis(key)
+func (cs clusterStore) EvalCtx(ctx context.Context, script string, keys []string, args ...any) (any, error) {
+	node, err := cs.getRedis(keys[0])
 	if err != nil {
 		return nil, err
 	}
 
-	return node.EvalCtx(ctx, script, []string{key}, args...)
+	return node.EvalCtx(ctx, script, keys, args...)
 }
 
 func (cs clusterStore) Exists(key string) (bool, error) {
@@ -341,11 +342,11 @@ func (cs clusterStore) HgetallCtx(ctx context.Context, key string) (map[string]s
 	return node.HgetallCtx(ctx, key)
 }
 
-func (cs clusterStore) Hincrby(key, field string, increment int) (int, error) {
+func (cs clusterStore) Hincrby(key, field string, increment int) (int64, error) {
 	return cs.HincrbyCtx(context.Background(), key, field, increment)
 }
 
-func (cs clusterStore) HincrbyCtx(ctx context.Context, key, field string, increment int) (int, error) {
+func (cs clusterStore) HincrbyCtx(ctx context.Context, key, field string, increment int) (int64, error) {
 	node, err := cs.getRedis(key)
 	if err != nil {
 		return 0, err
@@ -367,11 +368,11 @@ func (cs clusterStore) HkeysCtx(ctx context.Context, key string) ([]string, erro
 	return node.HkeysCtx(ctx, key)
 }
 
-func (cs clusterStore) Hlen(key string) (int, error) {
+func (cs clusterStore) Hlen(key string) (int64, error) {
 	return cs.HlenCtx(context.Background(), key)
 }
 
-func (cs clusterStore) HlenCtx(ctx context.Context, key string) (int, error) {
+func (cs clusterStore) HlenCtx(ctx context.Context, key string) (int64, error) {
 	node, err := cs.getRedis(key)
 	if err != nil {
 		return 0, err
@@ -393,11 +394,11 @@ func (cs clusterStore) HmgetCtx(ctx context.Context, key string, fields ...strin
 	return node.HmgetCtx(ctx, key, fields...)
 }
 
-func (cs clusterStore) Hset(key, field, value string) error {
+func (cs clusterStore) Hset(key, field string, value interface{}) error {
 	return cs.HsetCtx(context.Background(), key, field, value)
 }
 
-func (cs clusterStore) HsetCtx(ctx context.Context, key, field, value string) error {
+func (cs clusterStore) HsetCtx(ctx context.Context, key, field string, value interface{}) error {
 	node, err := cs.getRedis(key)
 	if err != nil {
 		return err
@@ -406,11 +407,11 @@ func (cs clusterStore) HsetCtx(ctx context.Context, key, field, value string) er
 	return node.HsetCtx(ctx, key, field, value)
 }
 
-func (cs clusterStore) Hsetnx(key, field, value string) (bool, error) {
+func (cs clusterStore) Hsetnx(key, field string, value interface{}) (bool, error) {
 	return cs.HsetnxCtx(context.Background(), key, field, value)
 }
 
-func (cs clusterStore) HsetnxCtx(ctx context.Context, key, field, value string) (bool, error) {
+func (cs clusterStore) HsetnxCtx(ctx context.Context, key, field string, value interface{}) (bool, error) {
 	node, err := cs.getRedis(key)
 	if err != nil {
 		return false, err
@@ -471,11 +472,11 @@ func (cs clusterStore) IncrbyCtx(ctx context.Context, key string, increment int6
 	return node.IncrbyCtx(ctx, key, increment)
 }
 
-func (cs clusterStore) Llen(key string) (int, error) {
+func (cs clusterStore) Llen(key string) (int64, error) {
 	return cs.LlenCtx(context.Background(), key)
 }
 
-func (cs clusterStore) LlenCtx(ctx context.Context, key string) (int, error) {
+func (cs clusterStore) LlenCtx(ctx context.Context, key string) (int64, error) {
 	node, err := cs.getRedis(key)
 	if err != nil {
 		return 0, err
@@ -510,11 +511,11 @@ func (cs clusterStore) LpopCtx(ctx context.Context, key string) (string, error) 
 	return node.LpopCtx(ctx, key)
 }
 
-func (cs clusterStore) Lpush(key string, values ...any) (int, error) {
+func (cs clusterStore) Lpush(key string, values ...any) (int64, error) {
 	return cs.LpushCtx(context.Background(), key, values...)
 }
 
-func (cs clusterStore) LpushCtx(ctx context.Context, key string, values ...any) (int, error) {
+func (cs clusterStore) LpushCtx(ctx context.Context, key string, values ...any) (int64, error) {
 	node, err := cs.getRedis(key)
 	if err != nil {
 		return 0, err
@@ -536,11 +537,11 @@ func (cs clusterStore) LrangeCtx(ctx context.Context, key string, start, stop in
 	return node.LrangeCtx(ctx, key, start, stop)
 }
 
-func (cs clusterStore) Lrem(key string, count int, value string) (int, error) {
+func (cs clusterStore) Lrem(key string, count int, value interface{}) (int64, error) {
 	return cs.LremCtx(context.Background(), key, count, value)
 }
 
-func (cs clusterStore) LremCtx(ctx context.Context, key string, count int, value string) (int, error) {
+func (cs clusterStore) LremCtx(ctx context.Context, key string, count int, value interface{}) (int64, error) {
 	node, err := cs.getRedis(key)
 	if err != nil {
 		return 0, err
@@ -588,11 +589,11 @@ func (cs clusterStore) PfcountCtx(ctx context.Context, key string) (int64, error
 	return node.PfcountCtx(ctx, key)
 }
 
-func (cs clusterStore) Rpush(key string, values ...any) (int, error) {
+func (cs clusterStore) Rpush(key string, values ...any) (int64, error) {
 	return cs.RpushCtx(context.Background(), key, values...)
 }
 
-func (cs clusterStore) RpushCtx(ctx context.Context, key string, values ...any) (int, error) {
+func (cs clusterStore) RpushCtx(ctx context.Context, key string, values ...any) (int64, error) {
 	node, err := cs.getRedis(key)
 	if err != nil {
 		return 0, err
@@ -601,11 +602,11 @@ func (cs clusterStore) RpushCtx(ctx context.Context, key string, values ...any) 
 	return node.RpushCtx(ctx, key, values...)
 }
 
-func (cs clusterStore) Sadd(key string, values ...any) (int, error) {
+func (cs clusterStore) Sadd(key string, values ...any) (int64, error) {
 	return cs.SaddCtx(context.Background(), key, values...)
 }
 
-func (cs clusterStore) SaddCtx(ctx context.Context, key string, values ...any) (int, error) {
+func (cs clusterStore) SaddCtx(ctx context.Context, key string, values ...any) (int64, error) {
 	node, err := cs.getRedis(key)
 	if err != nil {
 		return 0, err
@@ -627,11 +628,11 @@ func (cs clusterStore) ScardCtx(ctx context.Context, key string) (int64, error) 
 	return node.ScardCtx(ctx, key)
 }
 
-func (cs clusterStore) Set(key, value string) error {
+func (cs clusterStore) Set(key string, value interface{}) error {
 	return cs.SetCtx(context.Background(), key, value)
 }
 
-func (cs clusterStore) SetCtx(ctx context.Context, key, value string) error {
+func (cs clusterStore) SetCtx(ctx context.Context, key string, value interface{}) error {
 	node, err := cs.getRedis(key)
 	if err != nil {
 		return err
@@ -640,11 +641,11 @@ func (cs clusterStore) SetCtx(ctx context.Context, key, value string) error {
 	return node.SetCtx(ctx, key, value)
 }
 
-func (cs clusterStore) Setex(key, value string, seconds int) error {
+func (cs clusterStore) Setex(key string, value interface{}, seconds int) error {
 	return cs.SetexCtx(context.Background(), key, value, seconds)
 }
 
-func (cs clusterStore) SetexCtx(ctx context.Context, key, value string, seconds int) error {
+func (cs clusterStore) SetexCtx(ctx context.Context, key string, value interface{}, seconds int) error {
 	node, err := cs.getRedis(key)
 	if err != nil {
 		return err
@@ -653,11 +654,11 @@ func (cs clusterStore) SetexCtx(ctx context.Context, key, value string, seconds 
 	return node.SetexCtx(ctx, key, value, seconds)
 }
 
-func (cs clusterStore) Setnx(key, value string) (bool, error) {
+func (cs clusterStore) Setnx(key string, value interface{}) (bool, error) {
 	return cs.SetnxCtx(context.Background(), key, value)
 }
 
-func (cs clusterStore) SetnxCtx(ctx context.Context, key, value string) (bool, error) {
+func (cs clusterStore) SetnxCtx(ctx context.Context, key string, value interface{}) (bool, error) {
 	node, err := cs.getRedis(key)
 	if err != nil {
 		return false, err
@@ -666,11 +667,11 @@ func (cs clusterStore) SetnxCtx(ctx context.Context, key, value string) (bool, e
 	return node.SetnxCtx(ctx, key, value)
 }
 
-func (cs clusterStore) SetnxEx(key, value string, seconds int) (bool, error) {
+func (cs clusterStore) SetnxEx(key string, value interface{}, seconds int) (bool, error) {
 	return cs.SetnxExCtx(context.Background(), key, value, seconds)
 }
 
-func (cs clusterStore) SetnxExCtx(ctx context.Context, key, value string, seconds int) (bool, error) {
+func (cs clusterStore) SetnxExCtx(ctx context.Context, key string, value interface{}, seconds int) (bool, error) {
 	node, err := cs.getRedis(key)
 	if err != nil {
 		return false, err
@@ -679,11 +680,11 @@ func (cs clusterStore) SetnxExCtx(ctx context.Context, key, value string, second
 	return node.SetnxExCtx(ctx, key, value, seconds)
 }
 
-func (cs clusterStore) GetSet(key, value string) (string, error) {
+func (cs clusterStore) GetSet(key string, value interface{}) (string, error) {
 	return cs.GetSetCtx(context.Background(), key, value)
 }
 
-func (cs clusterStore) GetSetCtx(ctx context.Context, key, value string) (string, error) {
+func (cs clusterStore) GetSetCtx(ctx context.Context, key string, value interface{}) (string, error) {
 	node, err := cs.getRedis(key)
 	if err != nil {
 		return "", err
@@ -744,11 +745,11 @@ func (cs clusterStore) SrandmemberCtx(ctx context.Context, key string, count int
 	return node.SrandmemberCtx(ctx, key, count)
 }
 
-func (cs clusterStore) Srem(key string, values ...any) (int, error) {
+func (cs clusterStore) Srem(key string, values ...any) (int64, error) {
 	return cs.SremCtx(context.Background(), key, values...)
 }
 
-func (cs clusterStore) SremCtx(ctx context.Context, key string, values ...any) (int, error) {
+func (cs clusterStore) SremCtx(ctx context.Context, key string, values ...any) (int64, error) {
 	node, err := cs.getRedis(key)
 	if err != nil {
 		return 0, err
@@ -772,11 +773,11 @@ func (cs clusterStore) SscanCtx(ctx context.Context, key string, cursor uint64, 
 	return node.SscanCtx(ctx, key, cursor, match, count)
 }
 
-func (cs clusterStore) Ttl(key string) (int, error) {
+func (cs clusterStore) Ttl(key string) (time.Duration, error) {
 	return cs.TtlCtx(context.Background(), key)
 }
 
-func (cs clusterStore) TtlCtx(ctx context.Context, key string) (int, error) {
+func (cs clusterStore) TtlCtx(ctx context.Context, key string) (time.Duration, error) {
 	node, err := cs.getRedis(key)
 	if err != nil {
 		return 0, err
@@ -785,19 +786,19 @@ func (cs clusterStore) TtlCtx(ctx context.Context, key string) (int, error) {
 	return node.TtlCtx(ctx, key)
 }
 
-func (cs clusterStore) Zadd(key string, score int64, value string) (bool, error) {
+func (cs clusterStore) Zadd(key string, score int64, value interface{}) (bool, error) {
 	return cs.ZaddCtx(context.Background(), key, score, value)
 }
 
-func (cs clusterStore) ZaddFloat(key string, score float64, value string) (bool, error) {
+func (cs clusterStore) ZaddFloat(key string, score float64, value interface{}) (bool, error) {
 	return cs.ZaddFloatCtx(context.Background(), key, score, value)
 }
 
-func (cs clusterStore) ZaddCtx(ctx context.Context, key string, score int64, value string) (bool, error) {
+func (cs clusterStore) ZaddCtx(ctx context.Context, key string, score int64, value interface{}) (bool, error) {
 	return cs.ZaddFloatCtx(ctx, key, float64(score), value)
 }
 
-func (cs clusterStore) ZaddFloatCtx(ctx context.Context, key string, score float64, value string) (bool, error) {
+func (cs clusterStore) ZaddFloatCtx(ctx context.Context, key string, score float64, value interface{}) (bool, error) {
 	node, err := cs.getRedis(key)
 	if err != nil {
 		return false, err
@@ -819,11 +820,11 @@ func (cs clusterStore) ZaddsCtx(ctx context.Context, key string, ps ...redis.Pai
 	return node.ZaddsCtx(ctx, key, ps...)
 }
 
-func (cs clusterStore) Zcard(key string) (int, error) {
+func (cs clusterStore) Zcard(key string) (int64, error) {
 	return cs.ZcardCtx(context.Background(), key)
 }
 
-func (cs clusterStore) ZcardCtx(ctx context.Context, key string) (int, error) {
+func (cs clusterStore) ZcardCtx(ctx context.Context, key string) (int64, error) {
 	node, err := cs.getRedis(key)
 	if err != nil {
 		return 0, err
@@ -832,11 +833,11 @@ func (cs clusterStore) ZcardCtx(ctx context.Context, key string) (int, error) {
 	return node.ZcardCtx(ctx, key)
 }
 
-func (cs clusterStore) Zcount(key string, start, stop int64) (int, error) {
+func (cs clusterStore) Zcount(key string, start, stop int64) (int64, error) {
 	return cs.ZcountCtx(context.Background(), key, start, stop)
 }
 
-func (cs clusterStore) ZcountCtx(ctx context.Context, key string, start, stop int64) (int, error) {
+func (cs clusterStore) ZcountCtx(ctx context.Context, key string, start, stop int64) (int64, error) {
 	node, err := cs.getRedis(key)
 	if err != nil {
 		return 0, err
@@ -925,11 +926,11 @@ func (cs clusterStore) ZrangebyscoreWithScoresAndLimitCtx(ctx context.Context, k
 	return node.ZrangebyscoreWithScoresAndLimitCtx(ctx, key, start, stop, page, size)
 }
 
-func (cs clusterStore) Zrem(key string, values ...any) (int, error) {
+func (cs clusterStore) Zrem(key string, values ...any) (int64, error) {
 	return cs.ZremCtx(context.Background(), key, values...)
 }
 
-func (cs clusterStore) ZremCtx(ctx context.Context, key string, values ...any) (int, error) {
+func (cs clusterStore) ZremCtx(ctx context.Context, key string, values ...any) (int64, error) {
 	node, err := cs.getRedis(key)
 	if err != nil {
 		return 0, err
@@ -938,11 +939,11 @@ func (cs clusterStore) ZremCtx(ctx context.Context, key string, values ...any) (
 	return node.ZremCtx(ctx, key, values...)
 }
 
-func (cs clusterStore) Zremrangebyrank(key string, start, stop int64) (int, error) {
+func (cs clusterStore) Zremrangebyrank(key string, start, stop int64) (int64, error) {
 	return cs.ZremrangebyrankCtx(context.Background(), key, start, stop)
 }
 
-func (cs clusterStore) ZremrangebyrankCtx(ctx context.Context, key string, start, stop int64) (int, error) {
+func (cs clusterStore) ZremrangebyrankCtx(ctx context.Context, key string, start, stop int64) (int64, error) {
 	node, err := cs.getRedis(key)
 	if err != nil {
 		return 0, err
@@ -951,11 +952,11 @@ func (cs clusterStore) ZremrangebyrankCtx(ctx context.Context, key string, start
 	return node.ZremrangebyrankCtx(ctx, key, start, stop)
 }
 
-func (cs clusterStore) Zremrangebyscore(key string, start, stop int64) (int, error) {
+func (cs clusterStore) Zremrangebyscore(key string, start, stop int64) (int64, error) {
 	return cs.ZremrangebyscoreCtx(context.Background(), key, start, stop)
 }
 
-func (cs clusterStore) ZremrangebyscoreCtx(ctx context.Context, key string, start, stop int64) (int, error) {
+func (cs clusterStore) ZremrangebyscoreCtx(ctx context.Context, key string, start, stop int64) (int64, error) {
 	node, err := cs.getRedis(key)
 	if err != nil {
 		return 0, err
@@ -1038,4 +1039,8 @@ func (cs clusterStore) getRedis(key string) (*redis.Redis, error) {
 	}
 
 	return val.(*redis.Redis), nil
+}
+
+func (cs clusterStore) Redis(key string) (*redis.Redis, error) {
+	return cs.getRedis(key)
 }
