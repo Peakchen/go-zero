@@ -463,11 +463,24 @@ func (c cacheNode) doTakeAllOne(ctx context.Context, v any, key string,
 			fieldVal := vElem.FieldByName(fi.Name)
 			if fieldVal.IsValid() && fieldVal.CanSet() {
 				if fieldVal.CanInterface() {
-					if err := c.doHGetCache(ctx, key, tagv, fieldVal.Interface()); err != nil {
-						if err != errPlaceholder && err != c.errNotFound && err.Error() != "redis: nil" {
-							return nil, err
+					if fieldVal.Kind() == reflect.Ptr {
+						if err := c.doHGetCache(ctx, key, tagv, fieldVal.Interface()); err != nil {
+							if err != errPlaceholder && err != c.errNotFound && err.Error() != "redis: nil" {
+								return nil, err
+							} else {
+								leftFields = append(leftFields, tagv)
+							}
+						}
+					} else {
+						fieldValPtr := reflect.New(fieldVal.Type())
+						if err := c.doHGetCache(ctx, key, tagv, fieldValPtr.Interface()); err != nil {
+							if err != errPlaceholder && err != c.errNotFound && err.Error() != "redis: nil" {
+								return nil, err
+							} else {
+								leftFields = append(leftFields, tagv)
+							}
 						} else {
-							leftFields = append(leftFields, tagv)
+							fieldVal.Set(fieldValPtr.Elem())
 						}
 					}
 				} else {
