@@ -271,6 +271,24 @@ func (cc CachedConn) QueryRowIndexCtx(ctx context.Context, v any, key string,
 	})
 }
 
+// QueryRowx2 unmarshals into v with given key.
+func (cc CachedConn) QueryRowx2(v any, key string, field string, query QueryFnx) error {
+	queryCtx := func(_ context.Context, conn sqlx.SqlConn, v any, field string) error {
+		return query(conn, v, field)
+	}
+	return cc.QueryRowx2Ctx(context.Background(), v, key, field, queryCtx)
+}
+
+// QueryRowx2Ctx unmarshals into v with given key.
+func (cc CachedConn) QueryRowx2Ctx(ctx context.Context, v any, key string, field string, query QueryCtxFnx) error {
+	if err := cc.cache.TakeWithExpire2Ctx(ctx, v, key, field, func(v any) error {
+		return query(ctx, cc.db, v, field)
+	}); err != nil {
+		return err
+	}
+	return nil
+}
+
 // QueryRowNoCache unmarshals into v with given statement.
 func (cc CachedConn) QueryRowNoCache(v any, q string, args ...any) error {
 	return cc.QueryRowNoCacheCtx(context.Background(), v, q, args...)
