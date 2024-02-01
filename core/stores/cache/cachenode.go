@@ -285,6 +285,26 @@ func (c cacheNode) TakeWithExpireCtx(ctx context.Context, val any, key string,
 	})
 }
 
+// TakeWithExpire2 takes the result from cache first, if not found,
+// query from DB and set cache using given expire, then return the result.
+func (c cacheNode) TakeWithExpire2(val any, key string, field string, query func(val any) error) error {
+	return c.TakeWithExpire2Ctx(context.Background(), val, key, field, query)
+}
+
+// TakeWithExpire2Ctx takes the result from cache first, if not found,
+// query from DB and set cache using given expire, then return the result.
+func (c cacheNode) TakeWithExpire2Ctx(ctx context.Context, val any, key string, field string,
+	query func(val any) error) error {
+	return c.doTakex(ctx, val, key, field, func(v any) error {
+		return query(v)
+	}, func(v any) error {
+		if err := c.HsetCtx(ctx, key, field, v); err != nil {
+			return err
+		}
+		return c.ExpireCtx(ctx, key, c.expiry)
+	})
+}
+
 func (c cacheNode) aroundDuration(duration time.Duration) time.Duration {
 	return c.unstableExpiry.AroundDuration(duration)
 }
@@ -592,4 +612,14 @@ func (c cacheNode) Hexists(key string, field string) (bool, error) {
 
 func (c cacheNode) HexistsCtx(ctx context.Context, key string, field string) (bool, error) {
 	return c.rds.HexistsCtx(context.Background(), key, field)
+}
+
+// Expire is the implementation of redis expire command.
+func (c cacheNode) Expire(key string, expire time.Duration) error {
+	return c.rds.Expire(key, expire)
+}
+
+// ExpireCtx is the implementation of redis expire command.
+func (c cacheNode) ExpireCtx(ctx context.Context, key string, expire time.Duration) error {
+	return c.rds.ExpireCtx(ctx, key, expire)
 }

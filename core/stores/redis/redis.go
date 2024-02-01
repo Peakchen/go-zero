@@ -7,12 +7,12 @@ import (
 	"strconv"
 	"time"
 
-	red "github.com/go-redis/redis/v8"
 	"github.com/Peakchen/go-zero/core/breaker"
 	"github.com/Peakchen/go-zero/core/errorx"
 	"github.com/Peakchen/go-zero/core/logx"
 	"github.com/Peakchen/go-zero/core/mapping"
 	"github.com/Peakchen/go-zero/core/syncx"
+	red "github.com/go-redis/redis/v8"
 )
 
 const (
@@ -53,20 +53,20 @@ type (
 
 	// Redis defines a redis node/cluster. It is thread-safe.
 	Redis struct {
-		Addr  string
-		Type  string
-		Pass  string
-		DB    int
+		Addr string
+		Type string
+		Pass string
+		DB   int
 		// Maximum number of retries before giving up.
 		// Default is 3 retries; -1 (not 0) disables retries.
 		MaxRetries int
 		// Minimum number of idle connections which is useful when establishing
 		// new connection is slow. default 8
 		MinIdleConns int
-		tls   bool
-		brk   breaker.Breaker
-		hooks []red.Hook
-		red *red.Client
+		tls          bool
+		brk          breaker.Breaker
+		hooks        []red.Hook
+		red          *red.Client
 	}
 
 	// RedisNode interface represents a redis node.
@@ -154,12 +154,12 @@ func newRedis(addr string, opts ...Option) *Redis {
 
 func newRedisV2(conf RedisConf, opts ...Option) *Redis {
 	r := &Redis{
-		Addr: conf.Host,
-		DB: conf.DB,
-		MaxRetries: conf.MaxRetries,
+		Addr:         conf.Host,
+		DB:           conf.DB,
+		MaxRetries:   conf.MaxRetries,
 		MinIdleConns: conf.MinIdleConns,
-		Type: NodeType,
-		brk:  breaker.NewBreaker(),
+		Type:         NodeType,
+		brk:          breaker.NewBreaker(),
 	}
 
 	for _, opt := range opts {
@@ -493,19 +493,19 @@ func (s *Redis) ExistsCtx(ctx context.Context, key string) (val bool, err error)
 }
 
 // Expire is the implementation of redis expire command.
-func (s *Redis) Expire(key string, seconds int) error {
-	return s.ExpireCtx(context.Background(), key, seconds)
+func (s *Redis) Expire(key string, expire time.Duration) error {
+	return s.ExpireCtx(context.Background(), key, expire)
 }
 
 // ExpireCtx is the implementation of redis expire command.
-func (s *Redis) ExpireCtx(ctx context.Context, key string, seconds int) error {
+func (s *Redis) ExpireCtx(ctx context.Context, key string, expire time.Duration) error {
 	return s.brk.DoWithAcceptable(func() error {
 		conn, err := getRedis(s)
 		if err != nil {
 			return err
 		}
 
-		return conn.Expire(ctx, key, time.Duration(seconds)*time.Second).Err()
+		return conn.Expire(ctx, key, expire).Err()
 	}, acceptable)
 }
 
@@ -2858,7 +2858,7 @@ func (s *Redis) checkConnection(pingTimeout time.Duration) error {
 	return conn.Ping(ctx).Err()
 }
 
-func (s *Redis) Client()*red.Client{
+func (s *Redis) Client() *red.Client {
 	err := s.brk.DoWithAcceptable(func() error {
 		_, err := getRedis(s)
 		if err != nil {

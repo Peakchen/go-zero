@@ -3,12 +3,13 @@ package kv
 import (
 	"context"
 	"errors"
+	"log"
+	"time"
+
 	"github.com/Peakchen/go-zero/core/errorx"
 	"github.com/Peakchen/go-zero/core/hash"
 	"github.com/Peakchen/go-zero/core/stores/cache"
 	"github.com/Peakchen/go-zero/core/stores/redis"
-	"log"
-	"time"
 )
 
 // ErrNoRedisNode is an error that indicates no redis node.
@@ -27,8 +28,8 @@ type (
 		EvalCtx(ctx context.Context, script string, keys []string, args ...any) (any, error)
 		Exists(key string) (bool, error)
 		ExistsCtx(ctx context.Context, key string) (bool, error)
-		Expire(key string, seconds int) error
-		ExpireCtx(ctx context.Context, key string, seconds int) error
+		Expire(key string, expire time.Duration) error
+		ExpireCtx(ctx context.Context, key string, expire time.Duration) error
 		Expireat(key string, expireTime int64) error
 		ExpireatCtx(ctx context.Context, key string, expireTime int64) error
 		Get(key string) (string, error)
@@ -251,17 +252,17 @@ func (cs clusterStore) ExistsCtx(ctx context.Context, key string) (bool, error) 
 	return node.ExistsCtx(ctx, key)
 }
 
-func (cs clusterStore) Expire(key string, seconds int) error {
-	return cs.ExpireCtx(context.Background(), key, seconds)
+func (cs clusterStore) Expire(key string, expire time.Duration) error {
+	return cs.ExpireCtx(context.Background(), key, expire)
 }
 
-func (cs clusterStore) ExpireCtx(ctx context.Context, key string, seconds int) error {
+func (cs clusterStore) ExpireCtx(ctx context.Context, key string, expire time.Duration) error {
 	node, err := cs.getRedis(key)
 	if err != nil {
 		return err
 	}
 
-	return node.ExpireCtx(ctx, key, seconds)
+	return node.ExpireCtx(ctx, key, expire)
 }
 
 func (cs clusterStore) Expireat(key string, expireTime int64) error {

@@ -69,7 +69,12 @@ type (
 		// query from DB and set cache using given expire, then return the result.
 		TakeWithExpireCtx(ctx context.Context, val any, key string,
 			query func(val any, expire time.Duration) error) error
-
+		// TakeWithExpire2 takes the result from cache first, if not found,
+		// query from DB and set cache using given expire, then return the result.
+		TakeWithExpire2(val any, key string, field string, query func(val any) error) error
+		// TakeWithExpire2Ctx takes the result from cache first, if not found,
+		// query from DB and set cache using given expire, then return the result.
+		TakeWithExpire2Ctx(ctx context.Context, val any, key string, field string, query func(val any) error) error
 		// TakeAllOne takes the result from cache first, key and fields, if not found,
 		// query from DB and set cache using c.expiry, then return the result.
 		TakeAllOne(val any, key string, query func(val any, leftFields ...string) error) error
@@ -78,6 +83,11 @@ type (
 		// query from DB and set cache using c.expiry, then return the result.
 		TakeAllOneCtx(ctx context.Context, val any, key string,
 			query func(val any, leftFields ...string) error) error
+
+		// Expire is the implementation of redis expire command.
+		Expire(key string, expire time.Duration) error
+		// ExpireCtx is the implementation of redis expire command.
+		ExpireCtx(ctx context.Context, key string, expire time.Duration) error
 	}
 
 	cacheCluster struct {
@@ -337,6 +347,23 @@ func (cc cacheCluster) TakeWithExpireCtx(ctx context.Context, val any, key strin
 	return c.(Cache).TakeWithExpireCtx(ctx, val, key, query)
 }
 
+// TakeWithExpire2 takes the result from cache first, if not found,
+// query from DB and set cache using given expire, then return the result.
+func (cc cacheCluster) TakeWithExpire2(val any, key string, field string, query func(val any) error) error {
+	return cc.TakeWithExpire2Ctx(context.Background(), val, key, field, query)
+}
+
+// TakeWithExpire2Ctx takes the result from cache first, if not found,
+// query from DB and set cache using given expire, then return the result.
+func (cc cacheCluster) TakeWithExpire2Ctx(ctx context.Context, val any, key string, field string, query func(val any) error) error {
+	c, ok := cc.dispatcher.Get(key)
+	if !ok {
+		return cc.errNotFound
+	}
+
+	return c.(Cache).TakeWithExpire2Ctx(ctx, val, key, field, query)
+}
+
 func (cc cacheCluster) Exists(key string) (bool, error) {
 	return cc.ExistsCtx(context.Background(), key)
 }
@@ -359,4 +386,22 @@ func (cc cacheCluster) HexistsCtx(ctx context.Context, key string, field string)
 		return false, cc.errNotFound
 	}
 	return c.(Cache).HexistsCtx(context.Background(), key, field)
+}
+
+// Expire is the implementation of redis expire command.
+func (cc cacheCluster) Expire(key string, expire time.Duration) error {
+	c, ok := cc.dispatcher.Get(key)
+	if !ok {
+		return cc.errNotFound
+	}
+	return c.(Cache).Expire(key, expire)
+}
+
+// ExpireCtx is the implementation of redis expire command.
+func (cc cacheCluster) ExpireCtx(ctx context.Context, key string, expire time.Duration) error {
+	c, ok := cc.dispatcher.Get(key)
+	if !ok {
+		return cc.errNotFound
+	}
+	return c.(Cache).ExpireCtx(ctx, key, expire)
 }

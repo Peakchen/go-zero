@@ -176,6 +176,29 @@ func (mc *mockedNode) HexistsCtx(ctx context.Context, key string, field string) 
 	return true, nil
 }
 
+// Expire is the implementation of redis expire command.
+func (mc *mockedNode) Expire(key string, expire time.Duration) error {
+	return nil
+}
+
+// ExpireCtx is the implementation of redis expire command.
+func (mc *mockedNode) ExpireCtx(ctx context.Context, key string, expire time.Duration) error {
+	return nil
+}
+
+// TakeWithExpire2 takes the result from cache first, if not found,
+// query from DB and set cache using given expire, then return the result.
+func (mc *mockedNode) TakeWithExpire2(val any, key string, field string, query func(val any) error) error {
+	return nil
+}
+
+// TakeWithExpire2Ctx takes the result from cache first, if not found,
+// query from DB and set cache using given expire, then return the result.
+func (mc *mockedNode) TakeWithExpire2Ctx(ctx context.Context, val any, key string, field string,
+	query func(val any) error) error {
+	return nil
+}
+
 func TestCache_SetDel(t *testing.T) {
 	t.Run("test set del", func(t *testing.T) {
 		const total = 1000
